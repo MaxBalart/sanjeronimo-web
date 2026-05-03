@@ -89,6 +89,13 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
       >
         {loading ? "Procesando..." : "Confirmar pedido y pagar"}
       </button>
+
+      {/* Mensaje de Urgencia */}
+      <div className="mt-6 bg-[#128708]/5 border border-[#128708]/10 rounded-xl p-3 text-center">
+        <p className="text-[#128708] font-bold text-sm">
+          🚚 Despachos disponibles esta semana
+        </p>
+      </div>
     </div>
   );
 }

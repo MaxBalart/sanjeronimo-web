@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function CheckoutSummary() {
+export default function CheckoutSummary({ loading }: { loading: boolean }) {
   const { cart, total } = useCart();
   const [mounted, setMounted] = useState(false);
 
@@ -74,12 +74,21 @@ export default function CheckoutSummary() {
         </div>
       </div>
 
-      <div className="pt-4 mt-4 border-t border-gray-100 flex justify-between items-center">
+      <div className="pt-4 mt-4 border-t border-gray-100 flex justify-between items-center mb-6">
         <span className="text-lg font-bold text-[#162B45]">Total</span>
         <span className="text-2xl font-bold text-[#162B45]">
           ${total.toLocaleString("es-CL")}
         </span>
       </div>
+
+      <button
+        form="checkout-form"
+        type="submit"
+        disabled={loading || cart.length === 0}
+        className="w-full bg-[#128708] text-white py-4 rounded-full font-bold text-lg hover:bg-[#0e6e06] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#128708]/20"
+      >
+        {loading ? "Procesando..." : "Confirmar pedido y pagar"}
+      </button>
     </div>
   );
 }

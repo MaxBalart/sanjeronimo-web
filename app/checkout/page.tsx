@@ -9,6 +9,7 @@ import CheckoutSummary from "@/components/checkout/CheckoutSummary";
 export default function CheckoutPage() {
   const { cart } = useCart();
   const [mounted, setMounted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -51,20 +52,25 @@ export default function CheckoutPage() {
   return (
     <main className="min-h-screen bg-[#FAF3DE] pt-24 pb-16 px-6">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold text-[#162B45] mb-10">
-          Finaliza tu compra
-        </h1>
+        <div className="mb-10">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#162B45] mb-2">
+            Finaliza tu compra
+          </h1>
+          <p className="text-gray-600 text-lg">
+            Completa tus datos para finalizar tu pedido en pocos segundos.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_400px] gap-10 items-start">
           
           {/* Columna Izquierda: Formulario (60%) */}
           <div className="order-2 md:order-1">
-            <CheckoutForm />
+            <CheckoutForm loading={loading} setLoading={setLoading} />
           </div>
 
           {/* Columna Derecha: Resumen (40%) */}
           <div className="order-1 md:order-2">
-            <CheckoutSummary />
+            <CheckoutSummary loading={loading} />
           </div>
 
         </div>

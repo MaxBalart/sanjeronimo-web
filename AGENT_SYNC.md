@@ -103,3 +103,17 @@ Por favor, registra aquí los cambios significativos que realices para que ambos
   - La lógica de estado y envío (POST a `/api/checkout`) se delegó íntegramente al `CheckoutForm.tsx`.
   - El orquestador `app/checkout/page.tsx` quedó 100% limpio, dedicándose únicamente a definir el layout y proteger la ruta si el carrito está vacío.
 - **Próximos Pasos / Bloqueos:** Todo el Frontend del Checkout está listo. El próximo paso de negocio es integrar verdaderamente las APIs de Flow o MercadoPago en `/api/checkout/route.ts`.
+
+---
+
+### Checkout: Microcopy y Botón Secundario
+- **Agente:** Antigravity
+- **Fecha/Hora:** 03 de mayo de 2026
+- **Archivos Modificados:**
+  - `app/checkout/page.tsx`
+  - `components/checkout/CheckoutForm.tsx`
+  - `components/checkout/CheckoutSummary.tsx`
+- **Resumen de Cambios:**
+  - Se añadió microcopy bajo el título principal y bajo el título de método de pago para aumentar la confianza y claridad del usuario.
+  - Se implementó un segundo botón de "Confirmar pedido y pagar" ubicado bajo el resumen del carrito (columna derecha).
+  - Para lograr esto, se levantó el estado `loading` al componente padre (`CheckoutPage`) y se vinculó el botón del resumen al formulario principal mediante el atributo `form="checkout-form"`, permitiendo una doble vía de conversión.

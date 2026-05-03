@@ -3,7 +3,13 @@
 import { useState } from "react";
 import { useCart } from "@/components/CartContext";
 
-export default function CheckoutForm() {
+export default function CheckoutForm({ 
+  loading, 
+  setLoading 
+}: { 
+  loading: boolean; 
+  setLoading: (l: boolean) => void; 
+}) {
   const { cart, total, clearCart } = useCart();
   
   // Contacto
@@ -21,7 +27,6 @@ export default function CheckoutForm() {
   const [medioPago, setMedioPago] = useState("flow");
   
   // UI State
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -71,7 +76,7 @@ export default function CheckoutForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8">
+    <form id="checkout-form" onSubmit={handleSubmit} className="space-y-8">
       
       {/* 1. Datos de contacto */}
       <section className="bg-white rounded-2xl shadow-sm p-6 md:p-8">
@@ -178,7 +183,12 @@ export default function CheckoutForm() {
 
       {/* 3. Método de pago */}
       <section className="bg-white rounded-2xl shadow-sm p-6 md:p-8">
-        <h2 className="text-xl font-bold text-[#162B45] mb-6">Método de pago</h2>
+        <div className="mb-6">
+          <h2 className="text-xl font-bold text-[#162B45] mb-2">Método de pago</h2>
+          <p className="text-sm text-gray-500">
+            Serás redireccionado a una página segura de pago, jamás guardaremos tus datos bancarios.
+          </p>
+        </div>
         
         <div className="space-y-3">
           <label className={`flex items-center p-4 border rounded-xl cursor-pointer transition-colors ${medioPago === 'flow' ? 'border-[#128708] bg-[#128708]/5' : 'border-gray-200 hover:border-gray-300'}`}>

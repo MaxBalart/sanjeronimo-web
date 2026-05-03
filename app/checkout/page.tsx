@@ -3,131 +3,71 @@
 import { useCart } from "@/components/CartContext";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import CheckoutForm from "@/components/checkout/CheckoutForm";
+import CheckoutSummary from "@/components/checkout/CheckoutSummary";
 
 export default function CheckoutPage() {
-  const { cart, total, clearCart } = useCart();
-
-  const [nombre, setNombre] = useState("");
-  const [telefono, setTelefono] = useState("");
-  const [direccion, setDireccion] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
+  const { cart } = useCart();
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
 
-  const handleSubmit = async () => {
-    if (!nombre || !telefono || !direccion) {
-      setError("Por favor completa todos los campos.");
-      return;
-    }
-    setLoading(true);
-    setError("");
-    try {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          items: cart,
-          total,
-          cliente: { nombre, telefono, direccion },
-        }),
-      });
-      const data = await res.json();
-      if (data.url) {
-        clearCart();
-        window.location.href = data.url;
-      } else {
-        setError("Ocurrió un error. Intenta de nuevo.");
-      }
-    } catch {
-      setError("Ocurrió un error. Intenta de nuevo.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Hydration safety y pantalla de carga inicial
+  if (!mounted) {
+    return (
+      <main className="min-h-screen bg-[#FAF3DE] pt-24 pb-16 px-6">
+        <div className="max-w-6xl mx-auto flex items-center justify-center py-20">
+          <p className="text-[#162B45] font-medium animate-pulse">Cargando tu checkout...</p>
+        </div>
+      </main>
+    );
+  }
+
+  // Protección: Si el carrito está vacío, no mostrar el checkout
+  if (cart.length === 0) {
+    return (
+      <main className="min-h-screen bg-[#FAF3DE] pt-24 pb-16 px-6 flex flex-col items-center justify-center text-center">
+        <div className="bg-white p-12 rounded-3xl shadow-sm max-w-md w-full">
+          <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg className="w-10 h-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h1 className="text-2xl font-bold text-[#162B45] mb-4">Tu carrito está vacío</h1>
+          <p className="text-gray-500 mb-8">Agrega algunos de nuestros exquisitos sabores antes de continuar.</p>
+          <Link 
+            href="/#sabores" 
+            className="inline-block bg-[#128708] text-white px-8 py-4 rounded-full font-bold hover:bg-[#0e6e06] transition-colors"
+          >
+            Descubrir sabores
+          </Link>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-[#FAF3DE] pt-24 pb-16 px-6">
-      <div className="max-w-xl mx-auto">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-3xl md:text-4xl font-bold text-[#162B45] mb-10">
+          Finaliza tu compra
+        </h1>
 
-        <h1 className="text-3xl font-bold text-[#162B45] mb-8">Tu pedido</h1>
-
-        {/* Resumen del carrito */}
-        <div className="bg-white rounded-2xl shadow-sm p-6 mb-6 min-h-[200px]">
-          <h2 className="font-semibold text-[#162B45] mb-4">Resumen</h2>
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_400px] gap-10 items-start">
           
-          {!mounted ? (
-             <div className="text-center py-4 space-y-3">
-               <p className="text-gray-400 text-sm">Cargando...</p>
-             </div>
-          ) : cart.length === 0 ? (
-            <div className="text-center py-4 space-y-3">
-              <p className="text-gray-500">Tu carrito está vacío.</p>
-              <Link href="/#sabores" className="text-[#128708] font-semibold hover:underline">
-                Ver sabores →
-              </Link>
-            </div>
-          ) : (
-            <>
-              <div className="space-y-3 mb-4">
-                {cart.map((item) => (
-                  <div key={item.nombre} className="flex justify-between text-sm">
-                    <span className="text-gray-700">
-                      {item.nombre}
-                      <span className="text-gray-400 ml-1">x{item.cantidad}</span>
-                    </span>
-                    <span className="font-medium text-[#162B45]">
-                      ${(item.precio * item.cantidad).toLocaleString("es-CL")}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <div className="border-t pt-4 flex justify-between font-bold text-[#162B45]">
-                <span>Total</span>
-                <span>${total.toLocaleString("es-CL")}</span>
-              </div>
-            </>
-          )}
+          {/* Columna Izquierda: Formulario (60%) */}
+          <div className="order-2 md:order-1">
+            <CheckoutForm />
+          </div>
+
+          {/* Columna Derecha: Resumen (40%) */}
+          <div className="order-1 md:order-2">
+            <CheckoutSummary />
+          </div>
+
         </div>
-
-        {/* Formulario — solo si hay items */}
-        {mounted && cart.length > 0 && (
-          <>
-            <div className="bg-white rounded-2xl shadow-sm p-6 mb-6">
-              <h2 className="font-semibold text-[#162B45] mb-4">Datos de envío</h2>
-              <input
-                placeholder="Nombre completo"
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 mb-3 text-sm focus:outline-none focus:border-[#128708] transition"
-              />
-              <input
-                placeholder="Teléfono"
-                value={telefono}
-                onChange={(e) => setTelefono(e.target.value)}
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 mb-3 text-sm focus:outline-none focus:border-[#128708] transition"
-              />
-              <input
-                placeholder="Dirección de envío"
-                value={direccion}
-                onChange={(e) => setDireccion(e.target.value)}
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#128708] transition"
-              />
-            </div>
-
-            {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-
-            <button
-              onClick={handleSubmit}
-              disabled={loading}
-              className="w-full bg-[#162B45] text-white py-4 rounded-full font-semibold text-lg hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading ? "Procesando..." : "Confirmar pedido"}
-            </button>
-          </>
-        )}
-
       </div>
     </main>
   );

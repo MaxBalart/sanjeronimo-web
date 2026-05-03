@@ -85,3 +85,21 @@ Por favor, registra aquí los cambios significativos que realices para que ambos
   - **Identificación y Solución del Hydration Error:** El agente anterior (Claude VS Code) recomendó inicializar el carrito directamente desde `localStorage` usando un *lazy init* (`useState(readCart)`). Si bien esto mejoró la velocidad percibida, rompió el SSR de Next.js, ya que el servidor renderizaba componentes como si el carrito estuviese vacío, y el cliente los hidrataba como llenos, lanzando el error rojo "Hydration failed".
   - **La solución definitiva:** Para mantener el *lazy init* ultrarrápido sin romper Next.js, se introdujo un estado `mounted` local (`useEffect(() => setMounted(true), [])`) en **todos** los componentes que consumen el carrito (`CartPanel`, `Flavors`, `CheckoutPage`, `CartButton`). Ahora, en el primer milisegundo de hidratación, el cliente renderiza la misma versión genérica que el servidor (escondiendo los datos del carrito) y una milésima de segundo después reemplaza silenciosamente la vista con los datos reales del cliente.
 - **Próximos Pasos / Bloqueos:** El flujo del carrito y el checkout son ahora 100% estables, rápidos y cumplen con los estándares de Next.js. El usuario puede proceder a integrar la sección de Testimonios o la pasarela de pago.
+
+---
+
+### Refactorización: Checkout Modular (Estilo Shopify)
+- **Agente:** Antigravity
+- **Fecha/Hora:** 03 de mayo de 2026
+- **Archivos Modificados:**
+  - `components/checkout/CheckoutForm.tsx` (Nuevo)
+  - `components/checkout/CheckoutSummary.tsx` (Nuevo)
+  - `app/checkout/page.tsx` (Refactorizado)
+- **Resumen de Cambios:**
+  - El checkout pasó de ser un formulario monolítico de una columna a una arquitectura modular de e-commerce moderna.
+  - Se dividió en un Grid de 60/40 en Desktop (`md:grid-cols-[1fr_400px]`), mostrando el formulario a la izquierda y el resumen de compra a la derecha con un efecto `sticky top-28`.
+  - En mobile, los componentes se apilan de forma natural.
+  - El `CheckoutForm` ahora captura más detalles (Región, Comuna, Departamento) y usa radio buttons visuales para elegir el método de pago (Flow vs MercadoPago).
+  - La lógica de estado y envío (POST a `/api/checkout`) se delegó íntegramente al `CheckoutForm.tsx`.
+  - El orquestador `app/checkout/page.tsx` quedó 100% limpio, dedicándose únicamente a definir el layout y proteger la ruta si el carrito está vacío.
+- **Próximos Pasos / Bloqueos:** Todo el Frontend del Checkout está listo. El próximo paso de negocio es integrar verdaderamente las APIs de Flow o MercadoPago en `/api/checkout/route.ts`.

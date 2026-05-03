@@ -2,9 +2,17 @@ export default function Hero() {
   return (
     <section className="bg-[#FAF3DE] min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20">
 
-      <h1 className="text-4xl md:text-6xl font-bold text-[#162B45] mb-6">
-        Sour San Jerónimo
-      </h1>
+      <div className="flex flex-col items-center mb-6">
+        <span className="text-2xl md:text-4xl font-bold text-[#162B45] tracking-widest uppercase mb-2">
+          Sour
+        </span>
+        <h1 
+          className="text-6xl md:text-[6rem] leading-none text-[#162B45] tracking-wide uppercase"
+          style={{ fontFamily: '"Phosphate Inline", Phosphate, sans-serif' }}
+        >
+          San Jerónimo
+        </h1>
+      </div>
 
       <p className="text-lg md:text-xl text-[#162B45] mb-8 max-w-xl">
         Un sour premium con historia

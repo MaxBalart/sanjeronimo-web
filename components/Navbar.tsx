@@ -7,6 +7,8 @@ import CartPanel from "./CartPanel";
 import { SABORES } from "@/lib/data";
 import Link from "next/link";
 
+import Image from "next/image";
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -15,10 +17,17 @@ export default function Navbar() {
   return (
     <>
       <nav className="w-full fixed top-0 left-0 bg-white shadow-sm z-50">
-        <div className="max-w-6xl mx-auto flex justify-between items-center px-6 h-16">
+        <div className="max-w-6xl mx-auto flex justify-between items-center px-6 h-20">
 
-          <Link href="/" className="font-bold text-[#162B45] text-lg hover:opacity-80 transition">
-            San Jerónimo
+          <Link href="/" className="hover:opacity-80 transition">
+            <Image 
+              src="/Logo y letras lateral_navbar web.png" 
+              alt="San Jerónimo" 
+              width={240} 
+              height={64} 
+              className="object-contain h-16 w-auto"
+              priority
+            />
           </Link>
 
           {!isCheckout && (

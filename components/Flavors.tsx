@@ -1,30 +1,17 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useCart } from "./CartContext";
-
-const sabores = [
-  {
-    nombre: "Clásico",
-    descripcion: "El equilibrio perfecto entre limón sutil y pisco.",
-    color: "bg-[#128708]",
-    precio: 10990,
-  },
-  {
-    nombre: "Maracuyá",
-    descripcion: "Tropical, fresco y ligeramente dulce.",
-    color: "bg-orange-400",
-    precio: 10990,
-  },
-  {
-    nombre: "Sin azúcar",
-    descripcion: "Todo el sabor, sin azúcar añadida.",
-    color: "bg-sky-400",
-    precio: 11990,
-  },
-];
+import { SABORES } from "@/lib/data";
+import Link from "next/link";
 
 export default function Flavors() {
   const { cart, addToCart, removeFromCart } = useCart();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section id="sabores" className="bg-[#FAF3DE] py-20 px-6">
@@ -35,7 +22,7 @@ export default function Flavors() {
       </div>
 
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {sabores.map((sabor) => {
+        {SABORES.map((sabor) => {
           const enCarrito = cart.find((i) => i.nombre === sabor.nombre);
 
           return (
@@ -43,19 +30,22 @@ export default function Flavors() {
               key={sabor.nombre}
               className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
             >
-              <div className={`w-12 h-12 mx-auto mb-6 rounded-full ${sabor.color}`} />
+              <Link href={`/sabores/${sabor.slug}`} className="block group mb-6">
+                <div className={`w-12 h-12 mx-auto mb-6 rounded-full ${sabor.color} transition-transform group-hover:scale-110`} />
 
-              <h3 className="text-xl font-semibold text-[#162B45] mb-4">
-                {sabor.nombre}
-              </h3>
+                <h3 className="text-xl font-semibold text-[#162B45] mb-4 group-hover:text-[#128708] transition-colors">
+                  {sabor.nombre}
+                </h3>
 
-              <p className="text-gray-600 mb-4">{sabor.descripcion}</p>
+                <p className="text-gray-600 mb-4">{sabor.descripcion}</p>
 
-              <p className="text-2xl font-bold text-[#162B45] mb-6">
-                ${sabor.precio.toLocaleString("es-CL")}
-              </p>
+                <p className="text-2xl font-bold text-[#162B45]">
+                  ${sabor.precio.toLocaleString("es-CL")}
+                </p>
+                <span className="text-[#128708] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">Ver detalles →</span>
+              </Link>
 
-              {enCarrito ? (
+              {mounted && enCarrito ? (
                 <div className="flex items-center justify-center gap-3">
                   <button
                     onClick={() => removeFromCart(sabor.nombre)}

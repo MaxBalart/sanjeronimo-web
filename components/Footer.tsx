@@ -1,3 +1,5 @@
+import { WHATSAPP_NUMBER } from "@/lib/constants";
+
 export default function Footer() {
   return (
     <footer id="contacto" className="bg-[#162B45] text-white py-10 px-6 mt-20">
@@ -9,7 +11,7 @@ export default function Footer() {
         </p>
 
         <a
-          href="https://wa.me/56975435703"
+          href={`https://wa.me/${WHATSAPP_NUMBER}`}
           target="_blank"
           rel="noopener noreferrer"
           className="underline"

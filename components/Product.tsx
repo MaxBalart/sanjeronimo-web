@@ -6,9 +6,9 @@ export default function Product() {
 
         {/* Imagen */}
         <img
-        src="/Botella.png"
-        alt="Sour San Jerónimo"
-        className="w-[220px] md:w-[280px] object-contain"
+          src="/Botella.png"
+          alt="Sour San Jerónimo"
+          className="w-[220px] md:w-[280px] object-contain mx-auto"
         />
 
         {/* Texto */}

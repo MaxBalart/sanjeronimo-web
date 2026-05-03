@@ -4,6 +4,9 @@ import { usePathname } from "next/navigation";
 import CartButton from "./CartButton";
 import CartPanel from "./CartPanel";
 
+import { SABORES } from "@/lib/data";
+import Link from "next/link";
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -14,15 +17,37 @@ export default function Navbar() {
       <nav className="w-full fixed top-0 left-0 bg-white shadow-sm z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center px-6 h-16">
 
-          <a href="/" className="font-bold text-[#162B45] text-lg hover:opacity-80 transition">
+          <Link href="/" className="font-bold text-[#162B45] text-lg hover:opacity-80 transition">
             San Jerónimo
-          </a>
+          </Link>
 
           {!isCheckout && (
             <div className="flex items-center gap-8">
               <div className="hidden sm:flex items-center gap-6 text-sm text-[#162B45]">
-                <a href="#sabores" className="hover:underline">Sabores</a>
-                <a href="#contacto" className="hover:underline">Contacto</a>
+                
+                {/* Menú Desplegable Sabores */}
+                <div className="relative group py-4">
+                  <button className="hover:underline flex items-center gap-1 font-medium">
+                    Sabores
+                    <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                  </button>
+                  
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-48 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden border border-gray-100">
+                    <div className="py-2">
+                      {SABORES.map(sabor => (
+                        <Link 
+                          key={sabor.slug} 
+                          href={`/sabores/${sabor.slug}`} 
+                          className="block px-5 py-3 text-sm text-gray-600 hover:bg-[#FAF3DE] hover:text-[#128708] hover:pl-6 transition-all duration-200 font-medium"
+                        >
+                          {sabor.nombre}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <a href="/#contacto" className="hover:underline font-medium">Contacto</a>
               </div>
               <CartButton onClick={() => setOpen(true)} />
             </div>

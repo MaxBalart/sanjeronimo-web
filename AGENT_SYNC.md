@@ -50,3 +50,38 @@ Por favor, registra aquí los cambios significativos que realices para que ambos
   - Se creó el componente `<Benefits />` que incluye 3 columnas ("Ingredientes 100% Naturales", "Receta Original y Casera", "Envíos a todo Chile") junto con íconos vectoriales SVG.
   - Se insertó este nuevo componente en el `Home` (`app/page.tsx`), ubicándolo específicamente entre la sección del `Product` ("El equilibrio perfecto") y la sección de `Flavors` ("Nuestros Sabores"), cumpliendo con la estructura visual solicitada en la guía educativa del front-end.
 - **Próximos Pasos / Bloqueos:** Pendiente confirmación del usuario para desarrollar la sección de Testimonios (Social Proof) o proceder con los estilos/diseño de la vista del Checkout.
+
+---
+
+### Bug fixes + pulido general
+- **Agente:** Claude VS Code
+- **Fecha/Hora:** 03 de mayo de 2026
+- **Archivos Modificados:**
+  - `app/api/checkout/route.ts` (retorna `url` de WhatsApp como paso intermedio antes de Flow)
+  - `app/checkout/page.tsx` (rediseño completo: brand colors, resumen de items, validación, loading state)
+  - `components/CartContext.tsx` (añadido `clearCart()`)
+  - `components/CartPanel.tsx` (botones +/- con estilo correcto)
+  - `components/Product.tsx` (mx-auto en imagen para centrar en mobile)
+  - `components/Footer.tsx` (usa constante `WHATSAPP_NUMBER` de `lib/constants.ts`)
+- **Resumen de Cambios:**
+  - **Bug crítico corregido:** el checkout ahora funciona. El endpoint devuelve una `url` de WhatsApp con el resumen del pedido. Cuando Flow/MercadoPago esté listo, solo se cambia la `url` en el endpoint sin tocar el frontend.
+  - Checkout rediseñado con colores de marca, muestra resumen de items, validación de campos y estado de carga.
+  - `clearCart()` limpia el carrito después de confirmar el pedido.
+- **Próximos Pasos / Bloqueos:** Integrar Flow o MercadoPago en `/api/checkout/route.ts` cuando el usuario lo decida. El frontend no necesita cambios.
+
+---
+
+### Hotfix: Infinite Loop & Hydration Mismatch (SSR vs localStorage)
+- **Agente:** Antigravity
+- **Fecha/Hora:** 03 de mayo de 2026
+- **Archivos Modificados:**
+  - `components/CartContext.tsx`
+  - `app/checkout/page.tsx`
+  - `components/CartButton.tsx`
+  - `components/CartPanel.tsx`
+  - `components/Flavors.tsx`
+- **Resumen de Cambios:**
+  - **Identificación del Loop Infinito:** El loop infinito y el congelamiento del navegador estaban siendo provocados por una violación a las reglas de React Hooks en `app/checkout/page.tsx` (se estaban declarando `useState` *después* de un `return` temprano que se usaba para mostrar una pantalla de "Cargando carrito..."). Al reescribir el archivo, se eliminó el error base de React.
+  - **Identificación y Solución del Hydration Error:** El agente anterior (Claude VS Code) recomendó inicializar el carrito directamente desde `localStorage` usando un *lazy init* (`useState(readCart)`). Si bien esto mejoró la velocidad percibida, rompió el SSR de Next.js, ya que el servidor renderizaba componentes como si el carrito estuviese vacío, y el cliente los hidrataba como llenos, lanzando el error rojo "Hydration failed".
+  - **La solución definitiva:** Para mantener el *lazy init* ultrarrápido sin romper Next.js, se introdujo un estado `mounted` local (`useEffect(() => setMounted(true), [])`) en **todos** los componentes que consumen el carrito (`CartPanel`, `Flavors`, `CheckoutPage`, `CartButton`). Ahora, en el primer milisegundo de hidratación, el cliente renderiza la misma versión genérica que el servidor (escondiendo los datos del carrito) y una milésima de segundo después reemplaza silenciosamente la vista con los datos reales del cliente.
+- **Próximos Pasos / Bloqueos:** El flujo del carrito y el checkout son ahora 100% estables, rápidos y cumplen con los estándares de Next.js. El usuario puede proceder a integrar la sección de Testimonios o la pasarela de pago.

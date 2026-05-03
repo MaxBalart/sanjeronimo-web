@@ -37,3 +37,16 @@ Por favor, registra aquí los cambios significativos que realices para que ambos
   - El flujo de compra es: Carrito → `/checkout` (datos del cliente) → POST `/api/checkout` → redirección a pasarela de pago.
   - En las cards de sabores, el botón "Agregar al carrito" ahora se convierte en un contador inline (− cantidad +) sincronizado con el estado del carrito. Si la cantidad llega a 0, vuelve al botón original.
 - **Próximos Pasos / Bloqueos:** El endpoint `/api/checkout` tiene la integración con Flow pendiente (actualmente solo genera un `orderId` con `Date.now()` y loggea la orden).
+
+---
+
+### Sección Beneficios (¿Por qué elegirnos?)
+- **Agente:** Antigravity
+- **Fecha/Hora:** 03 de mayo de 2026
+- **Archivos Modificados:**
+  - `components/Benefits.tsx` (Nuevo)
+  - `app/page.tsx`
+- **Resumen de Cambios:**
+  - Se creó el componente `<Benefits />` que incluye 3 columnas ("Ingredientes 100% Naturales", "Receta Original y Casera", "Envíos a todo Chile") junto con íconos vectoriales SVG.
+  - Se insertó este nuevo componente en el `Home` (`app/page.tsx`), ubicándolo específicamente entre la sección del `Product` ("El equilibrio perfecto") y la sección de `Flavors` ("Nuestros Sabores"), cumpliendo con la estructura visual solicitada en la guía educativa del front-end.
+- **Próximos Pasos / Bloqueos:** Pendiente confirmación del usuario para desarrollar la sección de Testimonios (Social Proof) o proceder con los estilos/diseño de la vista del Checkout.

@@ -1,9 +1,14 @@
 "use client";
 import { useCart } from "./CartContext";
 import { CartItem } from "./CartContext";
-import { WHATSAPP_NUMBER } from "../lib/constants";
 
-export default function CartPanel({ open, onClose }: { open: boolean; onClose: () => void }) {
+export default function CartPanel({
+  open,
+  onClose,
+}: {
+  open: boolean;
+  onClose: () => void;
+}) {
   const { cart, addToCart, removeFromCart, total } = useCart();
 
   return (
@@ -33,6 +38,7 @@ export default function CartPanel({ open, onClose }: { open: boolean; onClose: (
                   ${item.precio.toLocaleString("es-CL")} x {item.cantidad}
                 </p>
               </div>
+
               <div className="flex gap-2">
                 <button onClick={() => removeFromCart(item.nombre)}>-</button>
                 <button onClick={() => addToCart(item)}>+</button>
@@ -42,15 +48,16 @@ export default function CartPanel({ open, onClose }: { open: boolean; onClose: (
         </div>
 
         <div className="p-4 border-t">
-          <p className="font-bold mb-2">Total: ${total.toLocaleString("es-CL")}</p>
-          <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola%21%20Quiero%20finalizar%20mi%20pedido%20de%20Sour%20San%20Jer%C3%B3nimo%20por%20%24${total.toLocaleString("es-CL")}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full text-center bg-[#162B45] text-white py-2 rounded-full hover:opacity-90 transition"
+          <p className="font-bold mb-2">
+            Total: ${total.toLocaleString("es-CL")}
+          </p>
+
+          <button
+            onClick={() => (window.location.href = "/checkout")}
+            className="w-full bg-[#162B45] text-white py-2 rounded-full hover:opacity-90 transition"
           >
-            Finalizar compra
-          </a>
+            Ir a pagar
+          </button>
         </div>
       </div>
     </>

@@ -9,18 +9,16 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
   const { cart, total } = useCart();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => { setMounted(true); }, []);
 
   if (!mounted) {
     return (
       <div className="bg-white rounded-2xl shadow-sm p-6 sticky top-28">
         <h2 className="text-lg font-bold text-[#162B45] mb-6">Resumen del pedido</h2>
         <div className="animate-pulse space-y-4">
-          <div className="h-12 bg-gray-200 rounded"></div>
-          <div className="h-12 bg-gray-200 rounded"></div>
-          <div className="h-6 bg-gray-200 rounded w-1/2"></div>
+          <div className="h-12 bg-gray-100 rounded-lg"></div>
+          <div className="h-12 bg-gray-100 rounded-lg"></div>
+          <div className="h-6 bg-gray-100 rounded w-1/2 ml-auto"></div>
         </div>
       </div>
     );
@@ -84,7 +82,7 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
       <button
         form="checkout-form"
         type="submit"
-        disabled={loading || cart.length === 0}
+        disabled={loading}
         className="w-full bg-[#128708] text-white py-4 rounded-full font-bold text-lg hover:bg-[#0e6e06] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#128708]/20"
       >
         {loading ? "Procesando..." : "Confirmar pedido y pagar"}

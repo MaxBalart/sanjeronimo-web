@@ -21,7 +21,7 @@ export default function Navbar() {
 
           <Link href="/" className="hover:opacity-80 transition">
             <Image 
-              src="/Logo y letras lateral_navbar web.png" 
+              src="/Logo%20y%20letras%20lateral_navbar%20web.png"
               alt="San Jerónimo" 
               width={240} 
               height={64} 

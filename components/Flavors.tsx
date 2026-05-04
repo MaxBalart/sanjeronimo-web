@@ -9,9 +9,7 @@ export default function Flavors() {
   const { cart, addToCart, removeFromCart } = useCart();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => { setMounted(true); }, []);
 
   return (
     <section id="sabores" className="bg-[#FAF3DE] py-20 px-6">

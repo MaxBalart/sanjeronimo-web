@@ -1,15 +1,8 @@
 "use client";
 import { useCart, CartItem } from "./CartContext";
-import { useState, useEffect } from "react";
 
 export default function CartButton({ onClick }: { onClick: () => void }) {
   const { cart } = useCart();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const cantidad = cart.reduce((acc: number, item: CartItem) => acc + item.cantidad, 0);
 
   return (
@@ -33,12 +26,12 @@ export default function CartButton({ onClick }: { onClick: () => void }) {
         <path d="M16 10a4 4 0 0 1-8 0" />
       </svg>
 
-      {/* Solo mostramos la cantidad si ya se hidrató en el cliente, evitando mismatch con SSR */}
-      {mounted && cantidad > 0 && (
-        <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
-          {cantidad}
-        </span>
-      )}
+      <span
+        suppressHydrationWarning
+        className={`absolute -top-1 -right-1 bg-orange-500 text-white text-xs w-5 h-5 rounded-full items-center justify-center font-bold ${cantidad > 0 ? "flex" : "hidden"}`}
+      >
+        {cantidad}
+      </span>
     </button>
   );
 }

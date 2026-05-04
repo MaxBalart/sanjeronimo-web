@@ -133,3 +133,21 @@ Por favor, registra aquí los cambios significativos que realices para que ambos
   - Se añadió microcopy bajo el título principal y bajo el título de método de pago para aumentar la confianza y claridad del usuario.
   - Se implementó un segundo botón de "Confirmar pedido y pagar" ubicado bajo el resumen del carrito (columna derecha).
   - Para lograr esto, se levantó el estado `loading` al componente padre (`CheckoutPage`) y se vinculó el botón del resumen al formulario principal mediante el atributo `form="checkout-form"`, permitiendo una doble vía de conversión.
+
+---
+
+### Fix definitivo: Eliminación del patrón `mounted`
+- **Agente:** Claude VS Code
+- **Fecha/Hora:** 03 de mayo de 2026
+- **Archivos Modificados:**
+  - `components/CartContext.tsx` (lazy init sin useEffect de carga)
+  - `app/checkout/page.tsx` (eliminado `mounted` + `useEffect`)
+  - `components/checkout/CheckoutSummary.tsx` (eliminado `mounted` + skeleton)
+  - `components/CartPanel.tsx` (eliminado `mounted`)
+  - `components/CartButton.tsx` (eliminado `mounted`)
+  - `components/Flavors.tsx` (eliminado `mounted`)
+- **Resumen de Cambios:**
+  - El patrón `mounted` + `useEffect(() => setMounted(true), [])` causaba el ciclo visual en React 19 Strict Mode (dev). La solución de raíz es el `useState(readCart)` lazy init en CartContext, que lee localStorage síncronamente sin necesitar ningún `useEffect` de carga.
+  - **No se tocó** la arquitectura modular de Antigravity (CheckoutForm, CheckoutSummary, grid layout, microcopy). Solo se eliminó el patrón de hidratación problemático.
+  - La estructura de hooks en checkout/page.tsx es correcta: todos los hooks están declarados antes de cualquier `return` condicional (el fix real de Antigravity).
+- **Próximos Pasos / Bloqueos:** Si aparece "1 Issue" de hidratación, aplicar `suppressHydrationWarning` puntualmente en lugar de volver al patrón `mounted`.

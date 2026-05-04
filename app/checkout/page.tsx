@@ -1,30 +1,14 @@
 "use client";
 
 import { useCart } from "@/components/CartContext";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import CheckoutForm from "@/components/checkout/CheckoutForm";
 import CheckoutSummary from "@/components/checkout/CheckoutSummary";
 
 export default function CheckoutPage() {
   const { cart } = useCart();
-  const [mounted, setMounted] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Hydration safety y pantalla de carga inicial
-  if (!mounted) {
-    return (
-      <main className="min-h-screen bg-[#FAF3DE] pt-24 pb-16 px-6">
-        <div className="max-w-6xl mx-auto flex items-center justify-center py-20">
-          <p className="text-[#162B45] font-medium animate-pulse">Cargando tu checkout...</p>
-        </div>
-      </main>
-    );
-  }
 
   // Protección: Si el carrito está vacío, no mostrar el checkout
   if (cart.length === 0) {

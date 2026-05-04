@@ -4,6 +4,7 @@ import { useCart } from "@/components/CartContext";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { SABORES } from "@/lib/data";
 
 export default function CheckoutSummary({ loading }: { loading: boolean }) {
   const { cart, total } = useCart();
@@ -46,7 +47,7 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
             <div className="flex items-center gap-4">
               <div className="relative">
                 <div className="w-12 h-12 bg-[#FAF3DE] rounded-lg flex items-center justify-center p-1">
-                  <Image src="/Botella.png" alt={item.nombre} width={40} height={40} className="object-contain h-full" />
+                  <Image src={SABORES.find(s => s.nombre === item.nombre)?.imagen ?? "/Botella.png"} alt={item.nombre} width={40} height={40} className="object-contain h-full" />
                 </div>
                 <span className="absolute -top-2 -right-2 bg-gray-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">
                   {item.cantidad}

@@ -151,3 +151,47 @@ Por favor, registra aquí los cambios significativos que realices para que ambos
   - **No se tocó** la arquitectura modular de Antigravity (CheckoutForm, CheckoutSummary, grid layout, microcopy). Solo se eliminó el patrón de hidratación problemático.
   - La estructura de hooks en checkout/page.tsx es correcta: todos los hooks están declarados antes de cualquier `return` condicional (el fix real de Antigravity).
 - **Próximos Pasos / Bloqueos:** Si aparece "1 Issue" de hidratación, aplicar `suppressHydrationWarning` puntualmente en lugar de volver al patrón `mounted`.
+
+---
+
+### Hero Slider + SignPainter + Fixes de Hidratación
+- **Agente:** Claude VS Code
+- **Fecha/Hora:** 04 de mayo de 2026
+- **Archivos Modificados:**
+  - `components/Hero.tsx` (reescrito completo)
+  - `app/globals.css` (@font-face SignPainter + @keyframes float)
+  - `public/SignPainterHouseScript.ttf` (nuevo asset)
+  - `public/Logo Solo Hero web.png` (nuevo asset)
+  - `public/Colibri original.png` (nuevo asset)
+  - `components/Navbar.tsx` (fix URL encoding del logo)
+  - `components/CartButton.tsx` (suppressHydrationWarning)
+  - `components/CartPanel.tsx` (restaurado patrón mounted)
+  - `components/Flavors.tsx` (restaurado patrón mounted)
+  - `components/checkout/CheckoutSummary.tsx` (restaurado patrón mounted)
+- **Resumen de Cambios:**
+  - Hero estático reemplazado por carousel de 2 slides con autoplay cada 5s y transición fade (`opacity` + `z-index`).
+  - Slide 1 (branding): layout 3 columnas — logo izquierda (`fill`), texto "Sour / San Jerónimo / tagline" centrado con fuente Phosphate, colibrí derecha (`fill`) con animación `float` (sube/baja + rotación, loop infinito).
+  - Slide 2 (producto): fondo azul marca, botella con `drop-shadow`, CTA "Comprar ahora" hacia `/#sabores`.
+  - Fuente `SignPainter` cargada localmente vía `@font-face`. Frase "Un Sour con historia" usa SignPainter con "Sour" en tamaño mayor.
+  - Fix Navbar: src del logo tenía espacios sin encodear → corregido a `Logo%20y%20letras%20lateral_navbar%20web.png`.
+  - **Reversión parcial del fix anterior:** patrón `mounted` restaurado en CartPanel, Flavors y CheckoutSummary porque su eliminación causaba errores de hidratación (diferencia estructural SSR vs cliente). CartButton usa `suppressHydrationWarning` en su lugar.
+- **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.
+
+---
+
+### Hero: Slide 2 con imagen real + transición horizontal en loop
+- **Agente:** Claude VS Code
+- **Fecha/Hora:** 04 de mayo de 2026
+- **Archivos Modificados:**
+  - `components/Hero.tsx`
+  - `lib/data.ts` (campo `imagen` por sabor)
+  - `app/sabores/[slug]/page.tsx` (usa `sabor.imagen`)
+  - `components/checkout/CheckoutSummary.tsx` (miniatura por sabor)
+  - `public/Hero_sour_slide2_tabla.png` (nuevo asset)
+  - `public/Botella_Maracuya.png` (nuevo asset)
+  - `public/Botella_SinAzucar.png` (nuevo asset)
+- **Resumen de Cambios:**
+  - Slide 2 del hero rediseñado: layout 60/40 (texto azul izquierda / imagen derecha), textos "EL SABOR / DEL ENCUENTRO" en bold mayúsculas, subtítulo "SOUR SAN JERÓNIMO" con tracking amplio, CTA "Comprar ahora".
+  - Transición del carousel cambiada de fade (opacity) a deslizamiento horizontal siempre de izquierda a derecha. Implementado con estado `prev` — el slide que sale va a `-translate-x-full`, el que entra viene desde `translate-x-full`; al terminar la animación (700ms) el slide saliente se resetea a `translate-x-full` invisible para el próximo ciclo.
+  - Imágenes de botella individuales por sabor: `lib/data.ts` ahora tiene campo `imagen` en el tipo `Sabor`. Cada página de detalle y el resumen del checkout muestran la botella correcta según el sabor.
+- **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.

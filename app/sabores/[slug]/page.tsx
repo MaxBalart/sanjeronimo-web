@@ -39,9 +39,9 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
           {/* Botella */}
           <div className="relative h-[400px] md:h-[600px] rounded-3xl overflow-hidden bg-white shadow-xl flex items-center justify-center p-8 group">
              <div className={`absolute top-0 left-0 w-full h-2 ${sabor.color}`}></div>
-             <Image 
-               src="/Botella.png" 
-               alt={`Botella de Pisco Sour ${sabor.nombre}`} 
+             <Image
+               src={sabor.imagen}
+               alt={`Botella de Pisco Sour ${sabor.nombre}`}
                width={300} 
                height={600} 
                className="object-contain h-full transition-transform duration-700 group-hover:scale-105"

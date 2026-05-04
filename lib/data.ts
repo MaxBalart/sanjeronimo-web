@@ -5,6 +5,7 @@ export type Sabor = {
   descripcionLarga: string;
   color: string;
   precio: number;
+  imagen: string;
   imagenPreparacion?: string;
 };
 
@@ -16,6 +17,7 @@ export const SABORES: Sabor[] = [
     descripcionLarga: "Nuestro sabor Clásico es la receta original de la familia. Elaborado con jugo de limón sutil recién exprimido, pisco doble destilado premium y el toque exacto de goma. Ideal para quienes buscan la experiencia tradicional del Pisco Sour peruano-chileno con un balance impecable entre acidez y dulzor.",
     color: "bg-[#128708]",
     precio: 10990,
+    imagen: "/Botella.png",
     imagenPreparacion: "/preparacion_clasico.png"
   },
   {
@@ -25,6 +27,7 @@ export const SABORES: Sabor[] = [
     descripcionLarga: "Una explosión tropical en cada sorbo. Combinamos la intensidad del maracuyá fresco con la base clásica de nuestro Pisco Sour para crear una experiencia exótica, vibrante y peligrosamente adictiva. Perfecto para tardes de verano y celebraciones especiales.",
     color: "bg-orange-400",
     precio: 10990,
+    imagen: "/Botella_Maracuya.png",
     imagenPreparacion: "/preparacion_maracuya.png"
   },
   {
@@ -34,6 +37,7 @@ export const SABORES: Sabor[] = [
     descripcionLarga: "Para quienes buscan cuidarse sin sacrificar el placer. Mantenemos el mismo sabor intenso y la misma calidad de ingredientes que nuestro sabor Clásico, pero endulzado con una mezcla especial de stevia y alulosa que no deja sabor residual.",
     color: "bg-sky-400",
     precio: 11990,
+    imagen: "/Botella_SinAzucar.png",
     imagenPreparacion: "/preparacion_sin_azucar.png"
   },
 ];

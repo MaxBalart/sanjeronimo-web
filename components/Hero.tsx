@@ -1,27 +1,37 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);
+  const [prev, setPrev] = useState<number | null>(null);
+
+  const advance = useCallback((to?: number) => {
+    setCurrent((c) => {
+      const next = to !== undefined ? to : (c + 1) % 2;
+      setPrev(c);
+      setTimeout(() => setPrev(null), 700);
+      return next;
+    });
+  }, []);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % 2);
-    }, 5000);
+    const timer = setInterval(() => advance(), 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [advance]);
+
+  const slideClass = (index: number) => {
+    if (index === current) return "translate-x-0 z-10";
+    if (index === prev)    return "-translate-x-full z-10";
+    return "translate-x-full z-0";
+  };
 
   return (
     <section className="relative w-full min-h-[85vh] overflow-hidden pt-20">
 
       {/* Slide 1 — Branding */}
-      <div
-        className={`absolute inset-0 bg-[#FAF3DE] transition-opacity duration-700 ${
-          current === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
-        }`}
-      >
+      <div className={`absolute inset-0 bg-[#FAF3DE] transition-transform duration-700 ease-in-out ${slideClass(0)}`}>
         <div className="absolute inset-0 grid grid-cols-3">
 
           {/* Izquierda — Logo */}
@@ -70,36 +80,39 @@ export default function Hero() {
       </div>
 
       {/* Slide 2 — Producto */}
-      <div
-        className={`absolute inset-0 flex items-center justify-center bg-[#162B45] transition-opacity duration-700 ${
-          current === 1 ? "opacity-100 z-10" : "opacity-0 z-0"
-        }`}
-      >
-        <div className="flex flex-col md:flex-row items-center justify-center gap-10 px-6 text-center md:text-left">
-          <Image
-            src="/Botella.png"
-            alt="Botella San Jerónimo"
-            width={200}
-            height={400}
-            className="object-contain drop-shadow-2xl"
-          />
-          <div className="flex flex-col items-center md:items-start gap-4">
-            <p className="text-sm uppercase tracking-widest text-[#FAF3DE]/60 font-semibold">
-              Pisco Sour Artesanal
-            </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight max-w-xs">
-              El sabor que te transporta
-            </h2>
-            <p className="text-[#FAF3DE]/70 max-w-xs">
-              Elaborado con ingredientes naturales, sin preservantes.
+      <div className={`absolute inset-0 grid grid-cols-1 md:grid-cols-2 transition-transform duration-700 ease-in-out ${slideClass(1)}`}>
+
+        {/* Izquierda — Texto */}
+        <div className="bg-[#162B45] flex items-center justify-center px-10 md:px-20 py-16 md:py-0">
+          <div className="max-w-md">
+            <h1 className="text-white font-bold leading-none">
+              <span className="block text-4xl md:text-5xl mb-3">
+                EL SABOR
+              </span>
+              <span className="block text-4xl md:text-5xl">
+                DEL ENCUENTRO
+              </span>
+            </h1>
+            <p className="mt-8 text-white/60 tracking-[0.3em] text-xs md:text-sm uppercase">
+              Sour San Jerónimo
             </p>
             <Link
               href="/#sabores"
-              className="mt-2 bg-[#128708] text-white px-8 py-3 rounded-full text-base font-semibold hover:bg-[#0e6e06] transition-colors"
+              className="inline-block mt-8 bg-[#128708] text-white px-8 py-3 rounded-full text-lg font-semibold hover:opacity-90 transition"
             >
               Comprar ahora
             </Link>
           </div>
+        </div>
+
+        {/* Derecha — Imagen */}
+        <div className="relative h-64 md:h-auto">
+          <Image
+            src="/Hero_sour_slide2_tabla.png"
+            alt="Sour San Jerónimo"
+            fill
+            className="object-cover object-[center_30%]"
+          />
         </div>
       </div>
 
@@ -108,7 +121,7 @@ export default function Hero() {
         {[0, 1].map((i) => (
           <button
             key={i}
-            onClick={() => setCurrent(i)}
+            onClick={() => advance(i)}
             aria-label={`Slide ${i + 1}`}
             className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
               i === current

@@ -213,3 +213,17 @@ Por favor, registra aquí los cambios significativos que realices para que ambos
   - `sizes` agregado a todas las imágenes `fill` en Hero para corregir warnings de Next.js.
   - Pill "Edición Especial" eliminada de la página de detalle de sabor.
 - **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.
+
+---
+
+### Efecto Flotación Premium (Estilo Apple) en FeatureProduct
+- **Agente:** Antigravity
+- **Fecha/Hora:** 04 de mayo de 2026
+- **Archivos Modificados:**
+  - `app/globals.css` (nuevos keyframes `float-bottle` y `shadow-pulse`)
+  - `components/FeatureProduct.tsx` (aplicación de clases a la imagen y sombra)
+- **Resumen de Cambios:**
+  - Se añadió una sutil animación de flotación a la botella en la sección `FeatureProduct` (`translateY(-6px)`).
+  - Se sincronizó la sombra inferior para que reduzca su tamaño (escala) y opacidad cuando la botella "sube", imitando iluminación real.
+  - La duración de 4s con `ease-in-out` asegura que el efecto se sienta imperceptible y elegante, aportando mucha vida a la interfaz.
+- **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.

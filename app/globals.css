@@ -35,3 +35,21 @@ body {
 .animate-float {
   animation: float 3.5s ease-in-out infinite;
 }
+
+@keyframes float-bottle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float-bottle {
+  animation: float-bottle 4s ease-in-out infinite;
+}
+
+@keyframes shadow-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.2; }
+  50% { transform: scale(0.9); opacity: 0.12; }
+}
+
+.animate-shadow {
+  animation: shadow-pulse 4s ease-in-out infinite;
+}

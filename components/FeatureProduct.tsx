@@ -69,15 +69,15 @@ export default function FeatureProduct() {
     visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
   }`}
 >
-  {/* sombra mejorada */}
-  <div className="absolute bottom-3 w-[140px] md:w-[180px] h-[22px] bg-black/25 blur-2xl rounded-full" />
+  {/* sombra mejorada animada */}
+  <div className="absolute bottom-3 w-[140px] md:w-[180px] h-[22px] bg-black blur-2xl rounded-full animate-shadow" />
 
   <Image
     src={producto.imagen}
     alt={`Sour San Jerónimo ${producto.nombre}`}
     width={340}
     height={560}
-    className="relative z-10 object-contain w-[120px] md:w-[160px] h-auto"
+    className="relative z-10 object-contain w-[120px] md:w-[160px] h-auto animate-float-bottle"
   />
 </div>
 

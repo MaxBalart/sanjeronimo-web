@@ -37,7 +37,7 @@ export default function Benefits() {
           Hecho como debe ser
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-28 items-start">
           
           {/* COLUMNA IZQUIERDA (PROTAGONISTA) */}
           <div 
@@ -46,10 +46,10 @@ export default function Benefits() {
             }`}
             style={{ transitionDelay: '200ms' }}
           >
-            <h3 className="text-2xl md:text-3xl font-semibold text-[#162B45] mb-4">
-              Sin atajos
+            <h3 className="text-3xl md:text-4xl tracking-tight font-semibold text-[#162B45] mb-4">
+              Sin atajos.
             </h3>
-            <p className="text-gray-400 text-base md:text-lg leading-relaxed">
+            <p className="text-[#162B45]/70 text-lg md:text-xl leading-relaxed transition-colors duration-300 md:hover:text-[#162B45]/90">
               Exprimimos limón real. Nada de concentrados ni sabores artificiales.
             </p>
           </div>
@@ -63,10 +63,10 @@ export default function Benefits() {
               }`}
               style={{ transitionDelay: '400ms' }}
             >
-              <h3 className="text-lg md:text-xl font-semibold text-[#162B45] mb-2">
+              <h3 className="text-xl md:text-2xl font-semibold text-[#162B45] mb-2">
                 Receta que se respeta
               </h3>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+              <p className="text-[#162B45]/70 text-sm md:text-base leading-relaxed transition-colors duration-300 md:hover:text-[#162B45]/90">
                 No optimizamos para costo, optimizamos para sabor.
               </p>
             </div>
@@ -77,10 +77,10 @@ export default function Benefits() {
               }`}
               style={{ transitionDelay: '600ms' }}
             >
-              <h3 className="text-lg md:text-xl font-semibold text-[#162B45] mb-2">
+              <h3 className="text-xl md:text-2xl font-semibold text-[#162B45] mb-2">
                 Un sour de verdad
               </h3>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+              <p className="text-[#162B45]/70 text-sm md:text-base leading-relaxed transition-colors duration-300 md:hover:text-[#162B45]/90">
                 El mismo que compartirías con amigos.
               </p>
             </div>

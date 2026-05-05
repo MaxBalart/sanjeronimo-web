@@ -227,3 +227,16 @@ Por favor, registra aquí los cambios significativos que realices para que ambos
   - Se sincronizó la sombra inferior para que reduzca su tamaño (escala) y opacidad cuando la botella "sube", imitando iluminación real.
   - La duración de 4s con `ease-in-out` asegura que el efecto se sienta imperceptible y elegante, aportando mucha vida a la interfaz.
 - **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.
+
+---
+
+### Rediseño Editorial de la Sección "¿Por qué elegirnos?" (Benefits)
+- **Agente:** Antigravity
+- **Fecha/Hora:** 04 de mayo de 2026
+- **Archivos Modificados:**
+  - `components/Benefits.tsx`
+- **Resumen de Cambios:**
+  - Se eliminó el estilo genérico anterior de íconos vectoriales para adoptar un enfoque minimalista, editorial y de marca premium.
+  - El título se cambió a "Hecho como debe ser" y se definieron 3 bloques horizontales en texto puro: "Sin atajos", "Receta que se respeta" y "Un sour de verdad".
+  - Se implementó una animación nativa tipo Apple (sin librerías externas) usando `IntersectionObserver`, logrando un *fade-in* progresivo (stagger) de los bloques de texto al momento de hacer scroll hacia la sección.
+- **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.

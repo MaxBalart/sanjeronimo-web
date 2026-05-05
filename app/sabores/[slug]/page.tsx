@@ -37,25 +37,19 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Botella */}
-          <div className="relative h-[400px] md:h-[600px] rounded-3xl overflow-hidden bg-white shadow-xl flex items-center justify-center p-8 group">
-             <div className={`absolute top-0 left-0 w-full h-2 ${sabor.color}`}></div>
+          <div className="flex items-center justify-center h-[400px] md:h-[600px] group">
              <Image
                src={sabor.imagen}
                alt={`Botella de Pisco Sour ${sabor.nombre}`}
-               width={300} 
-               height={600} 
-               className="object-contain h-full transition-transform duration-700 group-hover:scale-105"
+               width={300}
+               height={600}
+               className="object-contain max-h-full w-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.15)] transition-transform duration-700 group-hover:scale-105"
                priority
              />
           </div>
 
           {/* Info */}
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-gray-100">
-              <span className={`w-3 h-3 rounded-full ${sabor.color}`}></span>
-              <span className="text-sm font-semibold text-gray-700">Edición Especial</span>
-            </div>
-
             <h1 className="text-4xl md:text-6xl font-bold text-[#162B45] leading-tight">
               Sour San Jerónimo <br/>
               <span className="text-[#128708]">{sabor.nombre}</span>
@@ -147,10 +141,11 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
 
             <div className="order-1 md:order-2 relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
               {sabor.imagenPreparacion ? (
-                <Image 
+                <Image
                   src={sabor.imagenPreparacion}
                   alt={`Preparación del Sour ${sabor.nombre}`}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               ) : (

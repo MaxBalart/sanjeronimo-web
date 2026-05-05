@@ -40,6 +40,7 @@ export default function Hero() {
               src="/Logo%20Solo%20Hero%20web.png"
               alt="Logo San Jerónimo"
               fill
+              sizes="33vw"
               className="object-contain p-10"
               priority
             />
@@ -72,6 +73,7 @@ export default function Hero() {
               src="/Colibri%20original.png"
               alt="Colibrí San Jerónimo"
               fill
+              sizes="33vw"
               className="object-contain p-8 animate-float"
             />
           </div>
@@ -111,6 +113,7 @@ export default function Hero() {
             src="/Hero_sour_slide2_tabla.png"
             alt="Sour San Jerónimo"
             fill
+            sizes="50vw"
             className="object-cover object-[center_30%]"
           />
         </div>

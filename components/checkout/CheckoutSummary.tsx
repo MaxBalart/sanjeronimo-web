@@ -47,7 +47,7 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
             <div className="flex items-center gap-4">
               <div className="relative">
                 <div className="w-12 h-12 bg-[#FAF3DE] rounded-lg flex items-center justify-center p-1">
-                  <Image src={SABORES.find(s => s.nombre === item.nombre)?.imagen ?? "/Botella.png"} alt={item.nombre} width={40} height={40} className="object-contain h-full" />
+                  <Image src={SABORES.find(s => s.nombre === item.nombre)?.imagen ?? "/Botella.png"} alt={item.nombre} width={40} height={40} className="object-contain h-full drop-shadow-[0_4px_8px_rgba(0,0,0,0.12)]" />
                 </div>
                 <span className="absolute -top-2 -right-2 bg-gray-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">
                   {item.cantidad}

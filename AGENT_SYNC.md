@@ -195,3 +195,21 @@ Por favor, registra aquí los cambios significativos que realices para que ambos
   - Transición del carousel cambiada de fade (opacity) a deslizamiento horizontal siempre de izquierda a derecha. Implementado con estado `prev` — el slide que sale va a `-translate-x-full`, el que entra viene desde `translate-x-full`; al terminar la animación (700ms) el slide saliente se resetea a `translate-x-full` invisible para el próximo ciclo.
   - Imágenes de botella individuales por sabor: `lib/data.ts` ahora tiene campo `imagen` en el tipo `Sabor`. Cada página de detalle y el resumen del checkout muestran la botella correcta según el sabor.
 - **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.
+
+---
+
+### FeatureProduct + pulido visual de imágenes
+- **Agente:** Claude VS Code
+- **Fecha/Hora:** 04 de mayo de 2026
+- **Archivos Modificados:**
+  - `components/FeatureProduct.tsx` (nuevo componente)
+  - `app/page.tsx` (reemplaza Product por FeatureProduct)
+  - `app/sabores/[slug]/page.tsx` (elimina pill "Edición Especial", quita box blanco de botella)
+  - `components/Hero.tsx` (sizes en imágenes fill)
+  - `components/checkout/CheckoutSummary.tsx` (sombra en miniatura)
+- **Resumen de Cambios:**
+  - `Product.tsx` reemplazado por `FeatureProduct.tsx`: sección con rotación automática entre 3 sabores, pills editoriales clicables, líneas de color dinámico, animación fade + translateY, autoplay 6s.
+  - Ajustes visuales: escala de botella reducida (`w-160px`), sombra natural en capas (drop-shadow doble: contacto + ambiental), eliminado box blanco del contenedor en página de sabor.
+  - `sizes` agregado a todas las imágenes `fill` en Hero para corregir warnings de Next.js.
+  - Pill "Edición Especial" eliminada de la página de detalle de sabor.
+- **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.

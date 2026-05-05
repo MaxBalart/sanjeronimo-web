@@ -39,10 +39,11 @@ export default function Benefits() {
   ];
 
   return (
-    <section className="bg-[#FAF3DE]/30 py-24 md:py-28 px-6">
-      <div ref={ref} className="max-w-5xl mx-auto text-center">
+    <section className="bg-gradient-to-b from-[#FAF3DE] to-white py-24 md:py-28 px-6">
+      <div ref={ref} className="max-w-5xl mx-auto text-center md:text-left">
+        <div className="h-[1px] bg-[#162B45]/10 mb-16" />
         <h2
-          className={`text-3xl md:text-4xl font-bold text-[#162B45] tracking-tight mb-12 md:mb-16 transition-all duration-700 ease-out ${
+          className={`text-4xl md:text-5xl max-w-xl mx-auto md:mx-0 font-bold text-[#162B45] tracking-tight mb-12 md:mb-16 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
@@ -53,10 +54,13 @@ export default function Benefits() {
           {blocks.map((block, i) => (
             <div
               key={i}
-              className={`flex flex-col items-center transition-all duration-700 ease-out ${
+              className={`flex flex-col items-center md:items-start transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
-              style={{ transitionDelay: `${(i + 1) * 200}ms` }}
+              style={{ 
+                transitionDelay: `${(i + 1) * 200}ms`,
+                transform: isVisible && i === 0 ? "scale(1.02)" : "scale(1)"
+              }}
             >
               <h3 className="text-lg md:text-xl font-semibold text-[#162B45] mb-3">
                 {block.title}

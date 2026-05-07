@@ -237,6 +237,23 @@ Por favor, registra aquí los cambios significativos que realices para que ambos
 
 ---
 
+### Redesign editorial + polish global (redesign-existing-projects + high-end-visual-design)
+- **Agente:** Claude VS Code
+- **Fecha/Hora:** 07 de mayo de 2026
+- **Archivos Modificados:**
+  - `app/globals.css`
+  - `components/Benefits.tsx`
+  - `components/Flavors.tsx`
+  - `components/Hero.tsx`
+- **Resumen de Cambios:**
+  - **globals.css:** `scroll-behavior: smooth` en `html`. `text-wrap: balance` en todos los `h1/h2/h3`. Grain overlay (`body::before`) con SVG fractalNoise al 2.5% de opacidad, fijo y `pointer-events-none` — textura de papel sutil premium. Hero cambiado de `min-h-[85vh]` a `min-h-[85dvh]` para evitar viewport jump en iOS Safari.
+  - **Benefits:** Rediseño editorial completo. Layout de 3 columnas tipográficas sin cards — numerales `01/02/03` grandes al 15% de opacidad como estructura, label `ELABORACIÓN` con línea fina, título grande `text-6xl`, separadores verticales entre columnas (horizontales en mobile). Hover sutil: numeral + título se deslizan 1px. Copy corregido: "No optimizamos para bajar costos, optimizamos para el sabor más puro."
+  - **Flavors:** Rediseño de 3 columnas iguales (patrón genérico) a grid asimétrico — Clásico como card featured (2/3 ancho, imagen grande, layout horizontal interno), Maracuyá + Sin Azúcar como cards compactas apiladas (1/3). Franja de color del sabor en top de cada card. Stagger entry via IntersectionObserver.
+  - **Hero (colibrí):** Fix definitivo de dirección — `scaleX(-1)` movido al div contenedor (permanente), animación CSS solo maneja scale + translateY sin tocar eje X. Ya no puede darse vuelta.
+- **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.
+
+---
+
 ### Identidad de Sabor — Colores diferenciados en Cart y Checkout
 - **Agente:** Claude VS Code
 - **Fecha/Hora:** 06 de mayo de 2026

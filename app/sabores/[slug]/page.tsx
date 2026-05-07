@@ -52,7 +52,7 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
           <div className="space-y-8">
             <h1 className="text-4xl md:text-6xl font-bold text-[#162B45] leading-tight">
               Sour San Jerónimo <br/>
-              <span className="text-[#128708]">{sabor.nombre}</span>
+              <span style={{ color: sabor.color }}>{sabor.nombre}</span>
             </h1>
 
             <p className="text-lg text-gray-600 leading-relaxed">
@@ -70,14 +70,17 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
               {/* Botones Carrito */}
               <div className="flex items-center gap-4">
                 {!mounted ? (
-                  <button className="bg-[#128708] text-white px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition-opacity w-full sm:w-auto shadow-lg shadow-[#128708]/30">
+                  <button className="text-white px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition-opacity w-full sm:w-auto" style={{ backgroundColor: sabor.color }}>
                     Cargando...
                   </button>
                 ) : enCarrito ? (
-                  <div className="flex items-center justify-between w-full sm:w-[200px] bg-white border-2 border-[#128708] rounded-full p-2">
+                  <div className="flex items-center justify-between w-full sm:w-[200px] bg-white rounded-full p-2 border-2" style={{ borderColor: sabor.color }}>
                     <button
                       onClick={() => removeFromCart(sabor.nombre)}
-                      className="w-12 h-12 rounded-full bg-[#128708]/10 text-[#128708] flex items-center justify-center text-2xl font-bold hover:bg-[#128708] hover:text-white transition-colors"
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold transition-colors hover:text-white active:scale-[0.92]"
+                      style={{ backgroundColor: `${sabor.color}1a`, color: sabor.color }}
+                      onMouseEnter={e => { e.currentTarget.style.backgroundColor = sabor.color; e.currentTarget.style.color = "white"; }}
+                      onMouseLeave={e => { e.currentTarget.style.backgroundColor = `${sabor.color}1a`; e.currentTarget.style.color = sabor.color; }}
                     >
                       −
                     </button>
@@ -86,7 +89,10 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
                     </span>
                     <button
                       onClick={() => addToCart({ nombre: sabor.nombre, precio: sabor.precio })}
-                      className="w-12 h-12 rounded-full bg-[#128708]/10 text-[#128708] flex items-center justify-center text-2xl font-bold hover:bg-[#128708] hover:text-white transition-colors"
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold transition-colors hover:text-white active:scale-[0.92]"
+                      style={{ backgroundColor: `${sabor.color}1a`, color: sabor.color }}
+                      onMouseEnter={e => { e.currentTarget.style.backgroundColor = sabor.color; e.currentTarget.style.color = "white"; }}
+                      onMouseLeave={e => { e.currentTarget.style.backgroundColor = `${sabor.color}1a`; e.currentTarget.style.color = sabor.color; }}
                     >
                       +
                     </button>
@@ -94,7 +100,8 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
                 ) : (
                   <button
                     onClick={() => addToCart({ nombre: sabor.nombre, precio: sabor.precio })}
-                    className="bg-[#128708] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#0e6e06] active:scale-95 transition-all duration-200 w-full sm:w-auto shadow-lg shadow-[#128708]/30"
+                    className="text-white px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 active:scale-[0.98] transition-[opacity,transform] duration-150 w-full sm:w-auto"
+                    style={{ backgroundColor: sabor.color }}
                   >
                     Agregar al carrito
                   </button>

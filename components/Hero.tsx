@@ -28,7 +28,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full min-h-[85vh] overflow-hidden pt-20">
+    <section className="relative w-full min-h-[85dvh] overflow-hidden pt-20">
 
       {/* Slide 1 — Branding */}
       <div className={`absolute inset-0 bg-[#FAF3DE] transition-transform duration-700 ease-out ${slideClass(0)}`}>
@@ -68,7 +68,7 @@ export default function Hero() {
           </div>
 
           {/* Derecha — Colibrí */}
-          <div className="relative hidden md:block">
+          <div className="relative hidden md:block" style={{ transform: 'scaleX(-1)' }}>
             <Image
               src="/Colibri%20original.png"
               alt="Colibrí San Jerónimo"

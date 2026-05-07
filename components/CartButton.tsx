@@ -8,7 +8,7 @@ export default function CartButton({ onClick }: { onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#162B45]/10 transition"
+      className="relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#162B45]/10 active:scale-[0.92] transition-[background-color,transform] duration-150"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,7 @@ export default function CartButton({ onClick }: { onClick: () => void }) {
 
       <span
         suppressHydrationWarning
-        className={`absolute -top-1 -right-1 bg-orange-500 text-white text-xs w-5 h-5 rounded-full items-center justify-center font-bold ${cantidad > 0 ? "flex" : "hidden"}`}
+        className={`absolute -top-1 -right-1 bg-[#128708] text-white text-xs w-5 h-5 rounded-full items-center justify-center font-bold ${cantidad > 0 ? "flex" : "hidden"}`}
       >
         {cantidad}
       </span>

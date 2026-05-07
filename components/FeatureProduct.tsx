@@ -70,7 +70,7 @@ export default function FeatureProduct() {
   }`}
 >
   {/* sombra mejorada animada */}
-  <div className="absolute bottom-3 w-[140px] md:w-[180px] h-[22px] bg-black blur-2xl rounded-full animate-shadow" />
+  <div className="absolute bottom-3 w-[140px] md:w-[180px] h-[22px] bg-[#162B45]/20 blur-2xl rounded-full animate-shadow" />
 
   <Image
     src={producto.imagen}
@@ -90,6 +90,7 @@ export default function FeatureProduct() {
               <button
                 key={p.nombre}
                 onClick={() => goTo(i)}
+                aria-pressed={i === current}
                 className="px-4 py-1.5 rounded-full text-sm font-medium tracking-wide transition-all duration-300"
                 style={{
                   backgroundColor: i === current ? `${p.color}18` : "transparent",
@@ -111,7 +112,7 @@ export default function FeatureProduct() {
               {producto.titulo}
             </h2>
 
-            <p className="text-lg text-gray-500 mb-10 max-w-md mx-auto md:mx-0 leading-relaxed">
+            <p className="text-lg text-[#162B45]/60 mb-10 max-w-md mx-auto md:mx-0 leading-relaxed">
               {producto.descripcion}
             </p>
 

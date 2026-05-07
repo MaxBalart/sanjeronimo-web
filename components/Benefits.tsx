@@ -24,7 +24,7 @@ export default function Benefits() {
   }, []);
 
   return (
-    <section className="bg-gradient-to-b from-[#FAF3DE] to-white py-24 md:py-28 px-6">
+    <section className="bg-gradient-to-b from-[#FAF3DE] to-[#fefcf8] py-24 md:py-28 px-6">
       <div ref={ref} className="max-w-5xl mx-auto text-left">
         <div className="h-[1px] bg-[#162B45]/10 mb-16" />
         

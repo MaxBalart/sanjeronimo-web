@@ -90,7 +90,7 @@ export default function CheckoutForm({
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
               placeholder="Ej: Juan Pérez"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition-[border-color,box-shadow]"
               required
             />
           </div>
@@ -103,7 +103,7 @@ export default function CheckoutForm({
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="correo@ejemplo.com"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition-[border-color,box-shadow]"
                 required
               />
             </div>
@@ -114,7 +114,7 @@ export default function CheckoutForm({
                 value={telefono}
                 onChange={(e) => setTelefono(e.target.value)}
                 placeholder="+56 9 1234 5678"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition-[border-color,box-shadow]"
                 required
               />
             </div>
@@ -133,7 +133,7 @@ export default function CheckoutForm({
               <select
                 value={region}
                 onChange={(e) => setRegion(e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition cursor-pointer"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition-[border-color,box-shadow] cursor-pointer"
                 required
               >
                 <option value="">Selecciona una región</option>
@@ -150,7 +150,7 @@ export default function CheckoutForm({
                 value={comuna}
                 onChange={(e) => setComuna(e.target.value)}
                 placeholder="Ej: Providencia"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition-[border-color,box-shadow]"
                 required
               />
             </div>
@@ -163,7 +163,7 @@ export default function CheckoutForm({
               value={direccion}
               onChange={(e) => setDireccion(e.target.value)}
               placeholder="Ej: Av. Los Leones 1234"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition-[border-color,box-shadow]"
               required
             />
           </div>
@@ -175,7 +175,7 @@ export default function CheckoutForm({
               value={depto}
               onChange={(e) => setDepto(e.target.value)}
               placeholder="Ej: Depto 402"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition-[border-color,box-shadow]"
             />
           </div>
         </div>
@@ -227,8 +227,8 @@ export default function CheckoutForm({
         )}
 
         {/* Mensaje de Urgencia */}
-        <div className="bg-[#128708]/10 border border-[#128708]/20 rounded-xl p-3 mb-6 text-center shadow-sm">
-          <p className="text-[#128708] font-bold text-base">
+        <div className="bg-[#162B45]/5 border border-[#162B45]/10 rounded-xl p-3 mb-6 text-center">
+          <p className="text-[#162B45]/70 font-semibold text-sm">
             🚚 Despachos disponibles esta semana
           </p>
         </div>
@@ -236,7 +236,7 @@ export default function CheckoutForm({
         <button
           type="submit"
           disabled={loading || cart.length === 0}
-          className="w-full bg-[#128708] text-white py-5 rounded-full font-bold text-lg hover:bg-[#0e6e06] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+          className="w-full bg-[#128708] text-white py-5 rounded-full font-bold text-lg hover:opacity-90 active:scale-[0.98] transition-[opacity,transform] duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? "Procesando pago seguro..." : "Confirmar pedido y pagar"}
         </button>

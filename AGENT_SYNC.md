@@ -237,6 +237,46 @@ Por favor, registra aquí los cambios significativos que realices para que ambos
 
 ---
 
+### Identidad de Sabor — Colores diferenciados en Cart y Checkout
+- **Agente:** Claude VS Code
+- **Fecha/Hora:** 06 de mayo de 2026
+- **Archivos Modificados:**
+  - `lib/data.ts`
+  - `components/CartPanel.tsx`
+  - `components/checkout/CheckoutSummary.tsx`
+  - `DESIGN.md`
+  - `.claude/projects/memory/project_sabor_colors.md` (memoria del agente)
+- **Resumen de Cambios:**
+  - **Regla de diseño establecida:** cada sabor tiene su propio color de identidad — Clásico → Verde `#128708`, Maracuyá → Ámbar `#F5A300`, Sin Azúcar → Celeste `#38BDF8`. Debe aplicarse en cualquier componente donde los productos aparezcan individualmente.
+  - **`lib/data.ts`:** campo `color` en `SABORES` corregido de clases Tailwind (`bg-[#128708]`, `bg-orange-400`, `bg-sky-400`) a valores hex puros (`#128708`, `#F5A300`, `#38BDF8`), alineándose con el mismo patrón que ya usaba `FeatureProduct.tsx` en su constante `PRODUCTOS`.
+  - **`CartPanel`:** importa `SABORES` y resuelve el color por nombre. Nombre del producto, contador de cantidad y botones +/− ahora usan el color propio del sabor (via `style={{ color/backgroundColor: saborColor }}`).
+  - **`CheckoutSummary`:** el badge de cantidad circular y el nombre del producto en el resumen de pedido usan el color del sabor correspondiente.
+  - **`DESIGN.md`:** añadida Named Rule **"La Identidad de Sabor"** en la sección Colors, documentando la regla para que cualquier agente futuro la aplique correctamente.
+- **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.
+
+---
+
+### Polish pass — Impeccable quality pass
+- **Agente:** Claude VS Code
+- **Fecha/Hora:** 06 de mayo de 2026
+- **Archivos Modificados:**
+  - `components/Hero.tsx`
+  - `components/FeatureProduct.tsx`
+  - `components/Flavors.tsx`
+  - `components/Benefits.tsx`
+  - `components/Navbar.tsx`
+  - `app/globals.css`
+- **Resumen de Cambios:**
+  - **Hero:** `ease-in-out` → `ease-out` en transición de slides (cumple design law de curva exponencial). Dots: `bg-gray-400/50` → `bg-[#162B45]/20` (tinted neutral, sin gris puro). `aria-current` añadido al dot activo.
+  - **FeatureProduct:** `bg-black` en sombra → `bg-[#162B45]/20` (sin negro puro). `text-gray-500` → `text-[#162B45]/60` (tinted, on-brand). `aria-pressed` añadido a los pills de sabor.
+  - **Flavors:** `text-gray-500` → `text-[#162B45]/60` en descripciones de sabor.
+  - **Benefits:** gradiente `to-white` → `to-[#fefcf8]` (blanco ligeramente tintado, sin puro #fff).
+  - **Navbar:** `hover:pl-6` → `hover:translate-x-2` (elimina animación de propiedad de layout). `transition-all` → `transition-[background-color,color,transform]` (más eficiente y preciso).
+  - **globals.css:** añadida regla `@media (prefers-reduced-motion: reduce)` que desactiva las tres animaciones (float, float-bottle, shadow-pulse) para usuarios que lo requieren.
+- **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.
+
+---
+
 ### Efecto Flotación Premium (Estilo Apple) en FeatureProduct
 - **Agente:** Antigravity
 - **Fecha/Hora:** 04 de mayo de 2026

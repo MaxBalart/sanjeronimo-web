@@ -47,7 +47,7 @@ export default function Navbar() {
                         <Link 
                           key={sabor.slug} 
                           href={`/sabores/${sabor.slug}`} 
-                          className="block px-5 py-3 text-sm text-gray-600 hover:bg-[#FAF3DE] hover:text-[#128708] hover:pl-6 transition-all duration-200 font-medium"
+                          className="block px-5 py-3 text-sm text-gray-600 hover:bg-[#FAF3DE] hover:text-[#128708] hover:translate-x-2 transition-[background-color,color,transform] duration-200 font-medium"
                         >
                           {sabor.nombre}
                         </Link>

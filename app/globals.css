@@ -57,3 +57,11 @@ body {
 .animate-shadow {
   animation: shadow-pulse 4s ease-in-out infinite;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-bottle,
+  .animate-shadow {
+    animation: none;
+  }
+}

@@ -42,24 +42,28 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
       <h2 className="text-lg font-bold text-[#162B45] mb-6">Resumen del pedido</h2>
 
       <div className="space-y-4 mb-6">
-        {cart.map((item) => (
+        {cart.map((item) => {
+          const sabor = SABORES.find(s => s.nombre === item.nombre);
+          const saborColor = sabor?.color ?? "#128708";
+          return (
           <div key={item.nombre} className="flex justify-between items-center text-sm">
             <div className="flex items-center gap-4">
               <div className="relative">
                 <div className="w-12 h-12 bg-[#FAF3DE] rounded-lg flex items-center justify-center p-1">
-                  <Image src={SABORES.find(s => s.nombre === item.nombre)?.imagen ?? "/Botella.png"} alt={item.nombre} width={40} height={40} className="object-contain h-full drop-shadow-[0_4px_8px_rgba(0,0,0,0.12)]" />
+                  <Image src={sabor?.imagen ?? "/Botella.png"} alt={item.nombre} width={40} height={40} className="object-contain h-full drop-shadow-[0_4px_8px_rgba(0,0,0,0.12)]" />
                 </div>
-                <span className="absolute -top-2 -right-2 bg-gray-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">
+                <span className="absolute -top-2 -right-2 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold" style={{ backgroundColor: saborColor }}>
                   {item.cantidad}
                 </span>
               </div>
-              <span className="font-medium text-gray-700">{item.nombre}</span>
+              <span className="font-medium" style={{ color: saborColor }}>{item.nombre}</span>
             </div>
             <span className="font-semibold text-[#162B45]">
               ${(item.precio * item.cantidad).toLocaleString("es-CL")}
             </span>
           </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="space-y-3 pt-4 border-t border-gray-100 text-sm">
@@ -84,7 +88,7 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
         form="checkout-form"
         type="submit"
         disabled={loading}
-        className="w-full bg-[#128708] text-white py-4 rounded-full font-bold text-lg hover:bg-[#0e6e06] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#128708]/20"
+        className="w-full bg-[#128708] text-white py-4 rounded-full font-bold text-lg hover:opacity-90 active:scale-[0.98] transition-[opacity,transform] duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {loading ? "Procesando..." : "Confirmar pedido y pagar"}
       </button>

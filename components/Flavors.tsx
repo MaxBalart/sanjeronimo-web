@@ -45,7 +45,7 @@ export default function Flavors() {
                   {sabor.nombre}
                 </h3>
 
-                <p className="text-gray-500 text-sm mb-4 leading-relaxed">{sabor.descripcion}</p>
+                <p className="text-[#162B45]/60 text-sm mb-4 leading-relaxed">{sabor.descripcion}</p>
 
                 <p className="text-2xl font-bold text-[#162B45]">
                   ${sabor.precio.toLocaleString("es-CL")}

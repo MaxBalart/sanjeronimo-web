@@ -31,7 +31,7 @@ export default function Hero() {
     <section className="relative w-full min-h-[85vh] overflow-hidden pt-20">
 
       {/* Slide 1 — Branding */}
-      <div className={`absolute inset-0 bg-[#FAF3DE] transition-transform duration-700 ease-in-out ${slideClass(0)}`}>
+      <div className={`absolute inset-0 bg-[#FAF3DE] transition-transform duration-700 ease-out ${slideClass(0)}`}>
         <div className="absolute inset-0 grid grid-cols-3">
 
           {/* Izquierda — Logo */}
@@ -82,7 +82,7 @@ export default function Hero() {
       </div>
 
       {/* Slide 2 — Producto */}
-      <div className={`absolute inset-0 grid grid-cols-1 md:grid-cols-2 transition-transform duration-700 ease-in-out ${slideClass(1)}`}>
+      <div className={`absolute inset-0 grid grid-cols-1 md:grid-cols-2 transition-transform duration-700 ease-out ${slideClass(1)}`}>
 
         {/* Izquierda — Texto */}
         <div className="bg-[#162B45] flex items-center justify-center px-10 md:px-20 py-16 md:py-0">
@@ -126,10 +126,11 @@ export default function Hero() {
             key={i}
             onClick={() => advance(i)}
             aria-label={`Slide ${i + 1}`}
+            aria-current={i === current ? true : undefined}
             className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
               i === current
                 ? "bg-[#128708] scale-125"
-                : "bg-gray-400/50 hover:bg-gray-400"
+                : "bg-[#162B45]/20 hover:bg-[#162B45]/40"
             }`}
           />
         ))}

@@ -15,7 +15,7 @@ export const SABORES: Sabor[] = [
     nombre: "Clásico",
     descripcion: "El equilibrio perfecto entre limón sutil y pisco.",
     descripcionLarga: "Nuestro sabor Clásico es la receta original de la familia. Elaborado con jugo de limón sutil recién exprimido, pisco doble destilado premium y el toque exacto de goma. Ideal para quienes buscan la experiencia tradicional del Pisco Sour peruano-chileno con un balance impecable entre acidez y dulzor.",
-    color: "bg-[#128708]",
+    color: "#128708",
     precio: 10990,
     imagen: "/Botella.png",
     imagenPreparacion: "/preparacion_clasico.png"
@@ -25,7 +25,7 @@ export const SABORES: Sabor[] = [
     nombre: "Maracuyá",
     descripcion: "Tropical, fresco y ligeramente dulce.",
     descripcionLarga: "Una explosión tropical en cada sorbo. Combinamos la intensidad del maracuyá fresco con la base clásica de nuestro Pisco Sour para crear una experiencia exótica, vibrante y peligrosamente adictiva. Perfecto para tardes de verano y celebraciones especiales.",
-    color: "bg-orange-400",
+    color: "#F5A300",
     precio: 10990,
     imagen: "/Botella_Maracuya.png",
     imagenPreparacion: "/preparacion_maracuya.png"
@@ -35,7 +35,7 @@ export const SABORES: Sabor[] = [
     nombre: "Sin azúcar",
     descripcion: "Todo el sabor, sin azúcar añadida.",
     descripcionLarga: "Para quienes buscan cuidarse sin sacrificar el placer. Mantenemos el mismo sabor intenso y la misma calidad de ingredientes que nuestro sabor Clásico, pero endulzado con una mezcla especial de stevia y alulosa que no deja sabor residual.",
-    color: "bg-sky-400",
+    color: "#38BDF8",
     precio: 11990,
     imagen: "/Botella_SinAzucar.png",
     imagenPreparacion: "/preparacion_sin_azucar.png"

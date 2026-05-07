@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-06T00:00:00Z",
+  "title": "Design System: Sour San Jerónimo",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Azul Noche Andina",
+        "canonical": "oklch(20% 0.065 250)",
+        "tonalRamp": [
+          "oklch(12% 0.06 250)",
+          "oklch(18% 0.065 250)",
+          "oklch(25% 0.065 250)",
+          "oklch(35% 0.06 250)",
+          "oklch(48% 0.055 250)",
+          "oklch(62% 0.04 250)",
+          "oklch(78% 0.025 250)",
+          "oklch(92% 0.01 250)"
+        ]
+      },
+      "accent": {
+        "role": "secondary",
+        "displayName": "Verde Pisco",
+        "canonical": "oklch(45% 0.18 145)",
+        "tonalRamp": [
+          "oklch(20% 0.12 145)",
+          "oklch(30% 0.16 145)",
+          "oklch(40% 0.18 145)",
+          "oklch(50% 0.18 145)",
+          "oklch(60% 0.16 145)",
+          "oklch(70% 0.12 145)",
+          "oklch(82% 0.08 145)",
+          "oklch(93% 0.04 145)"
+        ]
+      },
+      "warm-cream": {
+        "role": "neutral",
+        "displayName": "Crema de Temporada",
+        "canonical": "oklch(96% 0.025 90)",
+        "tonalRamp": [
+          "oklch(30% 0.03 90)",
+          "oklch(45% 0.035 90)",
+          "oklch(58% 0.04 90)",
+          "oklch(70% 0.035 90)",
+          "oklch(80% 0.03 90)",
+          "oklch(88% 0.028 90)",
+          "oklch(93% 0.025 90)",
+          "oklch(97% 0.018 90)"
+        ]
+      },
+      "amber-accent": {
+        "role": "tertiary",
+        "displayName": "Ámbar Maracuyá",
+        "canonical": "oklch(72% 0.18 65)",
+        "tonalRamp": [
+          "oklch(25% 0.12 65)",
+          "oklch(38% 0.16 65)",
+          "oklch(50% 0.18 65)",
+          "oklch(62% 0.18 65)",
+          "oklch(72% 0.16 65)",
+          "oklch(82% 0.12 65)",
+          "oklch(90% 0.08 65)",
+          "oklch(96% 0.04 65)"
+        ]
+      },
+      "sky-accent": {
+        "role": "tertiary",
+        "displayName": "Celeste Sin Azúcar",
+        "canonical": "oklch(75% 0.15 210)",
+        "tonalRamp": [
+          "oklch(22% 0.1 210)",
+          "oklch(35% 0.13 210)",
+          "oklch(48% 0.15 210)",
+          "oklch(60% 0.15 210)",
+          "oklch(70% 0.14 210)",
+          "oklch(80% 0.1 210)",
+          "oklch(88% 0.07 210)",
+          "oklch(95% 0.03 210)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Blanco Limpio",
+        "canonical": "oklch(99% 0.003 100)",
+        "tonalRamp": [
+          "oklch(20% 0.003 100)",
+          "oklch(35% 0.003 100)",
+          "oklch(50% 0.003 100)",
+          "oklch(65% 0.003 100)",
+          "oklch(78% 0.003 100)",
+          "oklch(88% 0.003 100)",
+          "oklch(94% 0.003 100)",
+          "oklch(99% 0.003 100)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Phosphate Display", "purpose": "Solo para el nombre 'San Jerónimo' en el hero. Uppercase siempre." },
+      "script": { "displayName": "SignPainter Script", "purpose": "Tagline y frases evocadoras de marca. Nunca en UI funcional." },
+      "headline": { "displayName": "Geist Headline", "purpose": "Títulos de sección principales." },
+      "body": { "displayName": "Geist Body", "purpose": "Descripciones de producto y texto de apoyo. Máx 65ch." },
+      "label": { "displayName": "Geist Label", "purpose": "Subtítulos de categoría y separadores uppercase." }
+    },
+    "shadows": [
+      {
+        "name": "product-drop",
+        "value": "drop-shadow(0 8px 16px rgba(0,0,0,0.15))",
+        "purpose": "Botella en cards de sabor. Sensación de objeto físico real."
+      },
+      {
+        "name": "product-contact",
+        "value": "blur-2xl en div elíptico 140-180px x 22px, fondo negro, opacidad 0.20",
+        "purpose": "Sombra en el suelo bajo la botella flotante de FeatureProduct. Animada con shadow-pulse."
+      },
+      {
+        "name": "navbar-separator",
+        "value": "shadow-sm (0 1px 2px rgba(0,0,0,0.05))",
+        "purpose": "Separación mínima del navbar del contenido. No protagonismo."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-brand",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Animaciones de entrada de elementos de marca (Benefits scroll-in). Suave y premium."
+      },
+      {
+        "name": "ease-standard",
+        "value": "ease-out",
+        "purpose": "Transiciones de estado (hover, active). Por defecto en todos los componentes."
+      },
+      {
+        "name": "float-bottle",
+        "value": "translateY(-6px) 4s ease-in-out infinite",
+        "purpose": "Flotación continua de la botella en FeatureProduct. Imperceptible pero viva."
+      },
+      {
+        "name": "float-colibri",
+        "value": "translateY(-18px) rotate(2deg) 3.5s ease-in-out infinite",
+        "purpose": "Flotación del colibrí en Hero slide 1. Más pronunciada que la botella."
+      },
+      {
+        "name": "fade-sabor",
+        "value": "opacity + translateY(12px), 300ms ease-out",
+        "purpose": "Transición entre sabores en FeatureProduct. Nunca slide horizontal en este componente."
+      }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "sm", "value": "640px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "CTA Principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "El botón de compra. Verde Pisco, pill, directo. Usado en Hero, FeatureProduct y Flavors.",
+      "html": "<button class=\"ds-btn-primary\">Agregar al carrito</button>",
+      "css": ".ds-btn-primary { background: #128708; color: #ffffff; padding: 14px 28px; border-radius: 9999px; font-family: 'Geist Sans', system-ui, sans-serif; font-size: 0.9375rem; font-weight: 600; border: none; cursor: pointer; transition: opacity 300ms ease-out, transform 300ms ease-out; } .ds-btn-primary:hover { opacity: 0.85; transform: scale(1.02); } .ds-btn-primary:active { transform: scale(0.98); }"
+    },
+    {
+      "name": "Card de Sabor",
+      "kind": "card",
+      "refersTo": "card-flavor",
+      "description": "Card de producto en la sección Flavors. Imagen de botella, nombre, descripción, precio y CTA.",
+      "html": "<div class=\"ds-card-flavor\"><div class=\"ds-card-img\"><img src=\"/Botella.png\" alt=\"Sour Clásico\" style=\"width:80px;height:130px;object-fit:contain;filter:drop-shadow(0 8px 16px rgba(0,0,0,0.15))\" /></div><h3 class=\"ds-card-title\">Clásico</h3><p class=\"ds-card-desc\">El equilibrio perfecto entre limón sutil y pisco.</p><p class=\"ds-card-price\">$10.990</p><button class=\"ds-btn-primary\" style=\"width:100%;margin-top:8px\">Agregar al carrito</button></div>",
+      "css": ".ds-card-flavor { background: #ffffff; border-radius: 16px; border: 1px solid #f3f4f6; padding: 32px; text-align: center; display: flex; flex-direction: column; transition: border-color 300ms ease-out; } .ds-card-flavor:hover { border-color: #e5e7eb; } .ds-card-img { height: 140px; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 24px; } .ds-card-title { font-family: 'Geist Sans', system-ui, sans-serif; font-size: 1.25rem; font-weight: 600; color: #162B45; margin-bottom: 12px; transition: color 300ms; } .ds-card-flavor:hover .ds-card-title { color: #128708; } .ds-card-desc { font-family: 'Geist Sans', system-ui, sans-serif; font-size: 0.875rem; color: #6b7280; margin-bottom: 16px; line-height: 1.6; } .ds-card-price { font-family: 'Geist Sans', system-ui, sans-serif; font-size: 1.5rem; font-weight: 700; color: #162B45; margin-bottom: 0; }"
+    },
+    {
+      "name": "Pill de Sabor",
+      "kind": "chip",
+      "refersTo": "button-sabor-pill",
+      "description": "Selector de variante de sabor en FeatureProduct. Color dinámico según el sabor activo.",
+      "html": "<div class=\"ds-pill-group\"><button class=\"ds-pill ds-pill-active\" style=\"background: rgba(18,135,8,0.09); color: #128708\">Clásico</button><button class=\"ds-pill\" style=\"color: #9ca3af\">Maracuyá</button><button class=\"ds-pill\" style=\"color: #9ca3af\">Sin azúcar</button></div>",
+      "css": ".ds-pill-group { display: flex; gap: 12px; } .ds-pill { padding: 6px 16px; border-radius: 9999px; font-family: 'Geist Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.025em; border: none; cursor: pointer; background: transparent; transition: all 300ms ease-out; } .ds-pill:hover { opacity: 0.8; }"
+    },
+    {
+      "name": "Navbar",
+      "kind": "nav",
+      "refersTo": "button-primary",
+      "description": "Navbar fixed con logo, links y cart button. En checkout se ocultan los links.",
+      "html": "<nav class=\"ds-nav\"><a href=\"/\" class=\"ds-nav-logo\"><img src=\"/Logo%20y%20letras%20lateral_navbar%20web.png\" alt=\"San Jerónimo\" style=\"height:64px;width:auto\" /></a><div class=\"ds-nav-links\"><a href=\"/#sabores\" class=\"ds-nav-link\">Sabores</a><a href=\"/#contacto\" class=\"ds-nav-link\">Contacto</a></div><button class=\"ds-cart-btn\"><svg width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z\"/></svg></button></nav>",
+      "css": ".ds-nav { width: 100%; background: #ffffff; box-shadow: 0 1px 2px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; padding: 0 24px; height: 80px; } .ds-nav-links { display: flex; gap: 24px; } .ds-nav-link { font-family: 'Geist Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; color: #162B45; text-decoration: none; transition: opacity 200ms; } .ds-nav-link:hover { text-decoration: underline; } .ds-cart-btn { background: #162B45; color: #ffffff; border: none; border-radius: 9999px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: opacity 200ms; } .ds-cart-btn:hover { opacity: 0.85; }"
+    },
+    {
+      "name": "Input de Formulario",
+      "kind": "input",
+      "refersTo": "button-primary",
+      "description": "Input estándar para el checkout. Borde definido, focus en Azul Noche Andina.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-label\">Nombre completo</label><input type=\"text\" class=\"ds-input\" placeholder=\"Juan Pérez\" /></div>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; } .ds-label { font-family: 'Geist Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; color: #162B45; } .ds-input { width: 100%; padding: 10px 14px; border: 1px solid #d1d5db; border-radius: 8px; font-family: 'Geist Sans', system-ui, sans-serif; font-size: 1rem; color: #162B45; background: #ffffff; outline: none; transition: border-color 200ms, box-shadow 200ms; } .ds-input:focus { border-color: #162B45; box-shadow: 0 0 0 2px rgba(22,43,69,0.15); } .ds-input::placeholder { color: #9ca3af; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "El Encuentro Premium",
+    "overview": "Este sistema de diseño existe para convertir la visita en un momento de deseo. No es un catálogo, es una invitación. Cada pantalla debe evocar el mismo sentimiento que produce abrir una botella buena con alguien importante: anticipación, confianza, placer.\n\nLa paleta azul noche + crema + verde vivo no es una combinación decorativa: azul es la autoridad, crema es la calidez, verde es la acción. Juntos comunican 'esto es serio y vale la pena' sin necesidad de una sola línea de copy explicativo.\n\nLo que este sistema rechaza: paletas genéricas de supermercado, estética de startup SaaS, y sobrecarga decorativa. La elegancia aquí viene de la sobriedad, no de los efectos.",
+    "keyCharacteristics": [
+      "Fondo beige cálido como lienzo principal en secciones de marca, blanco en secciones de producto",
+      "Tipografía de impacto en display (Phosphate), funcional en cuerpo (Geist)",
+      "Verde exclusivo para acciones de compra; nunca decorativo",
+      "Movimiento suave y continuo en elementos de producto; nunca mecánico",
+      "Composición asimétrica en secciones editoriales; grids limpios en catálogo de sabores"
+    ],
+    "rules": [
+      { "name": "La Regla del Verde Único", "body": "Verde Pisco solo aparece en CTAs de compra y estados activos. Si un elemento verde no invita directamente a comprar, no debe ser verde. Su escasez es la señal.", "section": "colors" },
+      { "name": "La Regla de las Dos Temperaturas", "body": "Beige cálido para secciones de historia y marca. Blanco limpio para secciones de producto y conversión. Nunca mezclar ambos fondos en la misma sección.", "section": "colors" },
+      { "name": "La Regla de las Tres Voces", "body": "Phosphate, SignPainter y Geist tienen territorios exclusivos. Phosphate nunca en cuerpo. SignPainter nunca en UI. Mezclarlas fuera de su contexto rompe el sistema de identidad.", "section": "typography" },
+      { "name": "La Regla Plana por Defecto", "body": "Si no es una botella de producto, no tiene sombra. Cards y contenedores usan borde o fondo diferenciado. La sombra es privilegio del producto, no del UI.", "section": "elevation" }
+    ],
+    "dos": [
+      "Usar Verde Pisco (#128708) exclusivamente en CTAs de compra",
+      "Usar Crema de Temporada (#FAF3DE) como fondo de secciones de historia y marca",
+      "Aplicar letter-spacing: -0.02em en headlines de Geist Sans",
+      "Usar pill radius en todos los botones primarios y chips de selección",
+      "Animar el producto con movimiento suave y continuo",
+      "Construir profundidad con borde + color de fondo; sombra solo en imágenes de producto",
+      "Mantener el copy corto y en primera persona del producto",
+      "Usar drop-shadow en las botellas para darles presencia física"
+    ],
+    "donts": [
+      "No usar look de góndola de supermercado: paletas rojo-amarillo, tipografías redondeadas genéricas",
+      "No usar estética de startup SaaS: gradientes azul-morado, hero con mockup de app",
+      "No usar background-clip: text con gradiente. Nunca gradient text",
+      "No usar border-left grueso como acento de color en cards o callouts",
+      "No usar glassmorphism ni blur decorativo",
+      "No usar Verde Pisco en iconografía, separadores o elementos que no sean acción de compra",
+      "No mezclar Phosphate o SignPainter en UI funcional",
+      "No animar con bounce ni elastic. Solo ease-out con curvas exponenciales",
+      "No añadir sombra a cards de UI"
+    ]
+  }
+}

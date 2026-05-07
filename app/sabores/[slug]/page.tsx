@@ -60,9 +60,12 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
             </p>
 
             <div className="pt-6 border-t border-gray-200">
-              <p className="text-3xl font-bold text-[#162B45] mb-6">
-                ${sabor.precio.toLocaleString("es-CL")}
-              </p>
+              <div className="flex items-baseline gap-2 mb-6">
+                <p className="text-3xl font-bold text-[#162B45]">
+                  ${sabor.precio.toLocaleString("es-CL")}
+                </p>
+                <span className="text-sm text-gray-400 font-normal">/ botella</span>
+              </div>
 
               {/* Botones Carrito */}
               <div className="flex items-center gap-4">

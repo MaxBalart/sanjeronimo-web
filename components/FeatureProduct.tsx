@@ -77,7 +77,7 @@ export default function FeatureProduct() {
     alt={`Sour San Jerónimo ${producto.nombre}`}
     width={340}
     height={560}
-    className="relative z-10 object-contain w-[120px] md:w-[160px] h-auto animate-float-bottle"
+    className="relative z-10 object-contain w-[160px] md:w-[220px] h-auto animate-float-bottle"
   />
 </div>
 

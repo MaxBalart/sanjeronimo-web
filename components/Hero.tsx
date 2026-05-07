@@ -35,7 +35,7 @@ export default function Hero() {
         <div className="absolute inset-0 grid grid-cols-3">
 
           {/* Izquierda — Logo */}
-          <div className="relative">
+          <div className="relative hidden md:block">
             <Image
               src="/Logo%20Solo%20Hero%20web.png"
               alt="Logo San Jerónimo"
@@ -47,8 +47,8 @@ export default function Hero() {
           </div>
 
           {/* Centro — Texto */}
-          <div className="flex flex-col items-center justify-center text-center px-5">
-            <span className="text-2xl md:text-5xl font-bold text-[#162B45] tracking-widest uppercase mb-1">
+          <div className="flex flex-col items-center justify-center text-center px-5 col-span-3 md:col-span-1">
+            <span className="text-xl md:text-3xl font-bold text-[#162B45] tracking-widest uppercase mb-1">
               Sour
             </span>
             <h1
@@ -68,7 +68,7 @@ export default function Hero() {
           </div>
 
           {/* Derecha — Colibrí */}
-          <div className="relative">
+          <div className="relative hidden md:block">
             <Image
               src="/Colibri%20original.png"
               alt="Colibrí San Jerónimo"

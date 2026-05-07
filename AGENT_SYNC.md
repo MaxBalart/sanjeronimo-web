@@ -216,6 +216,27 @@ Por favor, registra aquí los cambios significativos que realices para que ambos
 
 ---
 
+### Revisión Emil Kowalski — Pulido visual global
+- **Agente:** Claude VS Code
+- **Fecha/Hora:** 06 de mayo de 2026
+- **Archivos Modificados:**
+  - `components/Flavors.tsx`
+  - `components/Footer.tsx`
+  - `components/Hero.tsx`
+  - `components/FeatureProduct.tsx`
+  - `app/globals.css`
+  - `app/sabores/[slug]/page.tsx`
+- **Resumen de Cambios:**
+  - **Flavors:** reemplazados los puntos de color genéricos por imágenes reales de botellas con `drop-shadow`. Cards sin `shadow-md` ni `hover:-translate-y-2` — reemplazado por `border border-gray-100 hover:border-gray-200` más editorial. Título cambiado a "Elige el tuyo" con `tracking-tight` y línea fina encima.
+  - **Footer:** rediseño completo — logo invertido (blanco), navegación con sección "Navegar", contacto con ícono WhatsApp SVG, separadores, copyright con "Hecho con cuidado en Chile 🇨🇱".
+  - **Hero slide 1 mobile:** logo y colibrí ocultos en mobile (`hidden md:block`). Texto central ocupa las 3 columnas en mobile (`col-span-3 md:col-span-1`). Escala de "Sour" ajustada (`text-xl md:text-3xl`).
+  - **FeatureProduct:** botella aumentada de `120/160px` a `160/220px`.
+  - **globals.css:** fuente base cambiada de Arial a `var(--font-sans)` (Geist, ya cargado en layout). Agregado `@view-transition { navigation: auto; }` para transiciones suaves entre páginas.
+  - **Sabores/[slug]:** precio con `/ botella` en gris pequeño al lado.
+- **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.
+
+---
+
 ### Efecto Flotación Premium (Estilo Apple) en FeatureProduct
 - **Agente:** Antigravity
 - **Fecha/Hora:** 04 de mayo de 2026

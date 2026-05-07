@@ -30,7 +30,7 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
       
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto px-6 py-12 md:py-20">
-        <Link href="/#sabores" className="inline-flex items-center text-[#162B45] hover:text-[#128708] font-medium mb-8 transition-colors">
+        <Link href="/#sabores" className="inline-flex items-center text-[#162B45]/60 hover:text-[#162B45] font-medium mb-8 transition-[color] duration-150 active:scale-[0.97]">
           <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
           Volver a sabores
         </Link>
@@ -43,7 +43,7 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
                alt={`Botella de Pisco Sour ${sabor.nombre}`}
                width={300}
                height={600}
-               className="object-contain max-h-full w-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.15)] transition-transform duration-700 group-hover:scale-105"
+               className="object-contain max-h-full w-auto drop-shadow-[0_20px_30px_rgba(22,43,69,0.18)] transition-transform duration-700 ease-out group-hover:scale-105"
                priority
              />
           </div>
@@ -55,16 +55,16 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
               <span style={{ color: sabor.color }}>{sabor.nombre}</span>
             </h1>
 
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-[#162B45]/60 leading-relaxed">
               {sabor.descripcionLarga}
             </p>
 
-            <div className="pt-6 border-t border-gray-200">
+            <div className="pt-6 border-t border-[#162B45]/10">
               <div className="flex items-baseline gap-2 mb-6">
                 <p className="text-3xl font-bold text-[#162B45]">
                   ${sabor.precio.toLocaleString("es-CL")}
                 </p>
-                <span className="text-sm text-gray-400 font-normal">/ botella</span>
+                <span className="text-sm text-[#162B45]/30 font-normal">/ botella</span>
               </div>
 
               {/* Botones Carrito */}
@@ -77,7 +77,7 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
                   <div className="flex items-center justify-between w-full sm:w-[200px] bg-white rounded-full p-2 border-2" style={{ borderColor: sabor.color }}>
                     <button
                       onClick={() => removeFromCart(sabor.nombre)}
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold transition-colors hover:text-white active:scale-[0.92]"
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold transition-[background-color,color,transform] duration-150 hover:text-white active:scale-[0.92]"
                       style={{ backgroundColor: `${sabor.color}1a`, color: sabor.color }}
                       onMouseEnter={e => { e.currentTarget.style.backgroundColor = sabor.color; e.currentTarget.style.color = "white"; }}
                       onMouseLeave={e => { e.currentTarget.style.backgroundColor = `${sabor.color}1a`; e.currentTarget.style.color = sabor.color; }}
@@ -89,7 +89,7 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
                     </span>
                     <button
                       onClick={() => addToCart({ nombre: sabor.nombre, precio: sabor.precio })}
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold transition-colors hover:text-white active:scale-[0.92]"
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold transition-[background-color,color,transform] duration-150 hover:text-white active:scale-[0.92]"
                       style={{ backgroundColor: `${sabor.color}1a`, color: sabor.color }}
                       onMouseEnter={e => { e.currentTarget.style.backgroundColor = sabor.color; e.currentTarget.style.color = "white"; }}
                       onMouseLeave={e => { e.currentTarget.style.backgroundColor = `${sabor.color}1a`; e.currentTarget.style.color = sabor.color; }}
@@ -119,8 +119,8 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
             <h2 className="text-3xl md:text-4xl font-bold text-[#162B45] mb-4">
               El arte de servirlo perfecto
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Sigue estos 3 simples pasos para disfrutar de la experiencia completa en casa.
+            <p className="text-[#162B45]/60 max-w-2xl mx-auto text-lg">
+              Tres pasos para disfrutar de la experiencia completa en casa.
             </p>
           </div>
 
@@ -129,22 +129,22 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
               <div className="flex gap-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#162B45] text-white flex items-center justify-center font-bold text-xl">1</div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#162B45] mb-2">Agita con fuerza</h3>
-                  <p className="text-gray-600">Agita la botella vigorosamente durante 5 a 10 segundos. Esto despertará los sabores y generará esa espuma característica que tanto nos gusta.</p>
+                  <h3 className="text-xl font-bold text-[#162B45] tracking-tight mb-2">Agrega San Jerónimo y hielo a gusto</h3>
+                  <p className="text-[#162B45]/60">Vierte el contenido de la botella en una licuadora y agrega hielo a gusto. Debe estar descongelado; el hielo ayudará a la textura.</p>
                 </div>
               </div>
               <div className="flex gap-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#162B45] text-white flex items-center justify-center font-bold text-xl">2</div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#162B45] mb-2">Mucho hielo</h3>
-                  <p className="text-gray-600">Sirve en una copa de Pisco Sour, flauta o vaso corto lleno de cubos de hielo. Mientras más frío, mejor se aprecian sus matices.</p>
+                  <h3 className="text-xl font-bold text-[#162B45] tracking-tight mb-2">Licúa hasta obtener mezcla uniforme y espumosa</h3>
+                  <p className="text-[#162B45]/60">Licúa a velocidad alta hasta que la mezcla sea homogénea. La espuma natural aparece sola.</p>
                 </div>
               </div>
               <div className="flex gap-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#162B45] text-white flex items-center justify-center font-bold text-xl">3</div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#162B45] mb-2">El toque final (Opcional)</h3>
-                  <p className="text-gray-600">Decora con unas gotitas de amargo de angostura sobre la espuma. ¡Salud!</p>
+                  <h3 className="text-xl font-bold text-[#162B45] tracking-tight mb-2">Sirve y disfruta</h3>
+                  <p className="text-[#162B45]/60">Sirve en copas y disfruta. Una botella rinde entre 9 y 12 copas.</p>
                 </div>
               </div>
             </div>
@@ -159,8 +159,8 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
                   className="object-cover"
                 />
               ) : (
-                <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                  <span className="text-gray-400">Imagen de preparación</span>
+                <div className="w-full h-full bg-[#162B45]/5 flex items-center justify-center">
+                  <span className="text-[#162B45]/30 text-sm">Imagen de preparación</span>
                 </div>
               )}
             </div>

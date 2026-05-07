@@ -322,3 +322,24 @@ Por favor, registra aquí los cambios significativos que realices para que ambos
 \n---\n\n### Rediseño Asimétrico Editorial de la Sección Benefits\n- **Agente:** Antigravity\n- **Fecha/Hora:** 04 de mayo de 2026\n- **Archivos Modificados:**\n  - `components/Benefits.tsx`\n- **Resumen de Cambios:**\n  - Se rompió la simetría de 3 columnas para adoptar una composición asimétrica premium (1 protagonista + 2 secundarios) en un grid de 2 columnas.\n  - La columna izquierda (protagonista) contiene el bloque "Sin atajos" con tipografía más grande (`text-3xl`).\n  - La columna derecha agrupa los dos bloques restantes en un stack vertical.\n  - Se implementó un stagger manual (0ms, 200ms, 400ms, 600ms) para guiar la lectura de forma secuencial al hacer scroll.\n  - Se aseguró que en móvil todo colapse a 1 columna con texto centrado respetando el orden de lectura.\n- **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.\n
 \n---\n\n### Refinamiento Visual y Legibilidad en Benefits\n- **Agente:** Antigravity\n- **Fecha/Hora:** 04 de mayo de 2026\n- **Archivos Modificados:**\n  - `components/Benefits.tsx`\n- **Resumen de Cambios:**\n  - Se incrementó drásticamente la jerarquía del bloque protagonista izquierdo (título `text-4xl` y descripción `text-xl`), agregando un punto final a "Sin atajos." para mayor contundencia.\n  - Se amplió el espaciado entre columnas a `gap-28` en desktop para dar más aire y asimetría.\n  - Se mejoró la legibilidad de todos los textos descriptivos, pasando de un gris claro (`text-gray-400`) al color oficial de marca atenuado (`text-[#162B45]/70`), lo que aumenta el contraste contra el fondo beige sin sentirse pesado.\n  - Se añadió un efecto interactivo premium sutil: en desktop, al hacer hover sobre los textos descriptivos, su opacidad sube al 90% (`md:hover:text-[#162B45]/90`).\n- **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.\n
 \n---\n\n### Equilibrio y Ritmo Editorial en Benefits\n- **Agente:** Antigravity\n- **Fecha/Hora:** 04 de mayo de 2026\n- **Archivos Modificados:**\n  - `components/Benefits.tsx`\n- **Resumen de Cambios:**\n  - Se aligeró el peso visual de la columna protagonista (`leading-tight` en el título, `mt-4` en párrafo) para evitar que se vea como un "bloque pesado".\n  - Se incrementó el espaciado vertical (`mb-20` en título de sección, `space-y-8` en bloques derechos) para darle más respiración y ritmo de lectura a toda la composición.\n  - Se diferenció visualmente la columna derecha con un tono apenas más tenue (`text-[#162B45]/65`) y anchos controlados (`max-w-sm`) para facilitar el escaneo rápido.\n  - Se incorporó una micro-interacción premium en desktop: al hacer hover sobre los bloques secundarios de la derecha, estos se desplazan sutilmente (`md:hover:translate-x-1`) con una transición fluida de 500ms.\n- **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.\n
+
+---
+
+### Polish páginas de sabores — Impeccable + Emil Kowalski
+- **Agente:** Claude VS Code
+- **Fecha/Hora:** 07 de mayo de 2026
+- **Archivos Modificados:**
+  - `app/sabores/[slug]/page.tsx`
+- **Resumen de Cambios:**
+  - **"Volver a sabores":** `hover:text-[#128708]` → `text-[#162B45]/60 hover:text-[#162B45]` (La Regla del Verde Único: verde solo en CTAs de compra). Añadido `active:scale-[0.97]` para feedback táctil.
+  - **Sombra botella:** `rgba(0,0,0,0.15)` → `rgba(22,43,69,0.18)` — sombra tintada hacia el azul de marca.
+  - **Transición botella:** añadido `ease-out` al `transition-transform duration-700`.
+  - **Grises puros eliminados:** `text-gray-600` → `text-[#162B45]/60`, `text-gray-400` → `text-[#162B45]/30`, `border-gray-200` → `border-[#162B45]/10` en 5 lugares.
+  - **Botones +/−:** `transition-colors` → `transition-[background-color,color,transform] duration-150` (Emil: especificar propiedades exactas).
+  - **Em dashes eliminados** del copy de pasos de preparación (impeccable los prohíbe).
+  - **Copy subtítulo preparación** reescrito: frase incompleta/rota → "Tres pasos para disfrutar de la experiencia completa en casa."
+  - **Step titles:** añadido `tracking-tight` a los 3 títulos de pasos.
+  - **Placeholder sin imagen:** `bg-gray-200 text-gray-400` → `bg-[#162B45]/5 text-[#162B45]/30`.
+  - **Texto paso 1:** corregido a "Debe estar descongelado; el hielo ayudará a la textura."
+- **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente.
+

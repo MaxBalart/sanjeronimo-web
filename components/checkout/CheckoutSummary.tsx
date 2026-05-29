@@ -15,7 +15,7 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
   if (!mounted) {
     return (
       <div className="bg-white rounded-2xl shadow-sm p-6 sticky top-28">
-        <h2 className="text-lg font-bold text-[#162B45] mb-6">Resumen del pedido</h2>
+        <h2 className="text-lg font-bold text-[#1f3460] mb-6">Resumen del pedido</h2>
         <div className="animate-pulse space-y-4">
           <div className="h-12 bg-gray-100 rounded-lg"></div>
           <div className="h-12 bg-gray-100 rounded-lg"></div>
@@ -28,7 +28,7 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
   if (cart.length === 0) {
     return (
       <div className="bg-white rounded-2xl shadow-sm p-6 sticky top-28 text-center">
-        <h2 className="text-lg font-bold text-[#162B45] mb-4">Resumen del pedido</h2>
+        <h2 className="text-lg font-bold text-[#1f3460] mb-4">Resumen del pedido</h2>
         <p className="text-gray-500 mb-4">Tu carrito está vacío.</p>
         <Link href="/#sabores" className="text-[#128708] font-semibold hover:underline">
           Ver sabores →
@@ -39,7 +39,7 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
 
   return (
     <div className="bg-white rounded-2xl shadow-sm p-6 sticky top-28">
-      <h2 className="text-lg font-bold text-[#162B45] mb-6">Resumen del pedido</h2>
+      <h2 className="text-lg font-bold text-[#1f3460] mb-6">Resumen del pedido</h2>
 
       <div className="space-y-4 mb-6">
         {cart.map((item) => {
@@ -58,7 +58,7 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
               </div>
               <span className="font-medium" style={{ color: saborColor }}>{item.nombre}</span>
             </div>
-            <span className="font-semibold text-[#162B45]">
+            <span className="font-semibold text-[#1f3460]">
               ${(item.precio * item.cantidad).toLocaleString("es-CL")}
             </span>
           </div>
@@ -78,8 +78,8 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
       </div>
 
       <div className="pt-4 mt-4 border-t border-gray-100 flex justify-between items-center mb-6">
-        <span className="text-lg font-bold text-[#162B45]">Total</span>
-        <span className="text-2xl font-bold text-[#162B45]">
+        <span className="text-lg font-bold text-[#1f3460]">Total</span>
+        <span className="text-2xl font-bold text-[#1f3460]">
           ${total.toLocaleString("es-CL")}
         </span>
       </div>

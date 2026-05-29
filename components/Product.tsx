@@ -14,7 +14,7 @@ export default function Product() {
         {/* Texto */}
         <div className="text-center md:text-left">
 
-          <h2 className="text-3xl md:text-4xl font-bold text-[#162B45] mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1f3460] mb-6">
   El equilibrio perfecto
 </h2>
 

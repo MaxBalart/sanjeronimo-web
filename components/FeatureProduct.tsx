@@ -15,14 +15,14 @@ const PRODUCTOS = [
     titulo: "El toque tropical perfecto",
     descripcion: "Maracuyá fresco con nuestro sour clásico. Dulzor y acidez en perfecto equilibrio.",
     imagen: "/Botella_Maracuya.png",
-    color: "#F5A300",
+    color: "#ee7203",
   },
   {
     nombre: "Sin azúcar",
     titulo: "Todo el sabor, sin azúcar",
     descripcion: "Misma receta artesanal, sin azúcar añadida. Disfruta sin compromisos.",
     imagen: "/Botella_SinAzucar.png",
-    color: "#38BDF8",
+    color: "#76c3df",
   },
 ];
 
@@ -70,7 +70,7 @@ export default function FeatureProduct() {
   }`}
 >
   {/* sombra mejorada animada */}
-  <div className="absolute bottom-3 w-[140px] md:w-[180px] h-[22px] bg-[#162B45]/20 blur-2xl rounded-full animate-shadow" />
+  <div className="absolute bottom-3 w-[140px] md:w-[180px] h-[22px] bg-[#1f3460]/20 blur-2xl rounded-full animate-shadow" />
 
   <Image
     src={producto.imagen}
@@ -108,11 +108,11 @@ export default function FeatureProduct() {
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#162B45] leading-tight mb-5 max-w-sm mx-auto md:mx-0">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#1f3460] leading-tight mb-5 max-w-sm mx-auto md:mx-0">
               {producto.titulo}
             </h2>
 
-            <p className="text-lg text-[#162B45]/60 mb-10 max-w-md mx-auto md:mx-0 leading-relaxed">
+            <p className="text-lg text-[#1f3460]/60 mb-10 max-w-md mx-auto md:mx-0 leading-relaxed">
               {producto.descripcion}
             </p>
 

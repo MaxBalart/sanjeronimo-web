@@ -41,9 +41,11 @@ Tu objetivo es ayudar a construir una web funcional, clara y eficiente para la m
 
 * Colores principales:
 
-  * Azul: #162B45
+  * Azul: #1f3460
   * Verde: #128708
   * Beige: #FAF3DE
+  * Naranjo: #ee7203
+  * Celeste: #76c3df
 
 * Mensaje clave:
   "Un sour premium con historia"

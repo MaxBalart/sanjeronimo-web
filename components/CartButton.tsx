@@ -8,7 +8,7 @@ export default function CartButton({ onClick }: { onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#162B45]/10 active:scale-[0.92] transition-[background-color,transform] duration-150"
+      className="relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#1f3460]/10 active:scale-[0.92] transition-[background-color,transform] duration-150"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +16,7 @@ export default function CartButton({ onClick }: { onClick: () => void }) {
         height="22"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#162B45"
+        stroke="#1f3460"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"

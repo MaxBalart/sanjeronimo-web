@@ -30,7 +30,7 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
       
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto px-6 py-12 md:py-20">
-        <Link href="/#sabores" className="inline-flex items-center text-[#162B45]/60 hover:text-[#162B45] font-medium mb-8 transition-[color] duration-150 active:scale-[0.97]">
+        <Link href="/#sabores" className="inline-flex items-center text-[#1f3460]/60 hover:text-[#1f3460] font-medium mb-8 transition-[color] duration-150 active:scale-[0.97]">
           <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
           Volver a sabores
         </Link>
@@ -50,21 +50,21 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
 
           {/* Info */}
           <div className="space-y-8">
-            <h1 className="text-4xl md:text-6xl font-bold text-[#162B45] leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold text-[#1f3460] leading-tight">
               Sour San Jerónimo <br/>
               <span style={{ color: sabor.color }}>{sabor.nombre}</span>
             </h1>
 
-            <p className="text-lg text-[#162B45]/60 leading-relaxed">
+            <p className="text-lg text-[#1f3460]/60 leading-relaxed">
               {sabor.descripcionLarga}
             </p>
 
-            <div className="pt-6 border-t border-[#162B45]/10">
+            <div className="pt-6 border-t border-[#1f3460]/10">
               <div className="flex items-baseline gap-2 mb-6">
-                <p className="text-3xl font-bold text-[#162B45]">
+                <p className="text-3xl font-bold text-[#1f3460]">
                   ${sabor.precio.toLocaleString("es-CL")}
                 </p>
-                <span className="text-sm text-[#162B45]/30 font-normal">/ botella</span>
+                <span className="text-sm text-[#1f3460]/30 font-normal">/ botella</span>
               </div>
 
               {/* Botones Carrito */}
@@ -84,7 +84,7 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
                     >
                       −
                     </button>
-                    <span className="text-xl font-bold text-[#162B45]">
+                    <span className="text-xl font-bold text-[#1f3460]">
                       {enCarrito.cantidad}
                     </span>
                     <button
@@ -116,10 +116,10 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
       <section className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#162B45] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1f3460] mb-4">
               El arte de servirlo perfecto
             </h2>
-            <p className="text-[#162B45]/60 max-w-2xl mx-auto text-lg">
+            <p className="text-[#1f3460]/60 max-w-2xl mx-auto text-lg">
               Tres pasos para disfrutar de la experiencia completa en casa.
             </p>
           </div>
@@ -127,24 +127,24 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-10 order-2 md:order-1">
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#162B45] text-white flex items-center justify-center font-bold text-xl">1</div>
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1f3460] text-white flex items-center justify-center font-bold text-xl">1</div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#162B45] tracking-tight mb-2">Agrega San Jerónimo y hielo a gusto</h3>
-                  <p className="text-[#162B45]/60">Vierte el contenido de la botella en una licuadora y agrega hielo a gusto. Debe estar descongelado; el hielo ayudará a la textura.</p>
+                  <h3 className="text-xl font-bold text-[#1f3460] tracking-tight mb-2">Agrega San Jerónimo y hielo a gusto</h3>
+                  <p className="text-[#1f3460]/60">Vierte el contenido de la botella en una licuadora y agrega hielo a gusto. Debe estar descongelado; el hielo ayudará a la textura.</p>
                 </div>
               </div>
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#162B45] text-white flex items-center justify-center font-bold text-xl">2</div>
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1f3460] text-white flex items-center justify-center font-bold text-xl">2</div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#162B45] tracking-tight mb-2">Licúa hasta obtener mezcla uniforme y espumosa</h3>
-                  <p className="text-[#162B45]/60">Licúa a velocidad alta hasta que la mezcla sea homogénea. La espuma natural aparece sola.</p>
+                  <h3 className="text-xl font-bold text-[#1f3460] tracking-tight mb-2">Licúa hasta obtener mezcla uniforme y espumosa</h3>
+                  <p className="text-[#1f3460]/60">Licúa a velocidad alta hasta que la mezcla sea homogénea. La espuma natural aparece sola.</p>
                 </div>
               </div>
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#162B45] text-white flex items-center justify-center font-bold text-xl">3</div>
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1f3460] text-white flex items-center justify-center font-bold text-xl">3</div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#162B45] tracking-tight mb-2">Sirve y disfruta</h3>
-                  <p className="text-[#162B45]/60">Sirve en copas y disfruta. Una botella rinde entre 9 y 12 copas.</p>
+                  <h3 className="text-xl font-bold text-[#1f3460] tracking-tight mb-2">Sirve y disfruta</h3>
+                  <p className="text-[#1f3460]/60">Sirve en copas y disfruta. Una botella rinde entre 9 y 12 copas.</p>
                 </div>
               </div>
             </div>
@@ -159,8 +159,8 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
                   className="object-cover"
                 />
               ) : (
-                <div className="w-full h-full bg-[#162B45]/5 flex items-center justify-center">
-                  <span className="text-[#162B45]/30 text-sm">Imagen de preparación</span>
+                <div className="w-full h-full bg-[#1f3460]/5 flex items-center justify-center">
+                  <span className="text-[#1f3460]/30 text-sm">Imagen de preparación</span>
                 </div>
               )}
             </div>

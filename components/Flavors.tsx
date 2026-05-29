@@ -29,8 +29,8 @@ export default function Flavors() {
     <section id="sabores" className="bg-[#FAF3DE] py-20 px-6">
       <div ref={ref} className="max-w-6xl mx-auto">
 
-        <div className="h-px bg-[#162B45]/10 mb-12" />
-        <h2 className={`text-4xl md:text-5xl font-bold tracking-tight text-[#162B45] mb-12 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+        <div className="h-px bg-[#1f3460]/10 mb-12" />
+        <h2 className={`text-4xl md:text-5xl font-bold tracking-tight text-[#1f3460] mb-12 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
           Elige el tuyo
         </h2>
 
@@ -93,8 +93,8 @@ function FeaturedCard({ sabor, cart, mounted, addToCart, removeFromCart, visible
                 {sabor.nombre}
               </h3>
             </Link>
-            <p className="text-[#162B45]/60 text-sm leading-relaxed mb-6 max-w-xs">{sabor.descripcion}</p>
-            <p className="text-3xl font-bold text-[#162B45]">
+            <p className="text-[#1f3460]/60 text-sm leading-relaxed mb-6 max-w-xs">{sabor.descripcion}</p>
+            <p className="text-3xl font-bold text-[#1f3460]">
               ${sabor.precio.toLocaleString("es-CL")}
             </p>
           </div>
@@ -150,11 +150,11 @@ function CompactCard({ sabor, cart, mounted, addToCart, removeFromCart, visible,
             <Link href={`/sabores/${sabor.slug}`}>
               <h3 className="text-base font-semibold mb-1 transition-colors" style={{ color: sabor.color }}>{sabor.nombre}</h3>
             </Link>
-            <p className="text-[#162B45]/55 text-xs leading-relaxed line-clamp-2">{sabor.descripcion}</p>
+            <p className="text-[#1f3460]/55 text-xs leading-relaxed line-clamp-2">{sabor.descripcion}</p>
           </div>
 
           <div className="flex items-center justify-between mt-3">
-            <p className="text-lg font-bold text-[#162B45]">${sabor.precio.toLocaleString("es-CL")}</p>
+            <p className="text-lg font-bold text-[#1f3460]">${sabor.precio.toLocaleString("es-CL")}</p>
             {mounted && enCarrito ? (
               <div className="flex items-center gap-2">
                 <button onClick={() => removeFromCart(sabor.nombre)} style={{ backgroundColor: sabor.color }} className="w-7 h-7 rounded-full text-white flex items-center justify-center text-base font-bold hover:opacity-80 active:scale-[0.92] transition-[opacity,transform] duration-150">−</button>

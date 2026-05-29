@@ -32,7 +32,7 @@ export default function Navbar() {
 
           {!isCheckout && (
             <div className="flex items-center gap-8">
-              <div className="hidden sm:flex items-center gap-6 text-sm text-[#162B45]">
+              <div className="hidden sm:flex items-center gap-6 text-sm text-[#1f3460]">
                 
                 {/* Menú Desplegable Sabores */}
                 <div className="relative group py-4">

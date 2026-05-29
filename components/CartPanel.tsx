@@ -31,7 +31,7 @@ export default function CartPanel({
     <>
       <div
         onClick={onClose}
-        className={`fixed inset-0 bg-[#162B45]/50 z-40 transition-opacity duration-200 ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 bg-[#1f3460]/50 z-40 transition-opacity duration-200 ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       />
 
       <div
@@ -40,7 +40,7 @@ export default function CartPanel({
         }`}
       >
         <div className="p-4 border-b flex justify-between items-center">
-          <h2 className="font-bold text-[#162B45]">Carrito</h2>
+          <h2 className="font-bold text-[#1f3460]">Carrito</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600 active:scale-[0.9] transition-[color,transform] duration-150">✕</button>
         </div>
 
@@ -74,13 +74,13 @@ export default function CartPanel({
               Vaciar carrito
             </button>
           )}
-          <p className="font-bold text-[#162B45]">
+          <p className="font-bold text-[#1f3460]">
             Total: ${mounted ? total.toLocaleString("es-CL") : "0"}
           </p>
           <button
             onClick={handleCheckout}
             disabled={!mounted || cart.length === 0}
-            className="w-full bg-[#162B45] text-white py-2 rounded-full hover:opacity-90 active:scale-[0.98] transition-[opacity,transform] duration-150 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="w-full bg-[#1f3460] text-white py-2 rounded-full hover:opacity-90 active:scale-[0.98] transition-[opacity,transform] duration-150 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             Ir a pagar
           </button>

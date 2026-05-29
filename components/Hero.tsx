@@ -48,17 +48,17 @@ export default function Hero() {
 
           {/* Centro — Texto */}
           <div className="flex flex-col items-center justify-center text-center px-5 col-span-3 md:col-span-1">
-            <span className="text-xl md:text-3xl font-bold text-[#162B45] tracking-widest uppercase mb-1">
+            <span className="text-xl md:text-3xl font-bold text-[#1f3460] tracking-widest uppercase mb-1">
               Sour
             </span>
             <h1
-              className="text-6xl md:text-[6rem] leading-none text-[#162B45] tracking-wide uppercase"
+              className="text-6xl md:text-[6rem] leading-none text-[#1f3460] tracking-wide uppercase"
               style={{ fontFamily: '"Phosphate Inline", Phosphate, sans-serif' }}
             >
               San Jerónimo
             </h1>
             <p
-              className="text-3xl md:text-4xl text-[#162B45]/80 mt-4"
+              className="text-3xl md:text-4xl text-[#1f3460]/80 mt-4"
               style={{ fontFamily: "'SignPainter', cursive" }}
             >
               Un{" "}
@@ -68,7 +68,7 @@ export default function Hero() {
           </div>
 
           {/* Derecha — Colibrí */}
-          <div className="relative hidden md:block" style={{ transform: 'scaleX(-1)' }}>
+          <div className="relative hidden md:block">
             <Image
               src="/Colibri%20original.png"
               alt="Colibrí San Jerónimo"
@@ -85,7 +85,7 @@ export default function Hero() {
       <div className={`absolute inset-0 grid grid-cols-1 md:grid-cols-2 transition-transform duration-700 ease-out ${slideClass(1)}`}>
 
         {/* Izquierda — Texto */}
-        <div className="bg-[#162B45] flex items-center justify-center px-10 md:px-20 py-16 md:py-0">
+        <div className="bg-[#1f3460] flex items-center justify-center px-10 md:px-20 py-16 md:py-0">
           <div className="max-w-md">
             <h1 className="text-white font-bold leading-none">
               <span className="block text-4xl md:text-5xl mb-3">
@@ -130,7 +130,7 @@ export default function Hero() {
             className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
               i === current
                 ? "bg-[#128708] scale-125"
-                : "bg-[#162B45]/20 hover:bg-[#162B45]/40"
+                : "bg-[#1f3460]/20 hover:bg-[#1f3460]/40"
             }`}
           />
         ))}

@@ -80,7 +80,7 @@ export default function CheckoutForm({
       
       {/* 1. Datos de contacto */}
       <section className="bg-white rounded-2xl shadow-sm p-6 md:p-8">
-        <h2 className="text-xl font-bold text-[#162B45] mb-6">Datos de contacto</h2>
+        <h2 className="text-xl font-bold text-[#1f3460] mb-6">Datos de contacto</h2>
         
         <div className="space-y-4">
           <div>
@@ -90,7 +90,7 @@ export default function CheckoutForm({
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
               placeholder="Ej: Juan Pérez"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition-[border-color,box-shadow]"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#1f3460] focus:ring-1 focus:ring-[#1f3460] transition-[border-color,box-shadow]"
               required
             />
           </div>
@@ -103,7 +103,7 @@ export default function CheckoutForm({
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="correo@ejemplo.com"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition-[border-color,box-shadow]"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#1f3460] focus:ring-1 focus:ring-[#1f3460] transition-[border-color,box-shadow]"
                 required
               />
             </div>
@@ -114,7 +114,7 @@ export default function CheckoutForm({
                 value={telefono}
                 onChange={(e) => setTelefono(e.target.value)}
                 placeholder="+56 9 1234 5678"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition-[border-color,box-shadow]"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#1f3460] focus:ring-1 focus:ring-[#1f3460] transition-[border-color,box-shadow]"
                 required
               />
             </div>
@@ -124,7 +124,7 @@ export default function CheckoutForm({
 
       {/* 2. Dirección de despacho */}
       <section className="bg-white rounded-2xl shadow-sm p-6 md:p-8">
-        <h2 className="text-xl font-bold text-[#162B45] mb-6">Dirección de despacho</h2>
+        <h2 className="text-xl font-bold text-[#1f3460] mb-6">Dirección de despacho</h2>
         
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -133,7 +133,7 @@ export default function CheckoutForm({
               <select
                 value={region}
                 onChange={(e) => setRegion(e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition-[border-color,box-shadow] cursor-pointer"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#1f3460] focus:ring-1 focus:ring-[#1f3460] transition-[border-color,box-shadow] cursor-pointer"
                 required
               >
                 <option value="">Selecciona una región</option>
@@ -150,7 +150,7 @@ export default function CheckoutForm({
                 value={comuna}
                 onChange={(e) => setComuna(e.target.value)}
                 placeholder="Ej: Providencia"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition-[border-color,box-shadow]"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#1f3460] focus:ring-1 focus:ring-[#1f3460] transition-[border-color,box-shadow]"
                 required
               />
             </div>
@@ -163,7 +163,7 @@ export default function CheckoutForm({
               value={direccion}
               onChange={(e) => setDireccion(e.target.value)}
               placeholder="Ej: Av. Los Leones 1234"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition-[border-color,box-shadow]"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#1f3460] focus:ring-1 focus:ring-[#1f3460] transition-[border-color,box-shadow]"
               required
             />
           </div>
@@ -175,7 +175,7 @@ export default function CheckoutForm({
               value={depto}
               onChange={(e) => setDepto(e.target.value)}
               placeholder="Ej: Depto 402"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#162B45] focus:ring-1 focus:ring-[#162B45] transition-[border-color,box-shadow]"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#1f3460] focus:ring-1 focus:ring-[#1f3460] transition-[border-color,box-shadow]"
             />
           </div>
         </div>
@@ -184,7 +184,7 @@ export default function CheckoutForm({
       {/* 3. Método de pago */}
       <section className="bg-white rounded-2xl shadow-sm p-6 md:p-8">
         <div className="mb-6">
-          <h2 className="text-xl font-bold text-[#162B45] mb-2">Método de pago</h2>
+          <h2 className="text-xl font-bold text-[#1f3460] mb-2">Método de pago</h2>
           <p className="text-sm text-gray-500">
             Serás redireccionado a una página segura de pago, jamás guardaremos tus datos bancarios.
           </p>
@@ -200,7 +200,7 @@ export default function CheckoutForm({
               onChange={(e) => setMedioPago(e.target.value)}
               className="w-5 h-5 text-[#128708] border-gray-300 focus:ring-[#128708]" 
             />
-            <span className="ml-3 font-medium text-[#162B45]">Webpay / Flow</span>
+            <span className="ml-3 font-medium text-[#1f3460]">Webpay / Flow</span>
           </label>
           
           <label className={`flex items-center p-4 border rounded-xl cursor-pointer transition-colors ${medioPago === 'mercadopago' ? 'border-[#128708] bg-[#128708]/5' : 'border-gray-200 hover:border-gray-300'}`}>
@@ -212,7 +212,7 @@ export default function CheckoutForm({
               onChange={(e) => setMedioPago(e.target.value)}
               className="w-5 h-5 text-[#128708] border-gray-300 focus:ring-[#128708]" 
             />
-            <span className="ml-3 font-medium text-[#162B45]">MercadoPago</span>
+            <span className="ml-3 font-medium text-[#1f3460]">MercadoPago</span>
           </label>
         </div>
       </section>
@@ -227,8 +227,8 @@ export default function CheckoutForm({
         )}
 
         {/* Mensaje de Urgencia */}
-        <div className="bg-[#162B45]/5 border border-[#162B45]/10 rounded-xl p-3 mb-6 text-center">
-          <p className="text-[#162B45]/70 font-semibold text-sm">
+        <div className="bg-[#1f3460]/5 border border-[#1f3460]/10 rounded-xl p-3 mb-6 text-center">
+          <p className="text-[#1f3460]/70 font-semibold text-sm">
             🚚 Despachos disponibles esta semana
           </p>
         </div>

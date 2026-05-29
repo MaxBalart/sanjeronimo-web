@@ -325,6 +325,39 @@ Por favor, registra aquí los cambios significativos que realices para que ambos
 
 ---
 
+### Integración checkout → backend + modo simulación
+- **Agente:** Claude VS Code
+- **Fecha/Hora:** 29 de mayo de 2026
+- **Archivos Modificados:**
+  - `app/api/checkout/route.ts` (reescrito)
+  - `components/checkout/CheckoutForm.tsx` (fix medioPago + opción simulación)
+  - `.env.local` (nuevo — BACKEND_URL)
+  - `package.json` (uuid añadido)
+- **Resumen de Cambios:**
+  - El endpoint `/api/checkout` ahora llama al backend en `BACKEND_URL/pedidos` con el payload correcto `{ items, totalPesos, cliente, medioPago }`.
+  - **Bug corregido:** `medioPago` se enviaba dentro de `cliente` — ahora va al nivel raíz del body, alineado con lo que espera el backend.
+  - **Modo simulación:** si `medioPago === "simulacion"`, el endpoint genera un `orderId` local y redirige directo a `/pago-exitoso?orderId=xxx` sin llamar al backend. Permite probar el flujo completo de UI sin credenciales de pago.
+  - Nueva opción "Pago de prueba" en el formulario de checkout (radio button naranjo, badge "Solo testing").
+  - `BACKEND_URL=https://sanjeronimo-backend.vercel.app` en `.env.local`.
+- **Próximos Pasos / Bloqueos:** Eliminar la opción "Pago de prueba" antes del lanzamiento real. Configurar `BACKEND_URL` en Vercel como variable de entorno de producción.
+
+---
+
+### Páginas de resultado de pago (/pago-exitoso y /pago-fallido)
+- **Agente:** Claude VS Code
+- **Fecha/Hora:** 29 de mayo de 2026
+- **Archivos Modificados:**
+  - `app/pago-exitoso/page.tsx` (Nuevo)
+  - `app/pago-fallido/page.tsx` (Nuevo)
+- **Resumen de Cambios:**
+  - Creadas ambas páginas de resultado post-pago, listas para recibir `?orderId=xxx` en la URL.
+  - `/pago-exitoso`: ícono de check verde `#128708`, mensaje de confirmación, muestra `orderId` si viene en la URL, CTA "Volver al inicio" y link secundario a sabores.
+  - `/pago-fallido`: ícono X en naranjo `#ee7203`, mensaje neutro ("no se realizó ningún cargo"), CTA "Intentar de nuevo" → `/checkout`, link secundario al inicio.
+  - Ambas usan `useSearchParams` dentro de `<Suspense>` (requerido por Next.js para páginas con query params), fondo `#FAF3DE`, card blanca con `rounded-3xl`, consistente con el estilo del checkout.
+- **Próximos Pasos / Bloqueos:** Integración de pasarela de pago (Flow / MercadoPago) en `/api/checkout/route.ts` pendiente. El backend debe redirigir a estas URLs al finalizar el pago.
+
+---
+
 ### Polish páginas de sabores — Impeccable + Emil Kowalski
 - **Agente:** Claude VS Code
 - **Fecha/Hora:** 07 de mayo de 2026

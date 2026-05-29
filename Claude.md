@@ -101,6 +101,14 @@ Pide aclaración si falta información crítica.
 
 ---
 
+## 🔗 Integración ERP (pendiente)
+
+Se creó el archivo `WEB_ERP_BRIDGE.md` con la descripción completa de la web, el flujo de checkout, los datos que genera cada orden y los endpoints que el ERP debería exponer para integrarse.
+
+**Estado:** Esperando respuesta del agente ERP. Una vez que complete la sección 9 del archivo con el stack y arquitectura del ERP, se puede proceder a conectar `app/api/checkout/route.ts` con la API interna.
+
+---
+
 ## 🚀 Objetivo final
 
 Construir una web que:

@@ -47,16 +47,8 @@ export default function CheckoutForm({
         body: JSON.stringify({
           items: cart,
           total,
-          cliente: { 
-            nombre, 
-            email, 
-            telefono, 
-            region, 
-            comuna, 
-            direccion, 
-            depto,
-            medioPago 
-          },
+          medioPago,
+          cliente: { nombre, email, telefono, region, comuna, direccion, depto },
         }),
       });
       
@@ -204,15 +196,30 @@ export default function CheckoutForm({
           </label>
           
           <label className={`flex items-center p-4 border rounded-xl cursor-pointer transition-colors ${medioPago === 'mercadopago' ? 'border-[#128708] bg-[#128708]/5' : 'border-gray-200 hover:border-gray-300'}`}>
-            <input 
-              type="radio" 
-              name="pago" 
-              value="mercadopago" 
+            <input
+              type="radio"
+              name="pago"
+              value="mercadopago"
               checked={medioPago === "mercadopago"}
               onChange={(e) => setMedioPago(e.target.value)}
-              className="w-5 h-5 text-[#128708] border-gray-300 focus:ring-[#128708]" 
+              className="w-5 h-5 text-[#128708] border-gray-300 focus:ring-[#128708]"
             />
             <span className="ml-3 font-medium text-[#1f3460]">MercadoPago</span>
+          </label>
+
+          <label className={`flex items-center p-4 border rounded-xl cursor-pointer transition-colors ${medioPago === 'simulacion' ? 'border-[#ee7203] bg-[#ee7203]/5' : 'border-gray-200 hover:border-gray-300'}`}>
+            <input
+              type="radio"
+              name="pago"
+              value="simulacion"
+              checked={medioPago === "simulacion"}
+              onChange={(e) => setMedioPago(e.target.value)}
+              className="w-5 h-5 text-[#ee7203] border-gray-300 focus:ring-[#ee7203]"
+            />
+            <div className="ml-3">
+              <span className="font-medium text-[#1f3460]">Pago de prueba</span>
+              <span className="ml-2 text-xs bg-[#ee7203]/15 text-[#ee7203] px-2 py-0.5 rounded-full font-medium">Solo testing</span>
+            </div>
           </label>
         </div>
       </section>

@@ -34,7 +34,7 @@ export default function AgeGate() {
           alt="San Jerónimo"
           width={80}
           height={80}
-          className="mb-8 opacity-90"
+          className="mb-8 brightness-0 invert opacity-90"
         />
 
         <p className="text-xs tracking-[0.2em] text-white/40 uppercase mb-3">

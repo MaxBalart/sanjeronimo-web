@@ -35,13 +35,13 @@ export default function CartPanel({
       />
 
       <div
-        className={`fixed top-16 right-0 w-80 max-h-[80vh] bg-white z-50 shadow-xl rounded-bl-2xl transition-transform duration-300 ease-out flex flex-col ${
+        className={`fixed top-20 right-0 w-80 max-h-[80vh] bg-white z-50 shadow-xl rounded-bl-2xl transition-transform duration-300 ease-out flex flex-col ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="p-4 border-b flex justify-between items-center">
           <h2 className="font-bold text-[#1f3460]">Carrito</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 active:scale-[0.9] transition-[color,transform] duration-150">✕</button>
+          <button onClick={onClose} aria-label="Cerrar carrito" className="text-gray-400 hover:text-gray-600 active:scale-[0.9] transition-[color,transform] duration-150">✕</button>
         </div>
 
         <div className="flex-1 overflow-y-auto p-4 space-y-4">

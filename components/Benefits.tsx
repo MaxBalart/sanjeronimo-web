@@ -37,7 +37,7 @@ export default function Benefits() {
       <div ref={ref} className="max-w-5xl mx-auto">
 
         {/* Cabecera de sección */}
-        <div className={`flex items-center gap-4 mb-16 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}>
+        <div className={`flex items-center gap-4 mb-16 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}>
           <span className="text-[10px] font-medium tracking-[0.25em] uppercase text-[#1f3460]/40">
             Elaboración
           </span>

@@ -10,7 +10,7 @@ function PagoExitosoContent() {
 
   return (
     <main className="min-h-screen bg-[#FAF3DE] pt-24 pb-16 px-6 flex flex-col items-center justify-center text-center">
-      <div className="bg-white rounded-3xl shadow-sm max-w-md w-full p-12">
+      <div className="bg-white rounded-3xl border border-gray-100 max-w-md w-full p-12">
         {/* Ícono de éxito */}
         <div className="w-20 h-20 bg-[#128708]/10 rounded-full flex items-center justify-center mx-auto mb-8">
           <svg className="w-10 h-10 text-[#128708]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -22,20 +22,20 @@ function PagoExitosoContent() {
           ¡Pedido confirmado!
         </h1>
 
-        <p className="text-[#162B45]/60 mb-2">
+        <p className="text-[#1f3460]/60 mb-2">
           Gracias por tu compra. Te enviamos la confirmación y boleta a tu correo electrónico.
         </p>
 
         {orderId && (
-          <p className="text-sm text-[#162B45]/40 mt-4 mb-8 font-mono">
+          <p className="text-sm text-[#1f3460]/40 mt-4 mb-8 font-mono">
             Orden #{orderId}
           </p>
         )}
 
         {!orderId && <div className="mb-8" />}
 
-        <div className="border-t border-[#162B45]/10 pt-8 space-y-3">
-          <p className="text-sm text-[#162B45]/50 mb-4">
+        <div className="border-t border-[#1f3460]/10 pt-8 space-y-3">
+          <p className="text-sm text-[#1f3460]/50 mb-4">
             Nos pondremos en contacto para coordinar el despacho.
           </p>
 
@@ -48,7 +48,7 @@ function PagoExitosoContent() {
 
           <Link
             href="/#sabores"
-            className="block text-[#162B45]/60 hover:text-[#162B45] py-3 text-sm transition-colors duration-150"
+            className="block text-[#1f3460]/60 hover:text-[#1f3460] py-3 text-sm transition-colors duration-150"
           >
             Ver más sabores
           </Link>

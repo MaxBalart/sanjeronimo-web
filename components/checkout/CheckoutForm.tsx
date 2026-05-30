@@ -149,7 +149,7 @@ export default function CheckoutForm({
       )}
 
       {/* 1. Datos personales */}
-      <section className="bg-white rounded-2xl shadow-sm p-6 md:p-8">
+      <section className="bg-white rounded-2xl border border-gray-100 p-6 md:p-8">
         <h2 className="text-xl font-bold text-[#1f3460] mb-6">Datos personales</h2>
 
         <div className="space-y-4">
@@ -195,7 +195,7 @@ export default function CheckoutForm({
       </section>
 
       {/* 2. Dirección de despacho */}
-      <section className="bg-white rounded-2xl shadow-sm p-6 md:p-8">
+      <section className="bg-white rounded-2xl border border-gray-100 p-6 md:p-8">
         <h2 className="text-xl font-bold text-[#1f3460] mb-6">Dirección de despacho</h2>
 
         <div className="space-y-4">
@@ -237,7 +237,7 @@ export default function CheckoutForm({
       </section>
 
       {/* 3. Método de pago */}
-      <section className="bg-white rounded-2xl shadow-sm p-6 md:p-8">
+      <section className="bg-white rounded-2xl border border-gray-100 p-6 md:p-8">
         <div className="mb-6">
           <h2 className="text-xl font-bold text-[#1f3460] mb-2">Método de pago</h2>
           <p className="text-sm text-gray-500">
@@ -285,7 +285,7 @@ export default function CheckoutForm({
 
         <div className="bg-[#1f3460]/5 border border-[#1f3460]/10 rounded-xl p-3 mb-6 text-center">
           <p className="text-[#1f3460]/70 font-semibold text-sm">
-            🚚 Despachos disponibles esta semana
+            Despachos disponibles esta semana
           </p>
         </div>
 

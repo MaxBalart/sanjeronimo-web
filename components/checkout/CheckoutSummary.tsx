@@ -14,7 +14,7 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
 
   if (!mounted) {
     return (
-      <div className="bg-white rounded-2xl shadow-sm p-6 sticky top-28">
+      <div className="bg-white rounded-2xl border border-gray-100 p-6 sticky top-28">
         <h2 className="text-lg font-bold text-[#1f3460] mb-6">Resumen del pedido</h2>
         <div className="animate-pulse space-y-4">
           <div className="h-12 bg-gray-100 rounded-lg"></div>
@@ -27,7 +27,7 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
 
   if (cart.length === 0) {
     return (
-      <div className="bg-white rounded-2xl shadow-sm p-6 sticky top-28 text-center">
+      <div className="bg-white rounded-2xl border border-gray-100 p-6 sticky top-28 text-center">
         <h2 className="text-lg font-bold text-[#1f3460] mb-4">Resumen del pedido</h2>
         <p className="text-gray-500 mb-4">Tu carrito está vacío.</p>
         <Link href="/#sabores" className="text-[#128708] font-semibold hover:underline">
@@ -38,7 +38,7 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-6 sticky top-28">
+    <div className="bg-white rounded-2xl border border-gray-100 p-6 sticky top-28">
       <h2 className="text-lg font-bold text-[#1f3460] mb-6">Resumen del pedido</h2>
 
       <div className="space-y-4 mb-6">
@@ -73,7 +73,7 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
         </div>
         <div className="flex justify-between text-gray-500">
           <span>Envío</span>
-          <span className="text-xs">Calculado en el siguiente paso</span>
+          <span className="text-xs">A coordinar con el equipo</span>
         </div>
       </div>
 

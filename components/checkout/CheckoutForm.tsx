@@ -53,6 +53,7 @@ export default function CheckoutForm({
 
   // Cliente encontrado en backend (source of truth para comparar dirección)
   const [clienteGuardado, setClienteGuardado] = useState<DatosCliente | null>(null);
+  const [clienteID, setClienteID] = useState<string | null>(null);
   const [buscandoCliente, setBuscandoCliente] = useState(false);
   const [mostrandoOtraDireccion, setMostrandoOtraDireccion] = useState(false);
   const [modalGuardarDireccion, setModalGuardarDireccion] = useState(false);
@@ -77,15 +78,17 @@ export default function CheckoutForm({
   }
 
   // Email onBlur → buscar cliente en backend
+  // Respuesta del backend: { encontrado, clienteID, datos }
   const handleEmailBlur = async () => {
     if (!form.email || !/\S+@\S+\.\S+/.test(form.email)) return;
     setBuscandoCliente(true);
     try {
       const res = await fetch(`/api/clientes/buscar?email=${encodeURIComponent(form.email)}`);
       const data = await res.json();
-      if (data.found && data.cliente) {
-        const c = data.cliente as DatosCliente;
+      if (data.encontrado && data.datos) {
+        const c = data.datos as DatosCliente;
         setClienteGuardado(c);
+        setClienteID(data.clienteID ?? null);
         setForm(prev => ({
           ...prev,
           nombre:          c.nombre          || prev.nombre,
@@ -102,6 +105,7 @@ export default function CheckoutForm({
         setMostrandoOtraDireccion(false);
       } else {
         setClienteGuardado(null);
+        setClienteID(null);
       }
     } catch { /* silent — user fills manually */ }
     finally { setBuscandoCliente(false); }
@@ -121,32 +125,37 @@ export default function CheckoutForm({
   const inputClass =
     "w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#1f3460] focus:ring-1 focus:ring-[#1f3460] transition-[border-color,box-shadow]";
 
+  type DireccionEntrega = { region: string; comuna: string; direccion: string; casaOfi: string };
+
   // Lógica de pedido desacoplada del submit para poder llamarla desde el modal
-  const processOrder = async (actualizarDireccion: boolean) => {
+  const processOrder = async (direccionEntrega?: DireccionEntrega) => {
     setLoading(true);
     setError("");
     try {
+      const body: Record<string, unknown> = {
+        items: cart,
+        total,
+        medioPago,
+        cliente: {
+          nombre: `${form.nombre} ${form.apellidoPaterno}${form.apellidoMaterno ? " " + form.apellidoMaterno : ""}`.trim(),
+          apellidoPaterno: form.apellidoPaterno,
+          apellidoMaterno: form.apellidoMaterno,
+          rut:       form.rut,
+          email:     form.email,
+          telefono:  form.telefono,
+          region:    form.region,
+          comuna:    form.comuna,
+          direccion: form.direccion,
+          casaOfi:   form.casaOfi,
+        },
+      };
+      // Solo incluir si el despacho es a una dirección distinta a la del cliente
+      if (direccionEntrega) body.direccionEntrega = direccionEntrega;
+
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          items: cart,
-          total,
-          medioPago,
-          actualizarDireccion,
-          cliente: {
-            nombre: `${form.nombre} ${form.apellidoPaterno}${form.apellidoMaterno ? " " + form.apellidoMaterno : ""}`.trim(),
-            apellidoPaterno: form.apellidoPaterno,
-            apellidoMaterno: form.apellidoMaterno,
-            rut:       form.rut,
-            email:     form.email,
-            telefono:  form.telefono,
-            region:    form.region,
-            comuna:    form.comuna,
-            direccion: form.direccion,
-            casaOfi:   form.casaOfi,
-          },
-        }),
+        body: JSON.stringify(body),
       });
       const data = await res.json();
       if (data.url) {
@@ -175,12 +184,27 @@ export default function CheckoutForm({
       setModalGuardarDireccion(true);
       return;
     }
-    await processOrder(false);
+    await processOrder();
   };
 
   const handleAddressDecision = async (guardar: boolean) => {
     setModalGuardarDireccion(false);
-    await processOrder(guardar);
+    const nuevaDir: DireccionEntrega = {
+      region: form.region, comuna: form.comuna,
+      direccion: form.direccion, casaOfi: form.casaOfi,
+    };
+    // Si elige guardar → PATCH el perfil del cliente primero
+    if (guardar && clienteID) {
+      try {
+        await fetch(`/api/clientes/${clienteID}/direccion`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(nuevaDir),
+        });
+      } catch { /* silent — el pedido sigue aunque falle el PATCH */ }
+    }
+    // Siempre enviar direccionEntrega al pedido cuando la dirección difiere
+    await processOrder(nuevaDir);
   };
 
   return (

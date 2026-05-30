@@ -143,19 +143,21 @@ export default function Hero() {
       </div>
 
       {/* Dots */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-1 z-20">
         {[0, 1].map((i) => (
           <button
             key={i}
             onClick={() => advance(i)}
             aria-label={`Slide ${i + 1}`}
             aria-current={i === current ? true : undefined}
-            className={`w-2.5 h-2.5 rounded-full transition-[background-color,transform] duration-300 ${
+            className="w-11 h-11 flex items-center justify-center"
+          >
+            <span className={`w-2.5 h-2.5 rounded-full transition-[background-color,transform] duration-300 ${
               i === current
                 ? "bg-[#128708] scale-125"
                 : "bg-[#1f3460]/20 hover:bg-[#1f3460]/40"
-            }`}
-          />
+            }`} />
+          </button>
         ))}
       </div>
     </section>

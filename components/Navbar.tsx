@@ -58,7 +58,7 @@ export default function Navbar() {
                   </div>
                 </div>
                 <Link href="/para-tu-negocio" className="hover:underline font-medium">Para tu Negocio</Link>
-                <a href="/#contacto" className="hover:underline font-medium">Contacto</a>
+                <Link href="/#contacto" className="hover:underline font-medium">Contacto</Link>
               </div>
 
               {/* Hamburger — solo mobile */}

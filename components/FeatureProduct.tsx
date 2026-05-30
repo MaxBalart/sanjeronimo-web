@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const PRODUCTOS = [
   {
@@ -116,13 +117,13 @@ export default function FeatureProduct() {
               {producto.descripcion}
             </p>
 
-            <a
+            <Link
               href="#sabores"
-              className="inline-block text-white px-7 py-3.5 rounded-full text-base font-semibold transition-all duration-300 hover:opacity-85 hover:scale-[1.02]"
+              className="inline-block text-white px-7 py-3.5 rounded-full text-base font-semibold transition-[opacity,transform] duration-300 hover:opacity-85 hover:scale-[1.02]"
               style={{ backgroundColor: producto.color }}
             >
               Lo quiero
-            </a>
+            </Link>
           </div>
 
         </div>

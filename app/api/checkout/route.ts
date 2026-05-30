@@ -4,8 +4,11 @@ export async function POST(req: Request) {
   const body = await req.json();
   const { items, total, cliente, medioPago } = body;
 
-  // Modo simulación: no llama al backend, redirige directo a pago-exitoso
+  // Modo simulación: solo habilitado con variable de entorno privada en servidor
   if (medioPago === "simulacion") {
+    if (process.env.SIMULATE_ENABLED !== "true") {
+      return NextResponse.json({ error: "Método de pago no válido" }, { status: 400 });
+    }
     const orderId = crypto.randomUUID();
     return NextResponse.json({
       success: true,

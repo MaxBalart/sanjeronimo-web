@@ -92,26 +92,26 @@ export default function B2BForm() {
       {/* Identificación de la empresa */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Razón Social *</label>
-          <input type="text" value={form.razonSocial} onChange={e => set("razonSocial", e.target.value)}
+          <label htmlFor="b2b-razonSocial" className="block text-sm font-medium text-gray-700 mb-1">Razón Social *</label>
+          <input id="b2b-razonSocial" type="text" value={form.razonSocial} onChange={e => set("razonSocial", e.target.value)}
             placeholder="Ej: Gastronomía El Encuentro SpA" className={inputClass} required />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Nombre Comercial</label>
-          <input type="text" value={form.nombreComercial} onChange={e => set("nombreComercial", e.target.value)}
+          <label htmlFor="b2b-nombreComercial" className="block text-sm font-medium text-gray-700 mb-1">Nombre Comercial</label>
+          <input id="b2b-nombreComercial" type="text" value={form.nombreComercial} onChange={e => set("nombreComercial", e.target.value)}
             placeholder="Ej: Restaurante El Encuentro" className={inputClass} />
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">RUT empresa</label>
-          <input type="text" value={form.rutEmpresa} onChange={e => set("rutEmpresa", e.target.value)}
+          <label htmlFor="b2b-rutEmpresa" className="block text-sm font-medium text-gray-700 mb-1">RUT empresa</label>
+          <input id="b2b-rutEmpresa" type="text" value={form.rutEmpresa} onChange={e => set("rutEmpresa", e.target.value)}
             placeholder="Ej: 76.123.456-7" className={inputClass} />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Tipo de negocio *</label>
-          <select value={form.tipo} onChange={e => set("tipo", e.target.value)}
+          <label htmlFor="b2b-tipo" className="block text-sm font-medium text-gray-700 mb-1">Tipo de negocio *</label>
+          <select id="b2b-tipo" value={form.tipo} onChange={e => set("tipo", e.target.value)}
             className={`${inputClass} cursor-pointer`} required>
             <option value="">Selecciona una opción</option>
             {TIPOS_NEGOCIO.map(t => <option key={t} value={t}>{t}</option>)}
@@ -121,27 +121,27 @@ export default function B2BForm() {
 
       {/* Contacto */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Nombre del contacto *</label>
-        <input type="text" value={form.contactoNombre} onChange={e => set("contactoNombre", e.target.value)}
+        <label htmlFor="b2b-contactoNombre" className="block text-sm font-medium text-gray-700 mb-1">Nombre del contacto *</label>
+        <input id="b2b-contactoNombre" type="text" value={form.contactoNombre} onChange={e => set("contactoNombre", e.target.value)}
           placeholder="Ej: María González" className={inputClass} required />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-          <input type="email" value={form.email} onChange={e => set("email", e.target.value)}
+          <label htmlFor="b2b-email" className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+          <input id="b2b-email" type="email" value={form.email} onChange={e => set("email", e.target.value)}
             placeholder="contacto@tunegocio.cl" className={inputClass} required />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Teléfono *</label>
-          <input type="tel" value={form.telefono} onChange={e => set("telefono", e.target.value)}
+          <label htmlFor="b2b-telefono" className="block text-sm font-medium text-gray-700 mb-1">Teléfono *</label>
+          <input id="b2b-telefono" type="tel" value={form.telefono} onChange={e => set("telefono", e.target.value)}
             placeholder="+56 9 1234 5678" className={inputClass} required />
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Volumen estimado mensual</label>
-        <select value={form.volumenEstimado} onChange={e => set("volumenEstimado", e.target.value)}
+        <label htmlFor="b2b-volumen" className="block text-sm font-medium text-gray-700 mb-1">Volumen estimado mensual</label>
+        <select id="b2b-volumen" value={form.volumenEstimado} onChange={e => set("volumenEstimado", e.target.value)}
           className={`${inputClass} cursor-pointer`}>
           <option value="">Selecciona una opción (opcional)</option>
           {VOLUMENES.map(v => <option key={v} value={v}>{v}</option>)}
@@ -149,8 +149,9 @@ export default function B2BForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Mensaje (opcional)</label>
+        <label htmlFor="b2b-mensaje" className="block text-sm font-medium text-gray-700 mb-1">Mensaje (opcional)</label>
         <textarea
+          id="b2b-mensaje"
           value={form.mensaje}
           onChange={e => set("mensaje", e.target.value)}
           placeholder="Cuéntanos más sobre tu establecimiento o qué necesitas..."

@@ -61,9 +61,9 @@ export default function CartPanel({
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button onClick={() => removeFromCart(item.nombre)} style={{ backgroundColor: saborColor }} className="w-7 h-7 rounded-full text-white flex items-center justify-center text-base font-bold hover:opacity-80 active:scale-[0.92] transition-[opacity,transform] duration-150">−</button>
+                  <button onClick={() => removeFromCart(item.nombre)} style={{ backgroundColor: saborColor }} className="w-11 h-11 rounded-full text-white flex items-center justify-center text-base font-bold hover:opacity-80 active:scale-[0.92] transition-[opacity,transform] duration-150">−</button>
                   <span className="text-sm font-bold w-4 text-center" style={{ color: saborColor }}>{item.cantidad}</span>
-                  <button onClick={() => addToCart(item)} style={{ backgroundColor: saborColor }} className="w-7 h-7 rounded-full text-white flex items-center justify-center text-base font-bold hover:opacity-80 active:scale-[0.92] transition-[opacity,transform] duration-150">+</button>
+                  <button onClick={() => addToCart(item)} style={{ backgroundColor: saborColor }} className="w-11 h-11 rounded-full text-white flex items-center justify-center text-base font-bold hover:opacity-80 active:scale-[0.92] transition-[opacity,transform] duration-150">+</button>
                 </div>
               </div>
             );

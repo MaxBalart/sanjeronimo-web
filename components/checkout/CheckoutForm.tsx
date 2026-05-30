@@ -219,9 +219,10 @@ export default function CheckoutForm({
 
             {/* Email — prominente, primero */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+              <label htmlFor="co-email" className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
               <div className="relative">
                 <input
+                  id="co-email"
                   type="email"
                   value={form.email}
                   onChange={e => set("email", e.target.value)}
@@ -264,33 +265,33 @@ export default function CheckoutForm({
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Nombre(s) *</label>
-                <input type="text" value={form.nombre} onChange={e => set("nombre", e.target.value)}
+                <label htmlFor="co-nombre" className="block text-sm font-medium text-gray-700 mb-1">Nombre(s) *</label>
+                <input id="co-nombre" type="text" value={form.nombre} onChange={e => set("nombre", e.target.value)}
                   placeholder="Ej: Juan" className={inputClass} required />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Apellido Paterno *</label>
-                <input type="text" value={form.apellidoPaterno} onChange={e => set("apellidoPaterno", e.target.value)}
+                <label htmlFor="co-apellidoPaterno" className="block text-sm font-medium text-gray-700 mb-1">Apellido Paterno *</label>
+                <input id="co-apellidoPaterno" type="text" value={form.apellidoPaterno} onChange={e => set("apellidoPaterno", e.target.value)}
                   placeholder="Ej: Pérez" className={inputClass} required />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Apellido Materno</label>
-                <input type="text" value={form.apellidoMaterno} onChange={e => set("apellidoMaterno", e.target.value)}
+                <label htmlFor="co-apellidoMaterno" className="block text-sm font-medium text-gray-700 mb-1">Apellido Materno</label>
+                <input id="co-apellidoMaterno" type="text" value={form.apellidoMaterno} onChange={e => set("apellidoMaterno", e.target.value)}
                   placeholder="Ej: González" className={inputClass} />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">RUT *</label>
-                <input type="text" value={form.rut} onChange={e => set("rut", e.target.value)}
+                <label htmlFor="co-rut" className="block text-sm font-medium text-gray-700 mb-1">RUT *</label>
+                <input id="co-rut" type="text" value={form.rut} onChange={e => set("rut", e.target.value)}
                   placeholder="Ej: 12.345.678-9" className={inputClass} required />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Teléfono *</label>
-              <input type="tel" value={form.telefono} onChange={e => set("telefono", e.target.value)}
+              <label htmlFor="co-telefono" className="block text-sm font-medium text-gray-700 mb-1">Teléfono *</label>
+              <input id="co-telefono" type="tel" value={form.telefono} onChange={e => set("telefono", e.target.value)}
                 placeholder="+56 9 1234 5678" className={inputClass} required />
             </div>
           </div>
@@ -316,8 +317,8 @@ export default function CheckoutForm({
 
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Región *</label>
-              <select value={form.region} onChange={e => set("region", e.target.value)}
+              <label htmlFor="co-region" className="block text-sm font-medium text-gray-700 mb-1">Región *</label>
+              <select id="co-region" value={form.region} onChange={e => set("region", e.target.value)}
                 className={`${inputClass} cursor-pointer`} required>
                 <option value="">Selecciona una región</option>
                 {REGIONES_COMUNAS.map(r => (
@@ -327,8 +328,8 @@ export default function CheckoutForm({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Comuna *</label>
-              <select value={form.comuna} onChange={e => set("comuna", e.target.value)}
+              <label htmlFor="co-comuna" className="block text-sm font-medium text-gray-700 mb-1">Comuna *</label>
+              <select id="co-comuna" value={form.comuna} onChange={e => set("comuna", e.target.value)}
                 className={`${inputClass} cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed`}
                 required disabled={!form.region}>
                 <option value="">{form.region ? "Selecciona una comuna" : "Primero selecciona una región"}</option>
@@ -339,14 +340,14 @@ export default function CheckoutForm({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Dirección (Calle y número) *</label>
-              <input type="text" value={form.direccion} onChange={e => set("direccion", e.target.value)}
+              <label htmlFor="co-direccion" className="block text-sm font-medium text-gray-700 mb-1">Dirección (Calle y número) *</label>
+              <input id="co-direccion" type="text" value={form.direccion} onChange={e => set("direccion", e.target.value)}
                 placeholder="Ej: Av. Los Leones 1234" className={inputClass} required />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Casa, Depto u Oficina</label>
-              <input type="text" value={form.casaOfi} onChange={e => set("casaOfi", e.target.value)}
+              <label htmlFor="co-casaOfi" className="block text-sm font-medium text-gray-700 mb-1">Casa, Depto u Oficina</label>
+              <input id="co-casaOfi" type="text" value={form.casaOfi} onChange={e => set("casaOfi", e.target.value)}
                 placeholder="Ej: Depto 402, Casa 3" className={inputClass} />
             </div>
           </div>
@@ -376,6 +377,7 @@ export default function CheckoutForm({
               <span className="ml-3 font-medium text-[#1f3460]">MercadoPago</span>
             </label>
 
+            {process.env.NEXT_PUBLIC_SIMULATE_ENABLED === "true" && (
             <label className={`flex items-center p-4 border rounded-xl cursor-pointer transition-colors ${medioPago === "simulacion" ? "border-[#ee7203] bg-[#ee7203]/5" : "border-gray-200 hover:border-gray-300"}`}>
               <input type="radio" name="pago" value="simulacion" checked={medioPago === "simulacion"}
                 onChange={e => setMedioPago(e.target.value)}
@@ -385,6 +387,7 @@ export default function CheckoutForm({
                 <span className="ml-2 text-xs bg-[#ee7203]/15 text-[#ee7203] px-2 py-0.5 rounded-full font-medium">Solo testing</span>
               </div>
             </label>
+          )}
           </div>
         </section>
 

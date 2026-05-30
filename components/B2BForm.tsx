@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const TIPOS_NEGOCIO = ["Restaurante", "Bar", "Hotel", "Eventos y catering", "Retail", "Otro"];
+const TIPOS_NEGOCIO = ["Horeca", "Botillería", "Tienda", "Supermercado"];
 const VOLUMENES = [
   "Menos de 10 botellas/mes",
   "10 a 50 botellas/mes",
@@ -11,9 +11,11 @@ const VOLUMENES = [
 ];
 
 interface LeadB2B {
-  nombre: string;
-  empresa: string;
-  tipoNegocio: string;
+  contactoNombre: string;
+  razonSocial: string;
+  nombreComercial: string;
+  rutEmpresa: string;
+  tipo: string;
   email: string;
   telefono: string;
   volumenEstimado: string;
@@ -21,8 +23,8 @@ interface LeadB2B {
 }
 
 const emptyLead: LeadB2B = {
-  nombre: "", empresa: "", tipoNegocio: "",
-  email: "", telefono: "", volumenEstimado: "", mensaje: "",
+  contactoNombre: "", razonSocial: "", nombreComercial: "", rutEmpresa: "",
+  tipo: "", email: "", telefono: "", volumenEstimado: "", mensaje: "",
 };
 
 const inputClass =
@@ -40,8 +42,8 @@ export default function B2BForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { nombre, empresa, tipoNegocio, email, telefono } = form;
-    if (!nombre || !empresa || !tipoNegocio || !email || !telefono) {
+    const { contactoNombre, razonSocial, tipo, email, telefono } = form;
+    if (!contactoNombre || !razonSocial || !tipo || !email || !telefono) {
       setError("Por favor completa todos los campos obligatorios.");
       return;
     }
@@ -86,26 +88,42 @@ export default function B2BForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+
+      {/* Identificación de la empresa */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Nombre del contacto *</label>
-          <input type="text" value={form.nombre} onChange={e => set("nombre", e.target.value)}
-            placeholder="Ej: María González" className={inputClass} required />
+          <label className="block text-sm font-medium text-gray-700 mb-1">Razón Social *</label>
+          <input type="text" value={form.razonSocial} onChange={e => set("razonSocial", e.target.value)}
+            placeholder="Ej: Gastronomía El Encuentro SpA" className={inputClass} required />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Empresa / Negocio *</label>
-          <input type="text" value={form.empresa} onChange={e => set("empresa", e.target.value)}
-            placeholder="Ej: Restaurante El Encuentro" className={inputClass} required />
+          <label className="block text-sm font-medium text-gray-700 mb-1">Nombre Comercial</label>
+          <input type="text" value={form.nombreComercial} onChange={e => set("nombreComercial", e.target.value)}
+            placeholder="Ej: Restaurante El Encuentro" className={inputClass} />
         </div>
       </div>
 
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">RUT empresa</label>
+          <input type="text" value={form.rutEmpresa} onChange={e => set("rutEmpresa", e.target.value)}
+            placeholder="Ej: 76.123.456-7" className={inputClass} />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Tipo de negocio *</label>
+          <select value={form.tipo} onChange={e => set("tipo", e.target.value)}
+            className={`${inputClass} cursor-pointer`} required>
+            <option value="">Selecciona una opción</option>
+            {TIPOS_NEGOCIO.map(t => <option key={t} value={t}>{t}</option>)}
+          </select>
+        </div>
+      </div>
+
+      {/* Contacto */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Tipo de negocio *</label>
-        <select value={form.tipoNegocio} onChange={e => set("tipoNegocio", e.target.value)}
-          className={`${inputClass} cursor-pointer`} required>
-          <option value="">Selecciona una opción</option>
-          {TIPOS_NEGOCIO.map(t => <option key={t} value={t}>{t}</option>)}
-        </select>
+        <label className="block text-sm font-medium text-gray-700 mb-1">Nombre del contacto *</label>
+        <input type="text" value={form.contactoNombre} onChange={e => set("contactoNombre", e.target.value)}
+          placeholder="Ej: María González" className={inputClass} required />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

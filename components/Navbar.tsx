@@ -57,6 +57,7 @@ export default function Navbar() {
                     </div>
                   </div>
                 </div>
+                <Link href="/para-tu-negocio" className="hover:underline font-medium">Para tu Negocio</Link>
                 <a href="/#contacto" className="hover:underline font-medium">Contacto</a>
               </div>
 
@@ -99,6 +100,13 @@ export default function Navbar() {
                 </Link>
               ))}
               <div className="h-px bg-gray-100 my-3" />
+              <Link
+                href="/para-tu-negocio"
+                onClick={closeMobile}
+                className="block px-3 py-3 rounded-xl text-[#1f3460] hover:bg-[#FAF3DE] transition-colors font-medium"
+              >
+                Para tu Negocio
+              </Link>
               <a
                 href="/#contacto"
                 onClick={closeMobile}

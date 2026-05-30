@@ -32,10 +32,39 @@ export default function Hero() {
 
       {/* Slide 1 — Branding */}
       <div className={`absolute inset-0 bg-[#FAF3DE] transition-transform duration-700 ease-out ${slideClass(0)}`}>
-        <div className="absolute inset-0 grid grid-cols-3">
 
-          {/* Izquierda — Logo */}
-          <div className="relative hidden md:block">
+        {/* Mobile layout — texto + colibrí estático */}
+        <div className="md:hidden absolute inset-0 flex flex-col items-center justify-center text-center px-6 pt-20 pb-16 gap-5">
+          <div>
+            <span className="block text-base font-bold text-[#1f3460] tracking-[0.3em] uppercase mb-2">
+              Sour
+            </span>
+            <h1
+              className="text-[5.5rem] leading-none text-[#1f3460] tracking-wide uppercase"
+              style={{ fontFamily: '"Phosphate Inline", Phosphate, sans-serif' }}
+            >
+              San Jerónimo
+            </h1>
+            <p
+              className="text-[1.9rem] text-[#1f3460]/80 mt-3 leading-tight"
+              style={{ fontFamily: "'SignPainter', cursive" }}
+            >
+              Un{" "}<span className="text-[2.6rem]">Sour</span>{" "}con historia
+            </p>
+          </div>
+          <div className="relative w-28 h-28 opacity-90">
+            <Image
+              src="/Colibri%20original.png"
+              alt="Colibrí San Jerónimo"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
+
+        {/* Desktop layout — grid 3 columnas */}
+        <div className="hidden md:grid absolute inset-0 grid-cols-3">
+          <div className="relative">
             <Image
               src="/Logo%20Solo%20Hero%20web.png"
               alt="Logo San Jerónimo"
@@ -45,30 +74,24 @@ export default function Hero() {
               priority
             />
           </div>
-
-          {/* Centro — Texto */}
-          <div className="flex flex-col items-center justify-center text-center px-5 col-span-3 md:col-span-1">
-            <span className="text-xl md:text-3xl font-bold text-[#1f3460] tracking-widest uppercase mb-1">
+          <div className="flex flex-col items-center justify-center text-center px-5">
+            <span className="text-3xl font-bold text-[#1f3460] tracking-widest uppercase mb-1">
               Sour
             </span>
             <h1
-              className="text-6xl md:text-[6rem] leading-none text-[#1f3460] tracking-wide uppercase"
+              className="text-[6rem] leading-none text-[#1f3460] tracking-wide uppercase"
               style={{ fontFamily: '"Phosphate Inline", Phosphate, sans-serif' }}
             >
               San Jerónimo
             </h1>
             <p
-              className="text-3xl md:text-4xl text-[#1f3460]/80 mt-4"
+              className="text-4xl text-[#1f3460]/80 mt-4"
               style={{ fontFamily: "'SignPainter', cursive" }}
             >
-              Un{" "}
-              <span className="text-5xl md:text-6xl">Sour</span>
-              {" "}con historia
+              Un{" "}<span className="text-6xl">Sour</span>{" "}con historia
             </p>
           </div>
-
-          {/* Derecha — Colibrí */}
-          <div className="relative hidden md:block">
+          <div className="relative">
             <Image
               src="/Colibri%20original.png"
               alt="Colibrí San Jerónimo"
@@ -77,8 +100,8 @@ export default function Hero() {
               className="object-contain p-8 animate-float"
             />
           </div>
-
         </div>
+
       </div>
 
       {/* Slide 2 — Producto */}

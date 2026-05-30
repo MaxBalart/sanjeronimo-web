@@ -34,7 +34,7 @@ export default function Hero() {
       <div className={`absolute inset-0 bg-[#FAF3DE] transition-transform duration-700 ease-out ${slideClass(0)}`}>
 
         {/* Mobile layout — texto + colibrí estático */}
-        <div className="md:hidden absolute inset-0 flex flex-col items-center justify-center text-center px-6 pt-24 pb-16 gap-4">
+        <div className="md:hidden absolute inset-0 flex flex-col items-center justify-center text-center px-6 pt-28 pb-16 gap-4">
           <div>
             <span className="block text-sm font-bold text-[#1f3460] tracking-[0.3em] uppercase mb-2">
               Sour
@@ -109,7 +109,7 @@ export default function Hero() {
 
         {/* Izquierda — Texto */}
         <div className="bg-[#1f3460] flex items-center justify-center px-8 md:px-20 flex-shrink-0">
-          <div className="max-w-md w-full pt-24 pb-10 md:py-0">
+          <div className="max-w-md w-full pt-28 pb-10 md:py-0">
             <h1 className="text-white font-bold leading-none">
               <span className="block text-3xl md:text-5xl mb-2">
                 EL SABOR

@@ -37,13 +37,13 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Botella */}
-          <div className="flex items-center justify-center h-[300px] md:h-[560px] group">
+          <div className="relative h-[320px] md:h-[560px] group">
              <Image
                src={sabor.imagen}
                alt={`Botella de Pisco Sour ${sabor.nombre}`}
-               width={300}
-               height={560}
-               className="object-contain max-h-full w-auto drop-shadow-[0_20px_30px_rgba(22,43,69,0.18)] transition-transform duration-700 ease-out group-hover:scale-105"
+               fill
+               sizes="(max-width: 768px) 100vw, 50vw"
+               className="object-contain drop-shadow-[0_20px_30px_rgba(22,43,69,0.18)] transition-transform duration-700 ease-out group-hover:scale-105"
                priority
              />
           </div>

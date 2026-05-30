@@ -36,7 +36,7 @@ export default function FeatureProduct() {
     setTimeout(() => {
       setCurrent(index);
       setVisible(true);
-    }, 300);
+    }, 200);
   };
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function FeatureProduct() {
       setTimeout(() => {
         setCurrent((prev) => (prev + 1) % PRODUCTOS.length);
         setVisible(true);
-      }, 300);
+      }, 200);
     }, 6000);
     return () => clearInterval(timer);
   }, []);
@@ -65,7 +65,7 @@ export default function FeatureProduct() {
 
 {/* Imagen */}
 <div
-  className={`relative flex justify-center items-end transition-all duration-500 ${
+  className={`relative flex justify-center items-end transition-[opacity,transform] duration-200 ${
     visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
   }`}
 >
@@ -91,7 +91,7 @@ export default function FeatureProduct() {
                 key={p.nombre}
                 onClick={() => goTo(i)}
                 aria-pressed={i === current}
-                className="px-4 py-1.5 rounded-full text-sm font-medium tracking-wide transition-all duration-300"
+                className="px-4 py-1.5 rounded-full text-sm font-medium tracking-wide transition-[background-color,color] duration-250 ease-out"
                 style={{
                   backgroundColor: i === current ? `${p.color}18` : "transparent",
                   color: i === current ? p.color : "#9CA3AF",
@@ -104,7 +104,7 @@ export default function FeatureProduct() {
 
           {/* Contenido animado */}
           <div
-            className={`transition-all duration-500 ${
+            className={`transition-[opacity,transform] duration-200 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
             }`}
           >

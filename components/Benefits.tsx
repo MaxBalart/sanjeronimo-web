@@ -37,7 +37,7 @@ export default function Benefits() {
       <div ref={ref} className="max-w-5xl mx-auto">
 
         {/* Cabecera de sección */}
-        <div className={`flex items-center gap-4 mb-16 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}>
+        <div className={`flex items-center gap-4 mb-16 transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}>
           <span className="text-[10px] font-medium tracking-[0.25em] uppercase text-[#1f3460]/40">
             Elaboración
           </span>
@@ -46,7 +46,7 @@ export default function Benefits() {
 
         {/* Título */}
         <h2
-          className={`text-4xl md:text-6xl font-bold text-[#1f3460] tracking-tight leading-none mb-20 md:mb-24 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+          className={`text-4xl md:text-6xl font-bold text-[#1f3460] tracking-tight leading-none mb-20 md:mb-24 transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           style={{ transitionDelay: "80ms" }}
         >
           Hecho como<br className="hidden md:block" /> debe ser
@@ -57,8 +57,8 @@ export default function Benefits() {
           {ITEMS.map((item, i) => (
             <div
               key={item.num}
-              className={`group relative transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-              style={{ transitionDelay: `${180 + i * 120}ms` }}
+              className={`group relative transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+              style={{ transitionDelay: `${180 + i * 60}ms` }}
             >
               {/* Separador vertical entre columnas */}
               {i > 0 && (

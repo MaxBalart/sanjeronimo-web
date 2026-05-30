@@ -82,29 +82,31 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Mobile menu */}
-        {!isCheckout && mobileOpen && (
-          <div className="sm:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-1">
-            <p className="text-xs font-semibold text-[#1f3460]/40 uppercase tracking-widest mb-3">Sabores</p>
-            {SABORES.map(sabor => (
-              <Link
-                key={sabor.slug}
-                href={`/sabores/${sabor.slug}`}
+        {/* Mobile menu — grid-rows animation (no layout thrashing) */}
+        {!isCheckout && (
+          <div className={`sm:hidden grid overflow-hidden transition-[grid-template-rows,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${mobileOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+            <div className="min-h-0 bg-white border-t border-gray-100 px-6 py-4 space-y-1">
+              <p className="text-xs font-semibold text-[#1f3460]/40 uppercase tracking-widest mb-3">Sabores</p>
+              {SABORES.map(sabor => (
+                <Link
+                  key={sabor.slug}
+                  href={`/sabores/${sabor.slug}`}
+                  onClick={closeMobile}
+                  className="flex items-center gap-3 px-3 py-3 rounded-xl text-[#1f3460] hover:bg-[#FAF3DE] transition-colors font-medium"
+                >
+                  <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: sabor.color }} />
+                  {sabor.nombre}
+                </Link>
+              ))}
+              <div className="h-px bg-gray-100 my-3" />
+              <a
+                href="/#contacto"
                 onClick={closeMobile}
-                className="flex items-center gap-3 px-3 py-3 rounded-xl text-[#1f3460] hover:bg-[#FAF3DE] transition-colors font-medium"
+                className="block px-3 py-3 rounded-xl text-[#1f3460] hover:bg-[#FAF3DE] transition-colors font-medium"
               >
-                <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: sabor.color }} />
-                {sabor.nombre}
-              </Link>
-            ))}
-            <div className="h-px bg-gray-100 my-3" />
-            <a
-              href="/#contacto"
-              onClick={closeMobile}
-              className="block px-3 py-3 rounded-xl text-[#1f3460] hover:bg-[#FAF3DE] transition-colors font-medium"
-            >
-              Contacto
-            </a>
+                Contacto
+              </a>
+            </div>
           </div>
         )}
       </nav>

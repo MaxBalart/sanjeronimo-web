@@ -23,10 +23,8 @@ export default function AgeGate() {
     window.location.href = "http://www.hattrick.org";
   }
 
-  if (!visible) return null;
-
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#1f3460]/95 backdrop-blur-sm px-6">
+    <div className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#1f3460]/95 backdrop-blur-sm px-6 transition-opacity duration-300 ease-out ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
       <div className="flex flex-col items-center text-center max-w-sm w-full">
 
         <Image

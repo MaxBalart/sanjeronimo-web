@@ -77,10 +77,8 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
                   <div className="flex items-center justify-between w-[180px] bg-white rounded-full p-2 border-2" style={{ borderColor: sabor.color }}>
                     <button
                       onClick={() => removeFromCart(sabor.nombre)}
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold transition-[background-color,color,transform] duration-150 hover:text-white active:scale-[0.92]"
-                      style={{ backgroundColor: `${sabor.color}1a`, color: sabor.color }}
-                      onMouseEnter={e => { e.currentTarget.style.backgroundColor = sabor.color; e.currentTarget.style.color = "white"; }}
-                      onMouseLeave={e => { e.currentTarget.style.backgroundColor = `${sabor.color}1a`; e.currentTarget.style.color = sabor.color; }}
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold btn-sabor"
+                      style={{ "--sabor-color": sabor.color, "--sabor-color-10": `${sabor.color}1a` } as React.CSSProperties}
                     >
                       −
                     </button>
@@ -89,10 +87,8 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
                     </span>
                     <button
                       onClick={() => addToCart({ nombre: sabor.nombre, precio: sabor.precio })}
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold transition-[background-color,color,transform] duration-150 hover:text-white active:scale-[0.92]"
-                      style={{ backgroundColor: `${sabor.color}1a`, color: sabor.color }}
-                      onMouseEnter={e => { e.currentTarget.style.backgroundColor = sabor.color; e.currentTarget.style.color = "white"; }}
-                      onMouseLeave={e => { e.currentTarget.style.backgroundColor = `${sabor.color}1a`; e.currentTarget.style.color = sabor.color; }}
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold btn-sabor"
+                      style={{ "--sabor-color": sabor.color, "--sabor-color-10": `${sabor.color}1a` } as React.CSSProperties}
                     >
                       +
                     </button>

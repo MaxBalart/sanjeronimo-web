@@ -86,3 +86,17 @@ h1, h2, h3 {
     animation: none;
   }
 }
+
+/* Counter buttons de sabor — hover via CSS variables para evitar JS onMouseEnter/Leave */
+.btn-sabor {
+  background-color: var(--sabor-color-10);
+  color: var(--sabor-color);
+  transition: background-color 150ms ease-out, color 150ms ease-out, transform 150ms ease-out;
+}
+.btn-sabor:hover {
+  background-color: var(--sabor-color);
+  color: white;
+}
+.btn-sabor:active {
+  transform: scale(0.92);
+}

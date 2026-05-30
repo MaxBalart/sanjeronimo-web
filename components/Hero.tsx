@@ -127,7 +127,7 @@ export default function Hero() {
             onClick={() => advance(i)}
             aria-label={`Slide ${i + 1}`}
             aria-current={i === current ? true : undefined}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+            className={`w-2.5 h-2.5 rounded-full transition-[background-color,transform] duration-300 ${
               i === current
                 ? "bg-[#128708] scale-125"
                 : "bg-[#1f3460]/20 hover:bg-[#1f3460]/40"

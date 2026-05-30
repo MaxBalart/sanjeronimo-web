@@ -30,7 +30,7 @@ export default function Flavors() {
       <div ref={ref} className="max-w-6xl mx-auto">
 
         <div className="h-px bg-[#1f3460]/10 mb-12" />
-        <h2 className={`text-4xl md:text-5xl font-bold tracking-tight text-[#1f3460] mb-12 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+        <h2 className={`text-4xl md:text-5xl font-bold tracking-tight text-[#1f3460] mb-12 transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
           Elige el tuyo
         </h2>
 
@@ -67,7 +67,7 @@ function FeaturedCard({ sabor, cart, mounted, addToCart, removeFromCart, visible
 
   return (
     <div
-      className={`md:col-span-2 group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-gray-200 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+      className={`md:col-span-2 group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-gray-200 transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {/* Franja de color del sabor */}
@@ -127,7 +127,7 @@ function CompactCard({ sabor, cart, mounted, addToCart, removeFromCart, visible,
 
   return (
     <div
-      className={`group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-gray-200 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col flex-1 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+      className={`group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-gray-200 transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col flex-1 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="h-1 w-full" style={{ backgroundColor: sabor.color }} />

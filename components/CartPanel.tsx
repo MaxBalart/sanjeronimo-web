@@ -35,8 +35,10 @@ export default function CartPanel({
       />
 
       <div
-        className={`fixed top-20 right-0 w-80 max-h-[80vh] bg-white z-50 shadow-xl rounded-bl-2xl transition-transform duration-300 ease-out flex flex-col ${
-          open ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-20 right-0 w-80 max-h-[80vh] bg-white z-50 shadow-xl rounded-bl-2xl flex flex-col ${
+          open
+            ? "translate-x-0 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
+            : "translate-x-full transition-transform duration-200 ease-out"
         }`}
       >
         <div className="p-4 border-b flex justify-between items-center">

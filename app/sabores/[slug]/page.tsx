@@ -37,7 +37,7 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Botella */}
-          <div className="flex items-center justify-center h-[220px] md:h-[560px] group">
+          <div className="flex items-center justify-center h-[300px] md:h-[560px] group">
              <Image
                src={sabor.imagen}
                alt={`Botella de Pisco Sour ${sabor.nombre}`}

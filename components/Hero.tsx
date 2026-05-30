@@ -85,7 +85,7 @@ export default function Hero() {
       <div className={`absolute inset-0 flex flex-col md:grid md:grid-cols-2 transition-transform duration-700 ease-out ${slideClass(1)}`}>
 
         {/* Izquierda — Texto */}
-        <div className="bg-[#1f3460] flex items-center justify-center px-8 md:px-20 py-10 md:py-0 flex-shrink-0">
+        <div className="bg-[#1f3460] flex items-center justify-center px-8 md:px-20 h-[42%] md:h-auto">
           <div className="max-w-md">
             <h1 className="text-white font-bold leading-none">
               <span className="block text-3xl md:text-5xl mb-2">
@@ -108,7 +108,7 @@ export default function Hero() {
         </div>
 
         {/* Derecha — Imagen */}
-        <div className="relative flex-1 min-h-[40vw] md:min-h-0">
+        <div className="relative h-[58%] md:h-auto md:flex-1">
           <Image
             src="/Hero_sour_slide2_tabla.png"
             alt="Sour San Jerónimo"

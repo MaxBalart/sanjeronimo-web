@@ -134,12 +134,12 @@ function CompactCard({ sabor, cart, mounted, addToCart, removeFromCart, visible,
 
       <div className="flex flex-row items-center gap-5 p-5 flex-1">
         {/* Imagen compacta */}
-        <Link href={`/sabores/${sabor.slug}`} className="flex-shrink-0 flex items-end justify-center bg-[#FAF3DE] rounded-xl w-20 h-24 p-2">
+        <Link href={`/sabores/${sabor.slug}`} className="flex-shrink-0 flex items-center justify-center bg-[#FAF3DE] rounded-xl w-20 h-28 p-2">
           <Image
             src={sabor.imagen}
             alt={sabor.nombre}
-            width={48}
-            height={80}
+            width={52}
+            height={92}
             className="object-contain drop-shadow-[0_6px_12px_rgba(0,0,0,0.15)] transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-0.5"
           />
         </Link>

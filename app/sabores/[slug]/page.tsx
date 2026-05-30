@@ -37,12 +37,12 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Botella */}
-          <div className="flex items-center justify-center h-[400px] md:h-[600px] group">
+          <div className="flex items-center justify-center h-[220px] md:h-[560px] group">
              <Image
                src={sabor.imagen}
                alt={`Botella de Pisco Sour ${sabor.nombre}`}
                width={300}
-               height={600}
+               height={560}
                className="object-contain max-h-full w-auto drop-shadow-[0_20px_30px_rgba(22,43,69,0.18)] transition-transform duration-700 ease-out group-hover:scale-105"
                priority
              />
@@ -74,7 +74,7 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
                     Cargando...
                   </button>
                 ) : enCarrito ? (
-                  <div className="flex items-center justify-between w-full sm:w-[200px] bg-white rounded-full p-2 border-2" style={{ borderColor: sabor.color }}>
+                  <div className="flex items-center justify-between w-[180px] bg-white rounded-full p-2 border-2" style={{ borderColor: sabor.color }}>
                     <button
                       onClick={() => removeFromCart(sabor.nombre)}
                       className="w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold transition-[background-color,color,transform] duration-150 hover:text-white active:scale-[0.92]"

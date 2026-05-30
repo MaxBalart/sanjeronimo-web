@@ -82,25 +82,25 @@ export default function Hero() {
       </div>
 
       {/* Slide 2 — Producto */}
-      <div className={`absolute inset-0 grid grid-cols-1 md:grid-cols-2 transition-transform duration-700 ease-out ${slideClass(1)}`}>
+      <div className={`absolute inset-0 flex flex-col md:grid md:grid-cols-2 transition-transform duration-700 ease-out ${slideClass(1)}`}>
 
         {/* Izquierda — Texto */}
-        <div className="bg-[#1f3460] flex items-center justify-center px-10 md:px-20 py-16 md:py-0">
+        <div className="bg-[#1f3460] flex items-center justify-center px-8 md:px-20 py-10 md:py-0 flex-shrink-0">
           <div className="max-w-md">
             <h1 className="text-white font-bold leading-none">
-              <span className="block text-4xl md:text-5xl mb-3">
+              <span className="block text-3xl md:text-5xl mb-2">
                 EL SABOR
               </span>
-              <span className="block text-4xl md:text-5xl">
+              <span className="block text-3xl md:text-5xl">
                 DEL ENCUENTRO
               </span>
             </h1>
-            <p className="mt-8 text-white/60 tracking-[0.3em] text-xs md:text-sm uppercase">
+            <p className="mt-5 text-white/60 tracking-[0.3em] text-xs uppercase">
               Sour San Jerónimo
             </p>
             <Link
               href="/#sabores"
-              className="inline-block mt-8 bg-[#128708] text-white px-8 py-3 rounded-full text-lg font-semibold hover:opacity-90 transition"
+              className="inline-block mt-6 bg-[#128708] text-white px-7 py-3 rounded-full text-base font-semibold hover:opacity-90 transition"
             >
               Comprar ahora
             </Link>
@@ -108,12 +108,12 @@ export default function Hero() {
         </div>
 
         {/* Derecha — Imagen */}
-        <div className="relative h-64 md:h-auto">
+        <div className="relative flex-1 min-h-[40vw] md:min-h-0">
           <Image
             src="/Hero_sour_slide2_tabla.png"
             alt="Sour San Jerónimo"
             fill
-            sizes="50vw"
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover object-[center_30%]"
           />
         </div>

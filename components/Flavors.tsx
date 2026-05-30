@@ -35,7 +35,7 @@ export default function Flavors() {
         </h2>
 
         {/* Grid asimétrico: featured (2/3) + stack (1/3) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:items-start">
 
           {/* Card featured — Clásico */}
           <FeaturedCard sabor={clasico} cart={cart} mounted={mounted} addToCart={addToCart} removeFromCart={removeFromCart} visible={visible} delay={100} />
@@ -75,13 +75,13 @@ function FeaturedCard({ sabor, cart, mounted, addToCart, removeFromCart, visible
 
       <div className="flex flex-col md:flex-row flex-1">
         {/* Imagen */}
-        <Link href={`/sabores/${sabor.slug}`} className="flex items-end justify-center bg-[#FAF3DE] md:w-2/5 py-10 px-8 flex-shrink-0">
+        <Link href={`/sabores/${sabor.slug}`} className="flex items-end justify-center bg-[#FAF3DE] md:w-2/5 py-6 px-6 md:py-10 md:px-8 flex-shrink-0 min-h-[180px] md:min-h-0">
           <Image
             src={sabor.imagen}
             alt={sabor.nombre}
-            width={140}
-            height={220}
-            className="object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.15)] transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1"
+            width={100}
+            height={160}
+            className="object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.15)] transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1 md:w-[140px] md:h-[220px]"
           />
         </Link>
 

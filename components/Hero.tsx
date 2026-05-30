@@ -52,7 +52,7 @@ export default function Hero() {
               Un{" "}<span className="text-[2.4rem]">Sour</span>{" "}con historia
             </p>
           </div>
-          <div className="relative w-28 h-28 opacity-90">
+          <div className="relative w-44 h-44 opacity-90">
             <Image
               src="/Colibri%20original.png"
               alt="Colibrí San Jerónimo"
@@ -108,8 +108,8 @@ export default function Hero() {
       <div className={`absolute inset-0 flex flex-col md:grid md:grid-cols-2 transition-transform duration-700 ease-out ${slideClass(1)}`}>
 
         {/* Izquierda — Texto */}
-        <div className="bg-[#1f3460] flex flex-col justify-start md:justify-center items-center px-8 md:px-20 pt-24 pb-10 md:py-0 flex-shrink-0">
-          <div className="max-w-md w-full">
+        <div className="bg-[#1f3460] flex items-center justify-center px-8 md:px-20 flex-shrink-0">
+          <div className="max-w-md w-full pt-24 pb-10 md:py-0">
             <h1 className="text-white font-bold leading-none">
               <span className="block text-3xl md:text-5xl mb-2">
                 EL SABOR

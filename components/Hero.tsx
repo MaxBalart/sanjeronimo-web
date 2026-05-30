@@ -34,22 +34,22 @@ export default function Hero() {
       <div className={`absolute inset-0 bg-[#FAF3DE] transition-transform duration-700 ease-out ${slideClass(0)}`}>
 
         {/* Mobile layout — texto + colibrí estático */}
-        <div className="md:hidden absolute inset-0 flex flex-col items-center justify-center text-center px-6 pt-20 pb-16 gap-5">
+        <div className="md:hidden absolute inset-0 flex flex-col items-center justify-center text-center px-6 pt-24 pb-16 gap-4">
           <div>
-            <span className="block text-base font-bold text-[#1f3460] tracking-[0.3em] uppercase mb-2">
+            <span className="block text-sm font-bold text-[#1f3460] tracking-[0.3em] uppercase mb-2">
               Sour
             </span>
             <h1
-              className="text-[5.5rem] leading-none text-[#1f3460] tracking-wide uppercase"
-              style={{ fontFamily: '"Phosphate Inline", Phosphate, sans-serif' }}
+              className="text-[clamp(3rem,13.5vw,5rem)] leading-none text-[#1f3460] tracking-wide uppercase"
+              style={{ fontFamily: 'var(--font-bebas), "Phosphate Inline", Phosphate, sans-serif' }}
             >
               San Jerónimo
             </h1>
             <p
-              className="text-[1.9rem] text-[#1f3460]/80 mt-3 leading-tight"
+              className="text-[1.75rem] text-[#1f3460]/80 mt-3 leading-tight"
               style={{ fontFamily: "'SignPainter', cursive" }}
             >
-              Un{" "}<span className="text-[2.6rem]">Sour</span>{" "}con historia
+              Un{" "}<span className="text-[2.4rem]">Sour</span>{" "}con historia
             </p>
           </div>
           <div className="relative w-28 h-28 opacity-90">
@@ -108,8 +108,8 @@ export default function Hero() {
       <div className={`absolute inset-0 flex flex-col md:grid md:grid-cols-2 transition-transform duration-700 ease-out ${slideClass(1)}`}>
 
         {/* Izquierda — Texto */}
-        <div className="bg-[#1f3460] flex items-center justify-center px-8 md:px-20 pt-24 pb-10 md:py-0 flex-shrink-0">
-          <div className="max-w-md">
+        <div className="bg-[#1f3460] flex flex-col justify-start md:justify-center items-center px-8 md:px-20 pt-24 pb-10 md:py-0 flex-shrink-0">
+          <div className="max-w-md w-full">
             <h1 className="text-white font-bold leading-none">
               <span className="block text-3xl md:text-5xl mb-2">
                 EL SABOR

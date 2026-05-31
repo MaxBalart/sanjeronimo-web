@@ -2,7 +2,7 @@
 name: Sour San Jerónimo
 description: Pisco sour artesanal premium — directo a tu copa, directo a tu carrito
 colors:
-  primary: "#162B45"
+  primary: "#1f3460"
   accent: "#128708"
   warm-cream: "#FAF3DE"
   surface: "#ffffff"
@@ -10,8 +10,8 @@ colors:
   surface-border-hover: "#e5e7eb"
   text-muted: "#6b7280"
   text-inactive: "#9ca3af"
-  amber-accent: "#F5A300"
-  sky-accent: "#38BDF8"
+  amber-accent: "#ee7203"
+  sky-accent: "#76c3df"
 typography:
   display:
     fontFamily: "'Phosphate Inline', Phosphate, sans-serif"
@@ -104,15 +104,15 @@ Lo que este sistema rechaza explícitamente: paletas genéricas de supermercado 
 Una paleta de tres roles con carácter definido: cada color sabe exactamente para qué existe.
 
 ### Primary
-- **Azul Noche Andina** (`#162B45`): El color de la marca. Fondos de autoridad (navbar, footer, slide hero), texto de mayor jerarquía, y cualquier elemento que deba decir "esta marca sabe lo que hace". Nunca diluido ni sustituido por navy genérico.
+- **Azul Noche Andina** (`#1f3460`): El color de la marca. Fondos de autoridad (navbar, footer, slide hero), texto de mayor jerarquía, y cualquier elemento que deba decir "esta marca sabe lo que hace". Nunca diluido ni sustituido por navy genérico.
 
 ### Secondary
 - **Verde Pisco** (`#128708`): El color de la compra. Reservado exclusivamente para CTAs ("Agregar al carrito", "Lo quiero", "Comprar ahora"), badges de estado activo, y highlights de interacción. Su rareza en pantalla es su poder.
 - **Crema de Temporada** (`#FAF3DE`): El color de la calidez. Fondo de secciones de marca (Hero slide 1, Benefits, Flavors). Nunca como fondo de UI funcional (formularios, cards de producto).
 
 ### Tertiary
-- **Ámbar Maracuyá** (`#F5A300`): Acento del sabor Maracuyá. Solo en contexto de ese producto (pills, líneas de color, CTA dinámico). Nunca como color general de la marca.
-- **Celeste Sin Azúcar** (`#38BDF8`): Acento del sabor Sin Azúcar. Misma regla que el ámbar.
+- **Ámbar Maracuyá** (`#ee7203`): Acento del sabor Maracuyá. Solo en contexto de ese producto (pills, líneas de color, CTA dinámico). Nunca como color general de la marca.
+- **Celeste Sin Azúcar** (`#76c3df`): Acento del sabor Sin Azúcar. Misma regla que el ámbar.
 
 ### Neutral
 - **Blanco Limpio** (`#ffffff`): Superficie de cards de producto, fondo de FeatureProduct y Checkout. Base neutra que hace resaltar los colores de sabor.
@@ -126,7 +126,7 @@ Una paleta de tres roles con carácter definido: cada color sabe exactamente par
 
 **La Regla de las Dos Temperaturas.** Beige cálido para las secciones de historia y marca. Blanco limpio para las secciones de producto y conversión. Nunca mezclar ambos fondos en la misma sección.
 
-**La Identidad de Sabor.** Cada sabor tiene un color propio que lo identifica en cualquier contexto donde aparezca individualmente: Clásico → Verde `#128708`, Maracuyá → Ámbar `#F5A300`, Sin Azúcar → Celeste `#38BDF8`. En componentes con múltiples sabores (carrito, checkout, resumen de pedido), el nombre del producto, el badge de cantidad y los controles de ajuste de cantidad deben usar el color del sabor correspondiente. El color genérico `#162B45` no reemplaza al color de sabor en estos contextos.
+**La Identidad de Sabor.** Cada sabor tiene un color propio que lo identifica en cualquier contexto donde aparezca individualmente: Clásico → Verde `#128708`, Maracuyá → Ámbar `#ee7203`, Sin Azúcar → Celeste `#76c3df`. En componentes con múltiples sabores (carrito, checkout, resumen de pedido), el nombre del producto, el badge de cantidad y los controles de ajuste de cantidad deben usar el color del sabor correspondiente. El color genérico `#1f3460` no reemplaza al color de sabor en estos contextos.
 
 ## 3. Typography
 
@@ -187,14 +187,14 @@ Usadas en FeatureProduct para selección de variante de sabor. Color dinámico s
 
 ### Inputs / Fields
 - **Style:** Borde `1px solid #d1d5db` (gray-300), fondo blanco, radius `rounded-lg` (8px).
-- **Focus:** Ring Azul Noche Andina (`ring-2 ring-[#162B45]`), transición suave.
+- **Focus:** Ring Azul Noche Andina (`ring-2 ring-[#1f3460]`), transición suave.
 - **Error:** Borde rojo, mensaje de error en texto pequeño debajo.
 - **Disabled:** Fondo gray-50, texto gray-400, cursor not-allowed.
 
 ### Navigation
 - **Estilo:** Fondo blanco, `shadow-sm`, posición fixed top-0, altura 80px.
 - **Logo:** A la izquierda, enlaza al inicio.
-- **Links:** Texto `#162B45`, font-medium, hover con underline. Dropdown con animación opacity + scale suave.
+- **Links:** Texto `#1f3460`, font-medium, hover con underline. Dropdown con animación opacity + scale suave.
 - **Cart button:** Ícono circular con badge de cantidad en Verde Pisco. A la derecha.
 - **Mobile:** Links de navegación ocultos en mobile (solo carrito visible). Menú hamburguesa no implementado aún.
 

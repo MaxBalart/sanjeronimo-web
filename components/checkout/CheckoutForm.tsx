@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useCart } from "@/components/CartContext";
 import { REGIONES_COMUNAS } from "@/lib/regionesComunas";
+import type { Descuento } from "@/app/checkout/page";
 
 const STORAGE_KEY = "sj_cliente_datos";
 
@@ -40,11 +41,13 @@ function saveDatos(datos: DatosCliente) {
 export default function CheckoutForm({
   loading,
   setLoading,
+  descuento,
 }: {
   loading: boolean;
   setLoading: (l: boolean) => void;
+  descuento: Descuento | null;
 }) {
-  const { cart, total, clearCart } = useCart();
+  const { cart, clearCart } = useCart();
 
   const [form, setForm] = useState<DatosCliente>(emptyForm);
   const [medioPago, setMedioPago] = useState("flow");
@@ -57,17 +60,6 @@ export default function CheckoutForm({
   const [buscandoCliente, setBuscandoCliente] = useState(false);
   const [mostrandoOtraDireccion, setMostrandoOtraDireccion] = useState(false);
   const [modalGuardarDireccion, setModalGuardarDireccion] = useState(false);
-
-  // Descuento
-  const [codigoInput, setCodigoInput] = useState("");
-  const [validandoCodigo, setValidandoCodigo] = useState(false);
-  const [descuento, setDescuento] = useState<{
-    codigo: string;
-    tipo: "porcentaje" | "monto_fijo";
-    valor: number;
-    descripcion: string;
-  } | null>(null);
-  const [errorCodigo, setErrorCodigo] = useState("");
 
   // Cargar datos de localStorage al montar (fallback si no hay cuenta)
   useEffect(() => {
@@ -120,39 +112,6 @@ export default function CheckoutForm({
       }
     } catch { /* silent — user fills manually */ }
     finally { setBuscandoCliente(false); }
-  };
-
-  // Validar código de descuento contra el backend
-  const aplicarCodigo = async () => {
-    if (!codigoInput.trim()) return;
-    setValidandoCodigo(true);
-    setErrorCodigo("");
-    setDescuento(null);
-    try {
-      const res = await fetch("/api/descuento/validar", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          codigo: codigoInput.trim().toUpperCase(),
-          items: cart.map(i => ({ productoId: i.productoId, cantidad: i.cantidad })),
-        }),
-      });
-      const data = await res.json();
-      if (data.valido) {
-        setDescuento({
-          codigo: codigoInput.trim().toUpperCase(),
-          tipo: data.tipo,
-          valor: data.valor,
-          descripcion: data.descripcion,
-        });
-      } else {
-        setErrorCodigo("Código no válido o expirado.");
-      }
-    } catch {
-      setErrorCodigo("No se pudo verificar el código. Intenta de nuevo.");
-    } finally {
-      setValidandoCodigo(false);
-    }
   };
 
   // ¿La dirección actual difiere de la guardada en backend?
@@ -397,55 +356,7 @@ export default function CheckoutForm({
           </div>
         </section>
 
-        {/* 3. Código de descuento */}
-        <section className="bg-white rounded-2xl border border-gray-100 p-6 md:p-8">
-          <h2 className="text-xl font-bold text-[#1f3460] mb-6">Código de descuento</h2>
-
-          {descuento ? (
-            <div className="bg-[#128708]/8 border border-[#128708]/20 rounded-xl px-5 py-4 flex items-center justify-between">
-              <div>
-                <p className="text-sm font-bold text-[#128708]">
-                  {descuento.descripcion}
-                </p>
-                <p className="text-xs text-[#128708]/70 mt-0.5">Código: {descuento.codigo}</p>
-              </div>
-              <button
-                type="button"
-                onClick={() => { setDescuento(null); setCodigoInput(""); }}
-                className="text-xs text-[#1f3460]/50 hover:text-[#1f3460] transition-colors underline ml-4"
-              >
-                Quitar
-              </button>
-            </div>
-          ) : (
-            <div className="space-y-3">
-              <div className="flex gap-3">
-                <input
-                  id="co-descuento"
-                  type="text"
-                  value={codigoInput}
-                  onChange={e => { setCodigoInput(e.target.value.toUpperCase()); setErrorCodigo(""); }}
-                  onKeyDown={e => e.key === "Enter" && (e.preventDefault(), aplicarCodigo())}
-                  placeholder="Ej: VERANO10"
-                  className={`${inputClass} uppercase tracking-widest flex-1`}
-                />
-                <button
-                  type="button"
-                  onClick={aplicarCodigo}
-                  disabled={validandoCodigo || !codigoInput.trim()}
-                  className="px-5 py-3 bg-[#1f3460] text-white rounded-lg text-sm font-semibold hover:opacity-90 active:scale-[0.97] transition-[opacity,transform] duration-150 disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0"
-                >
-                  {validandoCodigo ? "..." : "Aplicar"}
-                </button>
-              </div>
-              {errorCodigo && (
-                <p className="text-sm text-red-500">{errorCodigo}</p>
-              )}
-            </div>
-          )}
-        </section>
-
-        {/* 4. Método de pago */}
+        {/* 3. Método de pago */}
         <section className="bg-white rounded-2xl border border-gray-100 p-6 md:p-8">
           <div className="mb-6">
             <h2 className="text-xl font-bold text-[#1f3460] mb-2">Método de pago</h2>

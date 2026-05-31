@@ -5,21 +5,45 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { SABORES } from "@/lib/data";
+import type { Descuento } from "@/app/checkout/page";
 
-export default function CheckoutSummary({ loading }: { loading: boolean }) {
+interface Props {
+  loading: boolean;
+  descuento: Descuento | null;
+  codigoInput: string;
+  setCodigoInput: (v: string) => void;
+  validandoCodigo: boolean;
+  errorCodigo: string;
+  onAplicar: () => void;
+  onQuitar: () => void;
+}
+
+export default function CheckoutSummary({
+  loading, descuento, codigoInput, setCodigoInput,
+  validandoCodigo, errorCodigo, onAplicar, onQuitar,
+}: Props) {
   const { cart, total } = useCart();
   const [mounted, setMounted] = useState(false);
+  const [mostrandoCodigo, setMostrandoCodigo] = useState(false);
 
   useEffect(() => { setMounted(true); }, []);
+
+  // Cálculo de descuento para preview visual (el backend siempre recalcula el real)
+  const montoDescuento = descuento
+    ? descuento.tipo === "porcentaje"
+      ? Math.round(total * descuento.valor / 100)
+      : descuento.valor
+    : 0;
+  const totalConDescuento = total - montoDescuento;
 
   if (!mounted) {
     return (
       <div className="bg-white rounded-2xl border border-gray-100 p-6 sticky top-28">
         <h2 className="text-lg font-bold text-[#1f3460] mb-6">Resumen del pedido</h2>
         <div className="animate-pulse space-y-4">
-          <div className="h-12 bg-gray-100 rounded-lg"></div>
-          <div className="h-12 bg-gray-100 rounded-lg"></div>
-          <div className="h-6 bg-gray-100 rounded w-1/2 ml-auto"></div>
+          <div className="h-12 bg-gray-100 rounded-lg" />
+          <div className="h-12 bg-gray-100 rounded-lg" />
+          <div className="h-6 bg-gray-100 rounded w-1/2 ml-auto" />
         </div>
       </div>
     );
@@ -41,31 +65,33 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
     <div className="bg-white rounded-2xl border border-gray-100 p-6 sticky top-28">
       <h2 className="text-lg font-bold text-[#1f3460] mb-6">Resumen del pedido</h2>
 
+      {/* Items */}
       <div className="space-y-4 mb-6">
         {cart.map((item) => {
           const sabor = SABORES.find(s => s.nombre === item.nombre);
           const saborColor = sabor?.color ?? "#128708";
           return (
-          <div key={item.nombre} className="flex justify-between items-center text-sm">
-            <div className="flex items-center gap-4">
-              <div className="relative">
-                <div className="w-12 h-12 bg-[#FAF3DE] rounded-lg flex items-center justify-center p-1">
-                  <Image src={sabor?.imagen ?? "/Botella.png"} alt={item.nombre} width={40} height={40} className="object-contain h-full drop-shadow-[0_4px_8px_rgba(0,0,0,0.12)]" />
+            <div key={item.nombre} className="flex justify-between items-center text-sm">
+              <div className="flex items-center gap-4">
+                <div className="relative">
+                  <div className="w-12 h-12 bg-[#FAF3DE] rounded-lg flex items-center justify-center p-1">
+                    <Image src={sabor?.imagen ?? "/Botella.png"} alt={item.nombre} width={40} height={40} className="object-contain h-full drop-shadow-[0_4px_8px_rgba(0,0,0,0.12)]" />
+                  </div>
+                  <span className="absolute -top-2 -right-2 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold" style={{ backgroundColor: saborColor }}>
+                    {item.cantidad}
+                  </span>
                 </div>
-                <span className="absolute -top-2 -right-2 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold" style={{ backgroundColor: saborColor }}>
-                  {item.cantidad}
-                </span>
+                <span className="font-medium" style={{ color: saborColor }}>{item.nombre}</span>
               </div>
-              <span className="font-medium" style={{ color: saborColor }}>{item.nombre}</span>
+              <span className="font-semibold text-[#1f3460]">
+                ${(item.precio * item.cantidad).toLocaleString("es-CL")}
+              </span>
             </div>
-            <span className="font-semibold text-[#1f3460]">
-              ${(item.precio * item.cantidad).toLocaleString("es-CL")}
-            </span>
-          </div>
           );
         })}
       </div>
 
+      {/* Subtotales */}
       <div className="space-y-3 pt-4 border-t border-gray-100 text-sm">
         <div className="flex justify-between text-gray-500">
           <span>Subtotal</span>
@@ -75,13 +101,74 @@ export default function CheckoutSummary({ loading }: { loading: boolean }) {
           <span>Envío</span>
           <span className="text-xs">A coordinar con el equipo</span>
         </div>
+
+        {/* Código de descuento */}
+        {descuento ? (
+          <div className="flex justify-between items-center text-[#128708]">
+            <div className="flex items-center gap-2">
+              <span>{descuento.descripcion}</span>
+              <button
+                type="button"
+                onClick={onQuitar}
+                className="text-[#1f3460]/40 hover:text-[#1f3460] transition-colors text-xs underline"
+              >
+                Quitar
+              </button>
+            </div>
+            <span className="font-semibold">−${montoDescuento.toLocaleString("es-CL")}</span>
+          </div>
+        ) : (
+          <div>
+            {!mostrandoCodigo ? (
+              <button
+                type="button"
+                onClick={() => setMostrandoCodigo(true)}
+                className="text-sm text-[#1f3460]/50 hover:text-[#1f3460] transition-colors duration-150 underline"
+              >
+                ¿Tienes un código de descuento?
+              </button>
+            ) : (
+              <div className="space-y-2 pt-1">
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={codigoInput}
+                    onChange={e => setCodigoInput(e.target.value.toUpperCase())}
+                    onKeyDown={e => e.key === "Enter" && (e.preventDefault(), onAplicar())}
+                    className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm uppercase tracking-widest focus:outline-none focus:border-[#1f3460] focus:ring-1 focus:ring-[#1f3460] transition-[border-color,box-shadow]"
+                    autoFocus
+                  />
+                  <button
+                    type="button"
+                    onClick={onAplicar}
+                    disabled={validandoCodigo || !codigoInput.trim()}
+                    className="px-4 py-2 bg-[#1f3460] text-white rounded-lg text-sm font-semibold hover:opacity-90 active:scale-[0.97] transition-[opacity,transform] duration-150 disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0"
+                  >
+                    {validandoCodigo ? "..." : "Aplicar"}
+                  </button>
+                </div>
+                {errorCodigo && (
+                  <p className="text-xs text-red-500">{errorCodigo}</p>
+                )}
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
+      {/* Total */}
       <div className="pt-4 mt-4 border-t border-gray-100 flex justify-between items-center mb-6">
         <span className="text-lg font-bold text-[#1f3460]">Total</span>
-        <span className="text-2xl font-bold text-[#1f3460]">
-          ${total.toLocaleString("es-CL")}
-        </span>
+        <div className="text-right">
+          {descuento && (
+            <p className="text-xs text-gray-400 line-through mb-0.5">
+              ${total.toLocaleString("es-CL")}
+            </p>
+          )}
+          <span className="text-2xl font-bold text-[#1f3460]">
+            ${(descuento ? totalConDescuento : total).toLocaleString("es-CL")}
+          </span>
+        </div>
       </div>
 
       <button

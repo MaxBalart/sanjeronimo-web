@@ -26,12 +26,19 @@ export async function POST(req: Request) {
     );
   }
 
+  // Solo enviamos identificadores y cantidades — el backend obtiene precios
+  // desde listasPrecios en Firestore (ListaID == "Web", PrecioBruto)
+  const itemsSinPrecio = items.map(({ productoId, nombre, cantidad }: {
+    productoId: string;
+    nombre: string;
+    cantidad: number;
+  }) => ({ productoId, nombre, cantidad }));
+
   const response = await fetch(`${backendUrl}/pedidos`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      items,
-      totalPesos: total,
+      items: itemsSinPrecio,
       cliente,
       medioPago,
     }),

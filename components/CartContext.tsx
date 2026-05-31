@@ -3,6 +3,7 @@ import { createContext, useContext, useState } from "react";
 
 export type Product = {
   nombre: string;
+  productoId: string;
   precio: number;
 };
 

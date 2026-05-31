@@ -86,7 +86,7 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
                       {enCarrito.cantidad}
                     </span>
                     <button
-                      onClick={() => addToCart({ nombre: sabor.nombre, precio: sabor.precio })}
+                      onClick={() => addToCart({ nombre: sabor.nombre, productoId: sabor.productoId, precio: sabor.precio })}
                       className="w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold btn-sabor"
                       style={{ "--sabor-color": sabor.color, "--sabor-color-10": `${sabor.color}1a` } as React.CSSProperties}
                     >
@@ -95,7 +95,7 @@ export default function SaborPage({ params }: { params: Promise<{ slug: string }
                   </div>
                 ) : (
                   <button
-                    onClick={() => addToCart({ nombre: sabor.nombre, precio: sabor.precio })}
+                    onClick={() => addToCart({ nombre: sabor.nombre, productoId: sabor.productoId, precio: sabor.precio })}
                     className="text-white px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 active:scale-[0.98] transition-[opacity,transform] duration-150 w-full sm:w-auto"
                     style={{ backgroundColor: sabor.color }}
                   >

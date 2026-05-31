@@ -104,11 +104,11 @@ function FeaturedCard({ sabor, cart, mounted, addToCart, removeFromCart, visible
               <div className="flex items-center gap-3">
                 <button onClick={() => removeFromCart(sabor.nombre)} style={{ backgroundColor: sabor.color }} className="w-11 h-11 rounded-full text-white flex items-center justify-center text-xl font-bold hover:opacity-80 active:scale-[0.92] transition-[opacity,transform] duration-150">−</button>
                 <span className="text-lg font-bold w-5 text-center" style={{ color: sabor.color }}>{enCarrito.cantidad}</span>
-                <button onClick={() => addToCart({ nombre: sabor.nombre, precio: sabor.precio })} style={{ backgroundColor: sabor.color }} className="w-11 h-11 rounded-full text-white flex items-center justify-center text-xl font-bold hover:opacity-80 active:scale-[0.92] transition-[opacity,transform] duration-150">+</button>
+                <button onClick={() => addToCart({ nombre: sabor.nombre, productoId: sabor.productoId, precio: sabor.precio })} style={{ backgroundColor: sabor.color }} className="w-11 h-11 rounded-full text-white flex items-center justify-center text-xl font-bold hover:opacity-80 active:scale-[0.92] transition-[opacity,transform] duration-150">+</button>
               </div>
             ) : (
               <button
-                onClick={() => addToCart({ nombre: sabor.nombre, precio: sabor.precio })}
+                onClick={() => addToCart({ nombre: sabor.nombre, productoId: sabor.productoId, precio: sabor.precio })}
                 style={{ backgroundColor: sabor.color }}
                 className="text-white px-6 py-3 rounded-full text-sm font-semibold hover:opacity-90 active:scale-[0.98] transition-[opacity,transform] duration-150"
               >
@@ -159,11 +159,11 @@ function CompactCard({ sabor, cart, mounted, addToCart, removeFromCart, visible,
               <div className="flex items-center gap-2">
                 <button onClick={() => removeFromCart(sabor.nombre)} style={{ backgroundColor: sabor.color }} className="w-11 h-11 rounded-full text-white flex items-center justify-center text-base font-bold hover:opacity-80 active:scale-[0.92] transition-[opacity,transform] duration-150">−</button>
                 <span className="text-sm font-bold w-4 text-center" style={{ color: sabor.color }}>{enCarrito.cantidad}</span>
-                <button onClick={() => addToCart({ nombre: sabor.nombre, precio: sabor.precio })} style={{ backgroundColor: sabor.color }} className="w-11 h-11 rounded-full text-white flex items-center justify-center text-base font-bold hover:opacity-80 active:scale-[0.92] transition-[opacity,transform] duration-150">+</button>
+                <button onClick={() => addToCart({ nombre: sabor.nombre, productoId: sabor.productoId, precio: sabor.precio })} style={{ backgroundColor: sabor.color }} className="w-11 h-11 rounded-full text-white flex items-center justify-center text-base font-bold hover:opacity-80 active:scale-[0.92] transition-[opacity,transform] duration-150">+</button>
               </div>
             ) : (
               <button
-                onClick={() => addToCart({ nombre: sabor.nombre, precio: sabor.precio })}
+                onClick={() => addToCart({ nombre: sabor.nombre, productoId: sabor.productoId, precio: sabor.precio })}
                 style={{ backgroundColor: sabor.color }}
                 className="text-white px-4 py-2 rounded-full text-xs font-semibold hover:opacity-90 active:scale-[0.98] transition-[opacity,transform] duration-150"
               >

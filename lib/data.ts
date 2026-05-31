@@ -1,6 +1,7 @@
 export type Sabor = {
   slug: string;
   nombre: string;
+  productoId: string;
   descripcion: string;
   descripcionLarga: string;
   color: string;
@@ -13,6 +14,7 @@ export const SABORES: Sabor[] = [
   {
     slug: "clasico",
     nombre: "Clásico",
+    productoId: "SR-CLAS-1L",
     descripcion: "El equilibrio perfecto entre limón sutil y pisco.",
     descripcionLarga: "Nuestro sabor Clásico es la receta original de la familia. Elaborado con jugo de limón sutil recién exprimido, pisco doble destilado premium y el toque exacto de goma. Ideal para quienes buscan la experiencia tradicional del Pisco Sour peruano-chileno con un balance impecable entre acidez y dulzor.",
     color: "#128708",
@@ -23,6 +25,7 @@ export const SABORES: Sabor[] = [
   {
     slug: "maracuya",
     nombre: "Maracuyá",
+    productoId: "SR-MARAC-1L",
     descripcion: "Tropical, fresco y ligeramente dulce.",
     descripcionLarga: "Una explosión tropical en cada sorbo. Combinamos la intensidad del maracuyá fresco con la base clásica de nuestro Pisco Sour para crear una experiencia exótica, vibrante y peligrosamente adictiva. Perfecto para tardes de verano y celebraciones especiales.",
     color: "#ee7203",
@@ -33,6 +36,7 @@ export const SABORES: Sabor[] = [
   {
     slug: "sin-azucar",
     nombre: "Sin azúcar",
+    productoId: "SR-SINAZ-1L",
     descripcion: "Todo el sabor, sin azúcar añadida.",
     descripcionLarga: "Para quienes buscan cuidarse sin sacrificar el placer. Mantenemos el mismo sabor intenso y la misma calidad de ingredientes que nuestro sabor Clásico, pero endulzado con una mezcla especial de stevia y alulosa que no deja sabor residual.",
     color: "#76c3df",
